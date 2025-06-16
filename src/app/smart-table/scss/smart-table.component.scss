@@ -1,16 +1,931 @@
-// main.scss
-
-@import './variables';
 @import'./responsive';
-@import './colors';
+
+// Colors
+:root {
+  /* Light mode variables */
+  --prim-color: #0173df; /* Blue */
+ 
+  --second-color: #0066ff; /* Red */
+  --bg-color: #f5f5f5; /* Light gray */
+  --bg-gradient:linear-gradient(to right, #ecf2e7, #daeaf9);
+
+  --card-color: rgba(255, 255, 255, 0.4); /* White */
+  --text-color: #63634e; /* Dark gray */
+   --title-color: var(--text-color);
+  --muted-text-color: #a3a3a3; /* Lighter gray */
+
+   --bs-border-color: #e2e2e2; /* Light gray */
+   --bs-border-width:  1px solid; /* Light gray */
+  --icon-color: #888888; /* Icon color */
+  // leads type colors
+
+  --error-color: #dc3545; 
+/* Leads Type Colors */
+--success-color: #28a745;         /* Green */
+--warning-color: #ff6406;         /* Orange */
+--info-color:    #17a2b8;         /* Cyan */
+
+
+
+
+
+  --bs-nav-link-hover-color:var(--second-color);
+  }
+  
+
+
+ [data-theme="dark"] {
+ 
+  }
+
+
+// Typography
+$font-family-primary: 'Arial, sans-serif'; // Main font family
+$font-size-bs: 16px; // Base font size
+$font-size-xs: 12px; // Small text
+$font-size-small: 14px; // Small text
+$font-size-large: 18px; // Large text
+$font-weight-regular: 400; // Regular font weight
+$font-weight-bold: 700; // Bold font weight
+
+
+// Spacing
+$spacing-xs: 4px; // Extra small spacing
+$spacing-sm: 8px; // Small spacing
+$spacing-md: 16px; // Medium spacing
+$spacing-lg: 24px; // Large spacing
+$spacing-xl: 32px; // Extra large spacing
+
+// Border Radius
+$round-sm: 5px; // Small border radius
+$round-md: 10px; // Medium border radius
+$round-lg: 15px; // Large border radius
+$round-xl: 50px; // Large border radius
+
+// Shadows
+$box-shadow-sm: 0 0px 4px rgba(0, 0, 0, 0.1); // Small shadow
+$box-shadow-md: 0 0px 8px rgba(0, 0, 0, 0.1); // Medium shadow
+$box-shadow-lg: 0 0px 16px rgba(0, 0, 0, 0.1); // Large shadow
+
+// Z-index
+$z-index-header: 1000; // Header
+$z-index-overlay: 1050; // Modal overlay
+$z-index-tooltip: 1100; // Tooltips
+
+// Layout Breakpoints
+$breakpoint-xs: 480px; // Extra small devices
+$breakpoint-sm: 768px; // Small devices
+$breakpoint-md: 992px; // Medium devices
+$breakpoint-lg: 1200px; // Large devices
+
+// Misc
+$transition-duration: 0.3s; // Default transition duration
+$transition-ease: ease-in-out; // Default easing function
+$icon-size: 24px; // Default icon size
+
+//sizes {
+$header-height:80px;
+$header-height-mobile:60px;
+$chart-height:300px;
+$bs-modal-lg: 1024px;
+$bs-modal-md: 650px;
+$bs-modal-sm: 400px;
+$side-bar-close: 80px;
+
+//sizes
+$dp-size-lg:80px;
+$dp-size-md:50px;
+$dp-size-sm:35px;
+$dp-round:50%;
+$card-header-height:60px;
+//mixins
+@mixin box-style{
+  border:  var( --bs-border-width) var( --bs-border-color);
+  
+  border-radius: $round-lg;
+  background-color: var(--card-color) !important;
+}
+
+
+// === Color variables ===
+$variant-colors: (
+  success: #28a745,
+  pending: #f1a10a,
+  info: #17a2b8,
+  danger: #dc3545,
+  warning: #f1a10a,
+  primary: #007bff,
+  muted: #6c757d,
+  secondary: #6c757d,
+  light: #f8f9fa,
+  default: #adb5bd,
+  archived: #adb5bd,
+  processing: #17a2b8,
+  failed: #dc3545,
+  queued: #17a2b8,
+  on-hold: #6c757d,
+  suspended: #212529,
+  expired: #f1f3f5,
+  rejected: #dc3545,
+  approved: #28a745,
+  active: #007bff,
+  draft: #495057
+);
+
+$variants: (
+  success: var(--success-color),
+  pending: var(--warning-color),
+  info: var(--info-color),
+  danger: var(--error-color),
+  warning: var(--warning-color),
+  primary: var(--prim-color),
+  muted: var(--muted-text-color),
+  secondary: var(--second-color),
+  light: var(--prim-bg, var(--muted-text-color)),
+  default: var(--bg-color),
+  archived: var(--archived-color, var(--muted-text-color)),
+  processing: var(--processing-color, var(--info-color)),
+  failed: var(--error-color),
+  queued: var(--info-color),
+  on-hold: var(--second-color),
+  suspended: var(--dark-color),
+  expired: var(--light-color),
+  rejected: var(--error-color),
+  approved: var(--success-color),
+  active: var(--prim-color),
+  draft: var(--text-color, var(--muted-text-color))
+);
+
+
+
 @import './mixins';
-@import './badge';
-@import './tag';
-@import './form';
-@import './statistic-card';
-@import './user_db';
-@import './card';
-@import './progress-bar';
+
+
+
+.badge {
+  @include badge-base-style;
+
+  @each $name, $color in $variants {
+    &.#{$name} {
+      background: $color;
+      color: if($name == light or $name == default, var(--text-color), white);
+
+      i {
+        color: inherit;
+      }
+    }
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1px solid currentColor;
+
+    @each $name, $color in $variants {
+      &.#{$name} {
+        color: $color;
+        border-color: $color;
+
+        i {
+          color: $color;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+.tag {
+  height: 28px;
+  border-radius: $round-md;
+  padding: 4px;
+  background: white;
+  color: var(--text-color);
+  font-size: 10px;
+  text-transform: uppercase;
+  height: auto;
+
+  @each $name, $color in $variants {
+    &.#{$name} {
+      @include tag-style($name, $color);
+    }
+  }
+}
+
+.form-select,
+.form-control {
+  border: var(--bs-border-width) var(--bs-border-color);
+  background-color: var(--bg-color);
+  outline: none;
+  color: var(--muted-text-color);
+  height: 35px;
+
+  &:focus {
+    background-color: var(--bg-color);
+    border-color: var(--bs-border-color);
+    box-shadow: none;
+    color: var(--text-color);
+  }
+
+
+
+
+}
+
+
+.form-row {
+  display: flex;
+  gap: $spacing-sm;
+  color: var(--text-color);
+  align-items: center;
+  flex-wrap: nowrap !important;
+
+}
+.form-row, .form-group {
+    &.align-left {
+    justify-content: flex-start;
+
+  }
+
+  &.align-center {
+    justify-content: center;
+
+  }
+
+  &.align-right {
+    justify-content: flex-end;
+
+  }
+}
+ .form-group {
+    gap: 0;
+display: flex;
+align-items: center;
+
+   >* {
+      border-radius: 0;
+      transition: 0.4s;
+     
+
+      &:not(:last-child) {
+        border-right: none;
+      }
+
+      &:first-child {
+        border-radius: $round-sm 0 0 $round-sm;
+      }
+
+      &:only-child {
+        border-radius: $round-sm !important;
+      }
+
+      &:last-child {
+        border-radius: 0 $round-sm $round-sm 0;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      &:active {
+        border-color: var(--bs-border-color);
+
+      }
+
+      &.active {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+
+        span {
+          color: var(--text-color);
+        }
+
+        i {
+          color: var(--info-color);
+
+        }
+      }
+
+      &.btn-lg {
+        font-size: 18px;
+
+        i {
+          font-size: 22px;
+        }
+
+        span {
+          font-size: 18px;
+        }
+      }
+    }
+
+
+  }
+
+.btn {
+  font-size: 12px;
+  padding: $spacing-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  border: 1px solid var(--bs-border-color);
+  color: var(--text-color);
+  background: var(--card-color);
+  font-family: var(--bs-btn-font-family) !important;
+  height: 35px;
+
+  i {
+    font-size: 12px;
+    color: var(--muted-text-color);
+  }
+  &:focus {
+    box-shadow: none;
+  }
+&:disabled {
+  border-color: var(--bs-border-color);
+}
+  span {
+    font-size: 12px;
+    color: var(--muted-text-color);
+
+  }
+
+  @each $name, $color in $variants {
+    &.#{$name} {
+      @include button-style($name, $color);
+    }
+
+    &.icon-btn-#{$name} {
+      @include button-icon ($name, $color);
+    }
+  }
+}
+
+
+@each $name, $color in $variants {
+
+  .form-control.#{$name},
+  .form-select.#{$name},
+  textarea.#{$name} {
+    @include form-style($name, $color);
+  }
+}
+
+.form-label {
+  color: var(--muted-text-color);
+  margin: 0;
+}
+
+.checkbox-wrapper {
+  padding: 0;
+ 
+  i {
+    opacity: 9;
+  }
+
+  .cbx {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+    justify-content: flex-start;
+
+
+    min-width: 55px;
+    cursor: pointer;
+
+    .btn {
+      padding: 0;
+      height: auto;
+    }
+
+
+    p {
+      display: inline-block;
+      vertical-align: middle;
+      transform: translate3d(0, 0, 0);
+
+      &:first-child {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        border-radius: $round-sm;
+        transform: scale(1);
+        vertical-align: middle;
+        border: 2px solid var(--bs-border-color);
+        transition: all 0.2s ease;
+
+        svg {
+          position: absolute;
+          z-index: 1;
+          top: 6px;
+          left: 4px;
+          fill: none;
+          stroke: var(--card-color);
+          stroke-width: 2;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-dasharray: 16px;
+          stroke-dashoffset: 16px;
+          transition: all 0.3s ease;
+          transition-delay: 0.1s;
+          transform: translate3d(0, 0, 0);
+        }
+
+        &:before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: var();
+          display: block;
+          transform: scale(0);
+          opacity: 1;
+          border-radius: 50%;
+          transition-delay: 0.2s;
+        }
+      }
+
+      &:last-child {
+
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 8px;
+          left: 0;
+          height: 1px;
+          width: 100%;
+          background: var(--second-color);
+          transform-origin: 0 0;
+          transform: scaleX(0);
+        }
+      }
+    }
+
+    &:hover p:first-child {}
+  }
+
+  .inp-cbx {
+    display: none;
+  }
+
+  .inp-cbx:checked+.cbx {
+
+    p {
+      &:first-child {
+        border-color: var(--second-color);
+        background: var(--second-color);
+        animation: check-15 0.3s ease;
+
+        svg {
+          stroke-dashoffset: 0;
+        }
+
+        &:before {
+          transform: scale(2.2);
+          opacity: 0;
+          transition: all 0.3s ease;
+        }
+      }
+
+      &:last-child {
+        color: #B9B8C3;
+        transition: all 0.3s ease;
+        flex: 1;
+        max-width: 25px;
+
+        &:after {
+          transform: scaleX(1);
+          transition: all 0.3s ease;
+        }
+      }
+    }
+  }
+}
+.reset-dropdown {
+ background-color: inherit;
+  border: none;
+  height: auto;
+  font-size: 12px;
+  padding:0;
+  width: auto;
+  max-width: 100px;
+  color: var(--muted-text-color);
+  &:focus {
+    background-color: inherit;
+    outline: 0;
+    box-shadow: none;
+  }
+  
+  &:hover {
+    color: var(--text-color); // subtle on-hover effect
+  }
+
+  option {
+    color: var(--text-color);
+    background-color: var(--card-bg-color, #fff); // fallback
+    font-size: 12px;
+    padding: inherit;
+  }
+  
+}
+
+.profile-tile {
+  display: flex;
+  align-items: center;
+ justify-content: flex-start;
+ text-decoration: none;
+ gap: $spacing-sm;
+ .profile-details {
+   margin-top: 0;
+ }
+
+h5 {
+ font-size: 0.8rem;
+ text-align: left;
+ width:100px;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ p {
+   font-size: 0.7;
+   color: var(--muted-text-color);
+ }
+}
+
+}
+.user-dp {
+  background-color: var(--primary);
+  width: $dp-size-md;
+  height: $dp-size-md;
+  border-radius: $dp-round;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+
+  i {
+    font-size: 40px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @each $name, $color in $variants {
+   &.#{$name} {
+  background-color: $color;
+  $fallborder: map-get($variant-colors, $name);
+  border: 5px solid if($fallborder != null, lighten($fallborder, 40%), lighten($color, 10%));
+}
+
+
+  }
+  &.lg {
+  width: $dp-size-lg;
+  height: $dp-size-lg;
+  span {
+    font-size: 28px;
+  }
+}
+
+&.md {
+  width: $dp-size-md;
+  height: $dp-size-md;
+}
+
+&.sm {
+  width: $dp-size-sm;
+  height: $dp-size-sm;
+}
+
+}
+.card {
+  position: relative;
+  @include box-style;
+  min-height: $card-header-height;
+  padding-bottom: $spacing-md;
+
+  @include mobile-view {
+    box-shadow: none !important;
+  }
+
+  &:hover {
+    ::-webkit-scrollbar {
+      display: block !important;
+    }
+
+  }
+
+  .card-header {
+    background: none;
+
+    border-bottom: var(--bs-border-width) var(--bs-border-color);
+    height: $card-header-height;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    border-radius: $round-lg $round-lg 0 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-select,
+    .form-control {
+      font-size: 12px;
+    }
+
+    .mobile-btn {
+      display: none;
+
+      @include mobile-view {
+        display: block;
+      }
+    }
+
+    .title {
+      margin: 0;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-transform: capitalize;
+      color: var(--title-color);
+
+      i {
+        color: var(--icon-color);
+        font-size: 18px;
+      }
+    }
+  }
+
+  .card-body {
+
+    overflow: inherit;
+    transition: 0.4s;
+ 
+    margin-top: $card-header-height ;
+    
+padding: $spacing-md !important;
+
+    >* {
+      flex: 1;
+    }
+
+    &.no-header {
+      margin-top: 0 !important;
+    }
+  }
+
+  &.collapsed {
+    padding-bottom: 0;
+    height: $card-header-height;
+    .card-header {
+      border-bottom: 1px solid transparent;
+   
+    }
+
+    .card-body {
+      max-height: 0;
+      opacity: 0;
+      padding: 0;
+      margin-top: $card-header-height - $spacing-lg;
+    }
+  }
+
+  @include mobile-view {
+    .card-body {
+      max-height: inherit;
+      height: auto;
+    }
+  }
+
+  @each $name, $color in $variants {
+    &.#{$name} {
+      $fallback: map-get($variant-colors, $name);
+      background-color: if($fallback !=null, rgba($fallback, 0.9), rgba(white, 0.05)) !important;
+      border: 1px solid if($fallback !=null, darken($fallback, 5%), var(--bs-border-color));
+      color: if($name ==light or $name ==default, var(--text-color), if($name ==dark, white, white));
+
+      .card-header {
+        background-color: if($fallback !=null, rgba($fallback, 0.9), rgba(white, 0.05));
+        border-bottom-color: if($fallback !=null, darken($fallback, 5%), var(--bs-border-color));
+
+
+        .title,
+        i {
+          color: inherit;
+        }
+      }
+
+      .card-body {
+        color: inherit;
+      }
+
+      &:hover {
+        background: if($fallback !=null, lighten($fallback, 5%), $color);
+      }
+    }
+  }
+
+  &.no-bg {
+    border: none;
+
+    >.card-header {
+      border: none;
+      padding: 0 !important;
+    }
+
+    >.card-body {
+      padding: 0 !important;
+      margin-top: $card-header-height;
+    }
+  }
+  $calendar-bg: #fff;
+$calendar-accent: #0099ff;
+$calendar-text: #888;
+$calendar-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+$calendar-radius: 12px;
+
+.calendar-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.custom-calendar-popup {
+  position: absolute;
+  background: $calendar-bg;
+  width: 280px;
+  border-radius: $calendar-radius;
+  box-shadow: $calendar-shadow;
+  padding: 16px;
+  z-index: 99999;
+  margin-top: 10px;
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    select {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      width: 48%;
+    }
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 4px;
+
+    .day-name {
+      font-weight: 600;
+      font-size: 13px;
+      color: $calendar-text;
+    }
+
+    .day-cell {
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &.active {
+        background-color: $calendar-accent;
+        color: white;
+        font-weight: 600;
+      }
+
+      &:empty {
+        pointer-events: none;
+      }
+    }
+  }
+
+  .calendar-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+
+    button {
+      background: none;
+      border: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px 10px;
+    }
+
+    .cancel-btn {
+      color: #999;
+    }
+
+    .confirm-btn {
+      color: $calendar-accent;
+    }
+  }
+}
+
+}
+
+.profile-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: var(--bs-border-width) var(--bs-border-color);
+  border-radius: $round-md;
+  padding: $spacing-sm ;
+  margin-bottom: 0;
+  transition: 0.4s;
+  min-height: inherit;
+  background-color: var(--card-color);
+
+  &:last-child {
+    margin: 0;
+  }
+
+  &:hover {
+    background-color: white;
+    box-shadow: $box-shadow-lg;
+  }
+}
+.lead-card {
+  .card-body {
+    max-height: 400px;
+    height: 400px;
+    overflow-y: auto;
+  }
+}
+  .progress {
+    height: 5px;
+    overflow: inherit;
+    background-color: var(--card-color);
+    .progress-bar {
+      height: 100%;
+      position: relative;
+      overflow: inherit;
+      .tag {
+            width: auto;
+            height: auto;
+            position: absolute;
+            z-index: 999;
+            right: -5px;
+            top: -10px;
+            opacity: 0.9;
+            transition: 0.4s;
+            
+          }
+      @each $name, $color in $variants {
+        &.#{$name} {
+          @include tag-style($name, $color);
+          .tag {
+        
+            @include tag-style($name, $color);
+          }
+        }
+      }
+    }
+
+  }
 .no-bg {
   border: none;
   background:none;

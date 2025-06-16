@@ -15,7 +15,7 @@ import { SmartTableComponent } from './smart-table/smart-table.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-allLeads = [
+data = [
 // START OF 50 DUMMY LEADS
 {
  

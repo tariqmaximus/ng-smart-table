@@ -134,9 +134,9 @@
 
                 <!-- Sort Icon -->
                 <i *ngIf="Sorting" class="ms-1" [ngClass]="{
-        'icon-upword': sortKey === column.key && sortAsc,
-        'icon-downword': sortKey === column.key && !sortAsc,
-        'icon-sort': sortKey !== column.key
+        'bi bi-sort-up': sortKey === column.key && sortAsc,
+        'bi bi-sort-down': sortKey === column.key && !sortAsc,
+        'bi-sort-down': sortKey !== column.key
       }"></i>
               </div>
             </th>
