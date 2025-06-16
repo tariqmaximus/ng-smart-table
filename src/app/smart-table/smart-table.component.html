@@ -215,8 +215,8 @@
             <td class="mobile-btn">
               <button class="btn" (click)="toggleRowClass(i)">
                 <i [ngClass]="{
-                'bi bi-angle-down-fill': activeRowIndex === i,
-                'bi bi-caret-right-fill': activeRowIndex !== i
+                'bi bi-chevron-down': activeRowIndex === i,
+                'bi bi-chevron-right': activeRowIndex !== i
               }"></i>
               </button>
             </td>
@@ -232,11 +232,11 @@
             <td [attr.colspan]="columns.length + 1">
               <div class="pagination form-group justify-content-end ">
                 <button class="btn" (click)="prevPage()" [disabled]="currentPage === 1">
-                  <i class="icon-angle-left"></i>
+                  <i class="bi bi-chevron-left"></i>
                 </button>
                 <span class="btn">Page {{ currentPage }} of {{ totalPages }}</span>
                 <button class="btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
-                  <i class="icon-angle-right"></i>
+                  <i class="bi bi-chevron-right"></i>
                 </button>
               </div>
             </td>
