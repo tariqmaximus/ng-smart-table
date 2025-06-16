@@ -5,7 +5,7 @@
         <div class="d-flex align-items-center gap-2">
           <ng-content select="[header-component]"></ng-content>
           <i *ngIf="icon" [class]="icon"></i>
-          <h5 class="title">
+          <h5 class="title mb-0">
             {{ title }}
             <span class="text-muted">{{ sub }}</span>
           </h5>
@@ -167,13 +167,13 @@
                       </label>
                     </div>
                     <div class="profile-tile">
-                      <div class="user-dp user-dp-md round-md">
+                      <div class="user-dp sm round-md">
                         <img class="img-fluid" [src]="row.profileTile || 'assets/dummy.jpg'" alt="Profile Picture"
                           (error)="handleImageError($event)" />
                       </div>
                       <div class="profile-details">
-                        <h5>{{ row.name || 'Unknown' }}</h5>
-                        <p>{{ row.source || 'No Information' }}</p>
+                        <h5 class="mb-0">{{ row.name || 'Unknown' }}</h5>
+                        <p class="mb-0">{{ row.source || 'No Information' }}</p>
                       </div>
                     </div>
                   </div>
