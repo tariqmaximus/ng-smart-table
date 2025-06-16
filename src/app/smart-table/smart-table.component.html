@@ -14,7 +14,7 @@
         <div class="d-flex align-items-center flex-wrap gap-2 justify-content-end">
 
           <button *ngIf="searchFilter" class="btn " (click)="toggleFilters()">
-            <i class="icon-search"></i>
+            <i class="bi bi-search"></i>
           </button>
 
           <ng-container *ngIf="dataFilters">
@@ -72,7 +72,7 @@
             </button>
 
             <button *ngIf="collapsible" class="btn " type="button" (click)="toggleCard()">
-              <i [class]="isCollapsed ? 'icon-angle-right' : 'icon-angle-down'"></i>
+              <i [class]="isCollapsed ? 'bi bi-arrows-expand' : 'bi bi-arrows-collapse'"></i>
             </button>
           </div>
         </div>
@@ -215,8 +215,8 @@
             <td class="mobile-btn">
               <button class="btn" (click)="toggleRowClass(i)">
                 <i [ngClass]="{
-                'icon-angle-down': activeRowIndex === i,
-                'icon-angle-right': activeRowIndex !== i
+                'bi bi-angle-down-fill': activeRowIndex === i,
+                'bi bi-caret-right-fill': activeRowIndex !== i
               }"></i>
               </button>
             </td>
