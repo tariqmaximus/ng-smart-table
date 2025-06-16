@@ -1,0 +1,50 @@
+// === Color variables ===
+$variant-colors: (
+  success: #28a745,
+  pending: #f1a10a,
+  info: #17a2b8,
+  danger: #dc3545,
+  warning: #f1a10a,
+  primary: #007bff,
+  muted: #6c757d,
+  secondary: #6c757d,
+  light: #f8f9fa,
+  default: #adb5bd,
+  archived: #adb5bd,
+  processing: #17a2b8,
+  failed: #dc3545,
+  queued: #17a2b8,
+  on-hold: #6c757d,
+  suspended: #212529,
+  expired: #f1f3f5,
+  rejected: #dc3545,
+  approved: #28a745,
+  active: #007bff,
+  draft: #495057
+);
+
+$variants: (
+  success: var(--success-color),
+  pending: var(--warning-color),
+  info: var(--info-color),
+  danger: var(--error-color),
+  warning: var(--warning-color),
+  primary: var(--prim-color),
+  muted: var(--muted-text-color),
+  secondary: var(--second-color),
+  light: var(--prim-bg, var(--muted-text-color)),
+  default: var(--bg-color),
+  archived: var(--archived-color, var(--muted-text-color)),
+  processing: var(--processing-color, var(--info-color)),
+  failed: var(--error-color),
+  queued: var(--info-color),
+  on-hold: var(--second-color),
+  suspended: var(--dark-color),
+  expired: var(--light-color),
+  rejected: var(--error-color),
+  approved: var(--success-color),
+  active: var(--prim-color),
+  draft: var(--text-color, var(--muted-text-color))
+);
+
+

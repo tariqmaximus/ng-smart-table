@@ -1,0 +1,44 @@
+
+.statistic-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: $round-md;
+  padding: $spacing-md;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s ease;
+
+  .stat-content {
+    display: flex;
+    flex-direction: column;
+
+    .stat-title {
+      font-size: 10px;
+      color: var(--muted-text-color);
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+  }
+
+  .stat-icon {
+    width: $stat-card-icon;
+    height: $stat-card-icon;
+    font-size: $stat-card-icon-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $round-sm;
+    background-color: var(--card-color);
+  }
+
+  @each $name, $hex in $variant-colors {
+    &.#{$name} {
+      @include statistic-style($hex);
+    }
+  }
+}

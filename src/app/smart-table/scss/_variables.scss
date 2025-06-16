@@ -1,0 +1,111 @@
+// Colors
+:root {
+  /* Light mode variables */
+  --prim-color: #0173df; /* Blue */
+ 
+  --second-color: #0066ff; /* Red */
+  --bg-color: #f5f5f5; /* Light gray */
+  --bg-gradient:linear-gradient(to right, #ecf2e7, #daeaf9);
+
+  --card-color: rgba(255, 255, 255, 0.4); /* White */
+  --text-color: #63634e; /* Dark gray */
+   --title-color: var(--text-color);
+  --muted-text-color: #a3a3a3; /* Lighter gray */
+
+   --bs-border-color: #e2e2e2; /* Light gray */
+   --bs-border-width:  1px solid; /* Light gray */
+  --icon-color: #888888; /* Icon color */
+  // leads type colors
+
+  --error-color: #dc3545; 
+/* Leads Type Colors */
+--success-color: #28a745;         /* Green */
+--warning-color: #ff6406;         /* Orange */
+--info-color:    #17a2b8;         /* Cyan */
+
+/* statistic Colors */
+
+--pending-color: #ffc107;         /* Yellow */
+--approved-color: #198754;        /* Dark Green */
+--rejected-color: #ff6c61;        /* light Red */
+--inprogress-color: #20c997;      /* Teal */
+
+
+
+  --bs-nav-link-hover-color:var(--second-color);
+  }
+  
+
+
+ [data-theme="dark"] {
+ 
+  }
+
+
+// Typography
+$font-family-primary: 'Arial, sans-serif'; // Main font family
+$font-size-bs: 16px; // Base font size
+$font-size-xs: 12px; // Small text
+$font-size-small: 14px; // Small text
+$font-size-large: 18px; // Large text
+$font-weight-regular: 400; // Regular font weight
+$font-weight-bold: 700; // Bold font weight
+
+$stat-card-icon:70px;
+$stat-card-icon-size:50px;
+// Spacing
+$spacing-xs: 4px; // Extra small spacing
+$spacing-sm: 8px; // Small spacing
+$spacing-md: 16px; // Medium spacing
+$spacing-lg: 24px; // Large spacing
+$spacing-xl: 32px; // Extra large spacing
+
+// Border Radius
+$round-sm: 5px; // Small border radius
+$round-md: 10px; // Medium border radius
+$round-lg: 15px; // Large border radius
+$round-xl: 50px; // Large border radius
+
+// Shadows
+$box-shadow-sm: 0 0px 4px rgba(0, 0, 0, 0.1); // Small shadow
+$box-shadow-md: 0 0px 8px rgba(0, 0, 0, 0.1); // Medium shadow
+$box-shadow-lg: 0 0px 16px rgba(0, 0, 0, 0.1); // Large shadow
+
+// Z-index
+$z-index-header: 1000; // Header
+$z-index-overlay: 1050; // Modal overlay
+$z-index-tooltip: 1100; // Tooltips
+
+// Layout Breakpoints
+$breakpoint-xs: 480px; // Extra small devices
+$breakpoint-sm: 768px; // Small devices
+$breakpoint-md: 992px; // Medium devices
+$breakpoint-lg: 1200px; // Large devices
+
+// Misc
+$transition-duration: 0.3s; // Default transition duration
+$transition-ease: ease-in-out; // Default easing function
+$icon-size: 24px; // Default icon size
+
+//sizes {
+$header-height:80px;
+$header-height-mobile:60px;
+$chart-height:300px;
+$bs-modal-lg: 1024px;
+$bs-modal-md: 650px;
+$bs-modal-sm: 400px;
+$side-bar-close: 80px;
+
+//sizes
+$dp-size-lg:80px;
+$dp-size-md:50px;
+$dp-size-sm:35px;
+$dp-round:50%;
+$card-header-height:60px;
+//mixins
+@mixin box-style{
+  border:  var( --bs-border-width) var( --bs-border-color);
+  
+  border-radius: $round-lg;
+  background-color: var(--card-color) !important;
+}

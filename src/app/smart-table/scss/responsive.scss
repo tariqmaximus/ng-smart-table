@@ -1,0 +1,29 @@
+// Mobile - Small Devices (max-width: 576px)
+@mixin mobile-view {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  
+  // Tablet - Small to Medium Devices (max-width: 768px)
+  @mixin tablet-view {
+    @media (max-width: 992px) {
+      @content;
+    }
+  }
+  
+  // Laptop - Standard Laptops (max-width: 992px)
+  @mixin laptop-view {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  
+  // Desktop - Large Screens (max-width: 1200px)
+  @mixin desktop-view {
+    @media (max-width: 1400px) {
+      @content;
+    }
+  }
+ 
+  

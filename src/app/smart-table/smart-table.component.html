@@ -1,0 +1,248 @@
+<div class="card" [ngClass]="variant" [class.collapsed]="isCollapsed">
+  <div class="card-header" *ngIf="showHeader">
+    <div class="container-fluid">
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <ng-content select="[header-component]"></ng-content>
+          <i *ngIf="icon" [class]="icon"></i>
+          <h5 class="title">
+            {{ title }}
+            <span class="text-muted">{{ sub }}</span>
+          </h5>
+        </div>
+
+        <div class="d-flex align-items-center flex-wrap gap-2 justify-content-end">
+
+          <button *ngIf="searchFilter" class="btn " (click)="toggleFilters()">
+            <i class="icon-search"></i>
+          </button>
+
+          <ng-container *ngIf="dataFilters">
+            <div class="form-group mb-0">
+              <select class="form-select" [(ngModel)]="selectedOption" (change)="onSearchOptionChange($event)">
+                <option value="">All</option>
+                <option *ngFor="let option of searchOptions" [value]="option">{{ option }}</option>
+              </select>
+
+              <!-- Keyword input -->
+              <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchKeyword"
+                (ngModelChange)="onSearchKeywordChange($event)" />
+
+              <!-- Date calendar button -->
+              <button class="btn" (click)="toggleCalendar()" style="min-width: 120px;">
+                <i class="icon-calendar"></i>
+                {{ selectedDate | date: 'y, MMMM, d' }}
+              </button>
+            </div>
+
+            <!-- Calendar Popup -->
+            <div class="border bg-white p-3 shadow position-absolute z-3 mt-1" *ngIf="showCalendar"
+              style="min-width: 250px;">
+              <div class="d-flex justify-content-between gap-2 mb-2">
+                <select class="form-select" [(ngModel)]="selectedMonth">
+                  <option *ngFor="let m of months; let i = index" [value]="i">{{ m }}</option>
+                </select>
+                <select class="form-select" [(ngModel)]="selectedYear">
+                  <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+                </select>
+              </div>
+
+              <div class="d-grid" style="grid-template-columns: repeat(7, 1fr); gap: 4px;">
+                <div class="text-center fw-bold" *ngFor="let d of dayNames">{{ d }}</div>
+                <div *ngFor="let day of calendarDays" class="text-center p-1 border rounded"
+                  [class.bg-primary]="isSelected(day)" [class.text-white]="isSelected(day)" (click)="selectDate(day)"
+                  style="cursor: pointer;">
+                  {{ day.getDate() }}
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between mt-3">
+                <button class="btn btn-sm" (click)="cancel()">Cancel</button>
+                <button class="btn btn-sm btn-primary" (click)="confirm()">Confirm</button>
+              </div>
+            </div>
+          </ng-container>
+
+
+          <div class="d-flex gap-2">
+            <button *ngFor="let button of headerButtons" type="button" class="btn " [id]="button.targetId"
+              (click)="executeAction(button)">
+              <i *ngIf="button.icon" [class]="button.icon"></i>
+              <span *ngIf="button.label">{{ button.label }}</span>
+            </button>
+
+            <button *ngIf="collapsible" class="btn " type="button" (click)="toggleCard()">
+              <i [class]="isCollapsed ? 'icon-angle-right' : 'icon-angle-down'"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-body p-0">
+    <div *ngIf="progressBy" class="progress">
+      <div class="progress-bar" [ngClass]="getStatusStyles(selectedOption || progressBy).progressClass"
+        role="progressbar" [style.width.%]="progressValue" [attr.aria-valuenow]="progressValue" aria-valuemin="0"
+        aria-valuemax="100">
+        <p class="tag">{{ progressValue }}%</p>
+      </div>
+    </div>
+
+    <div class="pt-2 ">
+      <table [ngClass]="device">
+        <thead>
+          <tr>
+            <th *ngFor="let column of columns; let colIndex = index" (click)="Sorting ? sortByColumn(column.key) : null"
+              class="text-nowrap text-start align-middle" style="cursor: pointer;" scope="col">
+              <div class="d-flex align-items-center">
+                <!-- Always show Select All checkbox -->
+                <ng-container *ngIf="colIndex === 0">
+                  <div class="checkbox-wrapper">
+                    <input class="inp-cbx" [id]="prefix + '-cbx-header'" type="checkbox"
+                      (click)="$event.stopPropagation()" (change)="toggleAllRows($event)" [checked]="isAllSelected()" />
+
+                    <label class="cbx" [for]="prefix + '-cbx-header'">
+                      <p>
+                        <svg width="12px" height="10px" viewBox="0 0 12 10">
+                          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                        </svg>
+                      </p>
+                             <div *ngIf="selectedRows.length > 1" class="dropdown ">
+                      <button class="btn no-bg p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        (click)="$event.stopPropagation()">
+                        <i class="icon-more"></i>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li *ngFor="let btn of actionButtons">
+                          <button class="dropdown-item" (click)="handleBulkAction(btn)">
+                            {{ btn.label }}
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                    </label>
+             
+                  </div>
+
+
+
+                </ng-container>
+
+                <!-- Column Label -->
+                <span>{{ column.label }}</span>
+
+                <!-- Sort Icon -->
+                <i *ngIf="Sorting" class="ms-1" [ngClass]="{
+        'icon-upword': sortKey === column.key && sortAsc,
+        'icon-downword': sortKey === column.key && !sortAsc,
+        'icon-sort': sortKey !== column.key
+      }"></i>
+              </div>
+            </th>
+
+
+
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let row of pagedData; let i = index; trackBy: trackByIndex"
+            [ngClass]="{ 'dynamic-row': activeRowIndex === i }">
+
+            <td *ngFor="let column of columns">
+              <ng-container [ngSwitch]="column.key">
+                <ng-container *ngSwitchCase="'profileTile'">
+                  <div class="d-flex align-items-center">
+                    <div class="checkbox-wrapper">
+                      <input class="inp-cbx" [id]="prefix + '-cbx-' + i" type="checkbox"
+                        (change)="toggleSelectRow(row, $event)" [checked]="selectedRows.includes(row)" />
+                      <label class="cbx" [for]="prefix + '-cbx-' + i">
+                        <p>
+                          <svg width="12px" height="10px" viewBox="0 0 12 10">
+                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                          </svg>
+                        </p>
+                        <p></p>
+                      </label>
+                    </div>
+                    <div class="profile-tile">
+                      <div class="user-dp user-dp-md round-md">
+                        <img class="img-fluid" [src]="row.profileTile || 'assets/dummy.jpg'" alt="Profile Picture"
+                          (error)="handleImageError($event)" />
+                      </div>
+                      <div class="profile-details">
+                        <h5>{{ row.name || 'Unknown' }}</h5>
+                        <p>{{ row.source || 'No Information' }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="'status'">
+                  <span [ngClass]="getStatusStyles(row.status).tagClass">
+                    {{ getValue(row, column.key) }}
+                  </span>
+                </ng-container>
+                <ng-container *ngSwitchCase="'action'">
+                  <div class="form-group align-left mb-0">
+                    <ng-container *ngFor="let btn of actionButtons">
+                      <button *ngIf="!btn.isDropdown" class="btn btn-sm" [ngClass]="btn.className"
+                        [attr.title]="btn.tooltip" (click)="handleButtonClick(btn, row)">
+                        <i *ngIf="btn.icon" [class]="btn.icon"></i>
+
+                      </button>
+                      <div *ngIf="btn.isDropdown" class="dropdown btn btn-sm">
+                        <button class="btn no-bg dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          [ngClass]="btn.className" [attr.title]="btn.tooltip">
+                          {{ btn.label }}
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li *ngFor="let option of btn.options">
+                            <button class="dropdown-item" (click)="handleDropdownClick(option, btn, row)">
+                              {{ option }}
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                  <span class="value">{{ getValue(row, column.key) }}</span>
+                </ng-container>
+              </ng-container>
+            </td>
+            <td class="mobile-btn">
+              <button class="btn" (click)="toggleRowClass(i)">
+                <i [ngClass]="{
+                'icon-angle-down': activeRowIndex === i,
+                'icon-angle-right': activeRowIndex !== i
+              }"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="pagedData.length === 0">
+            <td [attr.colspan]="columns.length + 2" class="text-center py-3">
+              No records found.
+            </td>
+          </tr>
+        </tbody>
+        <tfoot *ngIf="paginated">
+          <tr>
+            <td [attr.colspan]="columns.length + 1">
+              <div class="pagination form-group justify-content-end ">
+                <button class="btn" (click)="prevPage()" [disabled]="currentPage === 1">
+                  <i class="icon-angle-left"></i>
+                </button>
+                <span class="btn">Page {{ currentPage }} of {{ totalPages }}</span>
+                <button class="btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
+                  <i class="icon-angle-right"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

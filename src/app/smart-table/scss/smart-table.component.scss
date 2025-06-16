@@ -1,0 +1,30 @@
+// main.scss
+@import'./responsive.scss';
+@import './variables';
+@import './colors';
+@import './mixins';
+@import './badge';
+@import './tag';
+@import './form';
+@import './statistic-card';
+@import './user_db';
+@import './card';
+@import './progress-bar';
+.no-bg {
+  border: none;
+  background:none;
+}
+
+
+.round-sm {
+  border-radius: $round-sm;
+}
+
+.round-md {
+  border-radius: $round-md;
+}
+
+.round-lg {
+  border-radius: $round-lg;
+}
+

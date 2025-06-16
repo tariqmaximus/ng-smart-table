@@ -1,0 +1,19 @@
+
+
+
+.tag {
+  height: 28px;
+  border-radius: $round-md;
+  padding: 4px;
+  background: white;
+  color: var(--text-color);
+  font-size: 10px;
+  text-transform: uppercase;
+  height: auto;
+
+  @each $name, $color in $variants {
+    &.#{$name} {
+      @include tag-style($name, $color);
+    }
+  }
+}

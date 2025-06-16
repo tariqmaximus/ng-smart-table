@@ -1,0 +1,140 @@
+@mixin badge-base-style {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  position: absolute;
+  right: 15px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 10px;
+
+  i {
+    font-size: 20px;
+  }
+}
+
+@mixin tag-style($name, $color) {
+  color: $color;
+  $fallbackground: map-get($variant-colors, $name);
+  background-color: if($fallbackground != null, lighten($fallbackground, 40%), lighten($color, 10%));
+}
+
+
+@mixin button-style($name, $color) {
+  
+  $fallback: map-get($variant-colors, $name);
+  background: if($fallback != null, lighten($fallback, 10%), var(--bs-border-color));
+  border-color: if($fallback != null, darken($fallback, 0%), var(--bs-border-color));
+  color: if($name == light or $name == default, var(--muted-text-color), if($name == dark, white, white));
+
+  &::before {
+    border-left: 9px solid $color;
+  }
+
+  i {
+    color: inherit;
+  }
+
+  span {
+    color: if($name == light or $name == default, var(--muted-text-color), if($name == dark, white, white));
+  }
+
+  &:hover {
+    background-color: var(--bg-color);
+    border-color: var(--bs-border-color);
+    color: var(--muted-text-color);
+
+    i,
+    span {
+      color: var(--text-color);
+    }
+  }
+}
+@mixin button-icon ($name, $color) {
+  
+  $fallback: map-get($variant-colors, $name);
+ 
+  color: if($fallback != null, darken($fallback, 0%), var(--bs-border-color));
+  
+ 
+
+  i {
+    color: inherit;
+  }
+
+
+}
+@mixin form-style($name, $color) {
+  $fallback: map-get($variant-colors, $name);
+  $resolved-color: if($fallback != null, $fallback, $color);
+  $bg-color: lighten($resolved-color, 44%);
+  $border-color: lighten($resolved-color, 35%);
+
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  color: if($name == light or $name == default, var(--text-color), $color);
+
+  &::placeholder {
+    color: var(--muted-text-color);
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: darken($border-color, 10%);
+    box-shadow: 0 0 0 0.15rem rgba($resolved-color, 0.3);
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: lighten($bg-color, 8%);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+@mixin statistic-style($hex) {
+  background-color: rgba($hex, 0.15);
+
+  .stat-title {
+    color: darken($hex, 15%);
+  }
+
+  .stat-value {
+    color: darken($hex, 20%);
+  }
+
+  .stat-icon {
+    color: darken($hex, 20%);
+  }
+}
+
+
+
+@mixin card-style($name, $color) {
+  $fallback: map-get($variant-colors, $name);
+  background-color: if($fallback != null, rgba($fallback, 0.9), rgba(white, 0.05)) !important;
+  border: 1px solid if($fallback != null, darken($fallback, 5%), var(--bs-border-color));
+  color: if($name == light or $name == default, var(--text-color), if($name == dark, white, white));
+
+  .card-header {
+    background-color: if($fallback != null, rgba($fallback, 0.9), rgba(white, 0.05));
+    border-bottom-color: if($fallback != null, darken($fallback, 5%), var(--bs-border-color));
+
+    .title,
+    i {
+      color: inherit;
+    }
+  }
+
+  .card-body {
+    color: inherit;
+  }
+
+  &:hover {
+    background: if($fallback != null, lighten($fallback, 5%), $color);
+  }
+}
+
