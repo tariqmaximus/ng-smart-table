@@ -103,7 +103,7 @@
                       (click)="$event.stopPropagation()" (change)="toggleAllRows($event)" [checked]="isAllSelected()" />
 
                     <label class="cbx" [for]="prefix + '-cbx-header'">
-                      <p>
+                      <p class="mb-0">
                         <svg width="12px" height="10px" viewBox="0 0 12 10">
                           <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                         </svg>
@@ -111,7 +111,7 @@
                              <div *ngIf="selectedRows.length > 1" class="dropdown ">
                       <button class="btn no-bg p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"
                         (click)="$event.stopPropagation()">
-                        <i class="icon-more"></i>
+                        <i class="bi bi-three-dots-vertical"></i>
                       </button>
                       <ul class="dropdown-menu">
                         <li *ngFor="let btn of actionButtons">
@@ -158,12 +158,12 @@
                       <input class="inp-cbx" [id]="prefix + '-cbx-' + i" type="checkbox"
                         (change)="toggleSelectRow(row, $event)" [checked]="selectedRows.includes(row)" />
                       <label class="cbx" [for]="prefix + '-cbx-' + i">
-                        <p>
+                        <p class="mb-0">
                           <svg width="12px" height="10px" viewBox="0 0 12 10">
                             <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                           </svg>
                         </p>
-                        <p></p>
+                        <p class="mb-0"></p>
                       </label>
                     </div>
                     <div class="profile-tile">
