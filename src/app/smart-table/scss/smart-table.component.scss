@@ -416,7 +416,7 @@ h5 {
    &.#{$name} {
   background-color: $color;
   $fallborder: map-get($variant-colors, $name);
-  border: 5px solid if($fallborder != null, lighten($fallborder, 40%), lighten($color, 10%));
+  border: 2px solid if($fallborder != null, lighten($fallborder, 40%), lighten($color, 10%));
 }
 
 

@@ -167,7 +167,7 @@
                       </label>
                     </div>
                     <div class="profile-tile">
-                      <div class="user-dp sm round-md">
+                      <div class="user-dp sm  round-md"   [ngClass]=" statusMap[row.status]">
                         <img class="img-fluid" [src]="row.profileTile || 'assets/dummy.jpg'" alt="Profile Picture"
                           (error)="handleImageError($event)" />
                       </div>
