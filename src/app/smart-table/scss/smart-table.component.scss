@@ -15,7 +15,7 @@
   @each $name, $color in $variants {
     &.#{$name} {
       background: $color;
-      color: if($name == light or $name == default, var(--text-color), white);
+      color: if($name == light or $name == default, $text-color, white);
 
       i {
         color: inherit;
@@ -48,7 +48,7 @@
   border-radius: $round-md;
   padding: 4px;
   background: white;
-  color: var(--text-color);
+  color: $text-color;
   font-size: 10px;
   text-transform: uppercase;
   height: auto;
@@ -62,17 +62,17 @@
 
 .form-select,
 .form-control {
-  border: var(--bs-border-width) var(--bs-border-color);
+  border: $bs-border-width $bs-border-color;
   background-color: var(--bg-color);
   outline: none;
-  color: var(--muted-text-color);
+  color: $muted-text-color;
   height: 35px;
 
   &:focus {
     background-color: var(--bg-color);
-    border-color: var(--bs-border-color);
+    border-color: $bs-border-color;
     box-shadow: none;
-    color: var(--text-color);
+    color: $text-color;
   }
 
 
@@ -84,7 +84,7 @@
 .form-row {
   display: flex;
   gap: $spacing-sm;
-  color: var(--text-color);
+  color: $text-color;
   align-items: center;
   flex-wrap: nowrap !important;
 
@@ -137,16 +137,16 @@ align-items: center;
       }
 
       &:active {
-        border-color: var(--bs-border-color);
+        border-color: $bs-border-color;
 
       }
 
       &.active {
         background-color: var(--bg-color);
-        color: var(--text-color);
+        color: $text-color;
 
         span {
-          color: var(--text-color);
+          color: $text-color;
         }
 
         i {
@@ -178,25 +178,25 @@ align-items: center;
   align-items: center;
   justify-content: center;
   gap: $spacing-sm;
-  border: 1px solid var(--bs-border-color);
-  color: var(--text-color);
+  border: 1px solid $bs-border-color;
+  color: $text-color;
   background: var(--card-color);
   font-family: var(--bs-btn-font-family) !important;
   height: 35px;
 
   i {
     font-size: 12px;
-    color: var(--muted-text-color);
+    color: $muted-text-color;
   }
   &:focus {
     box-shadow: none;
   }
 &:disabled {
-  border-color: var(--bs-border-color);
+  border-color: $bs-border-color;
 }
   span {
     font-size: 12px;
-    color: var(--muted-text-color);
+    color: $muted-text-color;
 
   }
 
@@ -222,7 +222,7 @@ align-items: center;
 }
 
 .form-label {
-  color: var(--muted-text-color);
+  color: $muted-text-color;
   margin: 0;
 }
 
@@ -345,7 +345,7 @@ align-items: center;
   padding:0;
   width: auto;
   max-width: 100px;
-  color: var(--muted-text-color);
+  color: $muted-text-color;
   &:focus {
     background-color: inherit;
     outline: 0;
@@ -353,11 +353,11 @@ align-items: center;
   }
   
   &:hover {
-    color: var(--text-color); // subtle on-hover effect
+    color: $text-color; // subtle on-hover effect
   }
 
   option {
-    color: var(--text-color);
+    color: $text-color;
     background-color: var(--card-bg-color, #fff); // fallback
     font-size: 12px;
     padding: inherit;
@@ -384,7 +384,7 @@ h5 {
  text-overflow: ellipsis;
  p {
    font-size: 0.7;
-   color: var(--muted-text-color);
+   color: $muted-text-color;
  }
 }
 
@@ -444,7 +444,7 @@ h5 {
   position: relative;
   @include box-style;
   min-height: $card-header-height;
-  padding-bottom: $spacing-md;
+  padding-bottom: 0;
 
   @include mobile-view {
     box-shadow: none !important;
@@ -460,7 +460,7 @@ h5 {
   .card-header {
     background: none;
 
-    border-bottom: var(--bs-border-width) var(--bs-border-color);
+    border-bottom: $bs-border-width $bs-border-color;
     height: $card-header-height;
     position: absolute;
     z-index: 1;
@@ -517,6 +517,8 @@ h5 {
     margin-top: $card-header-height ;
     
 padding: $spacing-md !important;
+padding-top: 0 !important;
+padding-bottom: 0 !important;
 
     >* {
       flex: 1;
@@ -554,12 +556,12 @@ padding: $spacing-md !important;
     &.#{$name} {
       $fallback: map-get($variant-colors, $name);
       background-color: if($fallback !=null, rgba($fallback, 0.9), rgba(white, 0.05)) !important;
-      border: 1px solid if($fallback !=null, darken($fallback, 5%), var(--bs-border-color));
-      color: if($name ==light or $name ==default, var(--text-color), if($name ==dark, white, white));
+      border: 1px solid if($fallback !=null, darken($fallback, 5%), $bs-border-color);
+      color: if($name ==light or $name ==default, $text-color, if($name ==dark, white, white));
 
       .card-header {
         background-color: if($fallback !=null, rgba($fallback, 0.9), rgba(white, 0.05));
-        border-bottom-color: if($fallback !=null, darken($fallback, 5%), var(--bs-border-color));
+        border-bottom-color: if($fallback !=null, darken($fallback, 5%), $bs-border-color);
 
 
         .title,
@@ -700,7 +702,7 @@ $calendar-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: var(--bs-border-width) var(--bs-border-color);
+  border: $bs-border-width $bs-border-color;
   border-radius: $round-md;
   padding: $spacing-sm ;
   margin-bottom: 0;
@@ -763,7 +765,7 @@ $calendar-radius: 12px;
 
 table {
     width: 100%;
-    color: var(--text-color);
+    color: $text-color;
     background: none;
 
     .key {
@@ -773,7 +775,7 @@ table {
     th {
         font-size: $font-size-small;
         font-weight: normal;
-        color: var(--muted-text-color);
+        color: $muted-text-color;
         padding: $spacing-sm 0;
 
         i {
@@ -789,7 +791,7 @@ table {
 
     thead {
 
-        border-bottom: var(--bs-border-width) var(--bs-border-color);
+        border-bottom: $bs-border-width $bs-border-color;
         text-transform: capitalize;
 
     }
@@ -801,7 +803,7 @@ table {
 
     tr {
 
-        border-bottom: var(--bs-border-width) var(--bs-border-color);
+        border-bottom: $bs-border-width $bs-border-color;
         position: relative;
 
         .mobile-btn {
@@ -815,7 +817,7 @@ table {
                 background: none;
 
                 i {
-                    color: var(--muted-text-color);
+                    color: $muted-text-color;
                 }
             }
         }
@@ -830,7 +832,9 @@ table {
             border: none;
         }
     }
-
+tfoot {
+  border-top: $bs-border-width $bs-border-color;
+}
 }
 
 table.responsive {

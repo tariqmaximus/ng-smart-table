@@ -17,7 +17,7 @@ $title-color: var($text-color);
 $muted-text-color: #a3a3a3;
 /* Lighter gray */
  $bs-font-family:Courier , Courier, monospace;
-$bs-border-color: #e2e2e2;
+$bs-border-color: #e7e7e7;
 /* Light gray */
 $bs-border-width: 1px solid;
 /* Light gray */
@@ -32,7 +32,6 @@ $warning-color: #ff6406;
 /* Orange */
 $info-color: #17a2b8;
 /* Cyan */
-$bs-border-color:$muted-text-color;
 /* statistic Colors */
 
 $pending-color: #ffc107;
@@ -111,7 +110,7 @@ $card-header-height: 60px;
 
 //mixins
 @mixin box-style {
-    border: var(--bs-border-width) var(--bs-border-color);
+    border: $bs-border-width $bs-border-color;
 
     border-radius: $round-lg;
     background-color: var(--card-color) !important;
@@ -150,11 +149,11 @@ $variants: (
     danger: var(--error-color),
     warning: var(--warning-color),
     primary: var(--prim-color),
-    muted: var(--muted-text-color),
+    muted: $muted-text-color,
     secondary: $second-color,
-    light: var(--prim-bg, var(--muted-text-color)),
+    light: var(--prim-bg, $muted-text-color),
     default: var(--bg-color),
-    archived: var(--archived-color, var(--muted-text-color)),
+    archived: var(--archived-color, $muted-text-color),
     processing: var(--processing-color, var(--info-color)),
     failed: var(--error-color),
     queued: var(--info-color),
@@ -164,5 +163,5 @@ $variants: (
     rejected: var(--error-color),
     approved: var(--success-color),
     active: var(--prim-color),
-    draft: var(--text-color, var(--muted-text-color))
+    draft: var(--text-color, $muted-text-color)
 );

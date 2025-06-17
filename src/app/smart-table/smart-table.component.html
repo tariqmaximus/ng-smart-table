@@ -1,6 +1,6 @@
 <div class="card" [ngClass]="variant" [class.collapsed]="isCollapsed">
   <div class="card-header" *ngIf="showHeader">
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
       <div class="d-flex flex-row justify-content-between">
         <div class="d-flex align-items-center gap-2">
           <ng-content select="[header-component]"></ng-content>
@@ -80,7 +80,7 @@
     </div>
 
   </div>
-  <div class="card-body p-0">
+  <div class="card-body  p-0">
     <div *ngIf="progressBy" class="progress">
       <div class="progress-bar" [ngClass]="getStatusStyles(selectedOption || progressBy).progressClass"
         role="progressbar" [style.width.%]="progressValue" [attr.aria-valuenow]="progressValue" aria-valuemin="0"
@@ -90,7 +90,7 @@
     </div>
 
     <div class="pt-2 ">
-      <table [ngClass]="device">
+      <table [ngClass]="variant">
         <thead>
           <tr>
             <th *ngFor="let column of columns; let colIndex = index" (click)="Sorting ? sortByColumn(column.key) : null"

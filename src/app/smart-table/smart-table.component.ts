@@ -41,7 +41,6 @@ export class SmartTableComponent implements OnInit, OnChanges {
   @Input() columns: { key: string; label: string }[] = [];
   @Input() showActions = true;
   @Input() variant = '';
-  @Input() device = '';
   @Input() title?: string;
   @Input() sub?: string;
   @Input() icon?: string;

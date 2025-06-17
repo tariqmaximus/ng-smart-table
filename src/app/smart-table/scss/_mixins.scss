@@ -26,9 +26,9 @@
 @mixin button-style($name, $color) {
   
   $fallback: map-get($variant-colors, $name);
-  background: if($fallback != null, lighten($fallback, 10%), var(--bs-border-color));
-  border-color: if($fallback != null, darken($fallback, 0%), var(--bs-border-color));
-  color: if($name == light or $name == default, var(--muted-text-color), if($name == dark, white, white));
+  background: if($fallback != null, lighten($fallback, 10%), $bs-border-color);
+  border-color: if($fallback != null, darken($fallback, 0%), $bs-border-color);
+  color: if($name == light or $name == default, $muted-text-color, if($name == dark, white, white));
 
   &::before {
     border-left: 9px solid $color;
@@ -39,13 +39,13 @@
   }
 
   span {
-    color: if($name == light or $name == default, var(--muted-text-color), if($name == dark, white, white));
+    color: if($name == light or $name == default, $muted-text-color, if($name == dark, white, white));
   }
 
   &:hover {
     background-color: var(--bg-color);
-    border-color: var(--bs-border-color);
-    color: var(--muted-text-color);
+    border-color: $bs-border-color;
+    color: $muted-text-color;
 
     i,
     span {
@@ -57,7 +57,7 @@
   
   $fallback: map-get($variant-colors, $name);
  
-  color: if($fallback != null, darken($fallback, 0%), var(--bs-border-color));
+  color: if($fallback != null, darken($fallback, 0%), $bs-border-color);
   
  
 
@@ -78,7 +78,7 @@
   color: if($name == light or $name == default, var(--text-color), $color);
 
   &::placeholder {
-    color: var(--muted-text-color);
+    color: $muted-text-color;
     opacity: 0.7;
   }
 
@@ -116,12 +116,12 @@
 @mixin card-style($name, $color) {
   $fallback: map-get($variant-colors, $name);
   background-color: if($fallback != null, rgba($fallback, 0.9), rgba(white, 0.05)) !important;
-  border: 1px solid if($fallback != null, darken($fallback, 5%), var(--bs-border-color));
+  border: 1px solid if($fallback != null, darken($fallback, 5%), $bs-border-color);
   color: if($name == light or $name == default, var(--text-color), if($name == dark, white, white));
 
   .card-header {
     background-color: if($fallback != null, rgba($fallback, 0.9), rgba(white, 0.05));
-    border-bottom-color: if($fallback != null, darken($fallback, 5%), var(--bs-border-color));
+    border-bottom-color: if($fallback != null, darken($fallback, 5%), $bs-border-color);
 
     .title,
     i {
