@@ -15,6 +15,25 @@ import { SmartTableComponent } from './smart-table/smart-table.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+statusMap = {
+  scheduled: 'success',
+  inprogress: 'info',
+  converted: 'success',
+  pending: 'warning',
+  confirmed: 'info',
+  completed: 'success',
+  failed: 'danger',
+  cancelled: 'danger',
+  lost: 'danger',
+  backlog: 'light',
+  active: 'success',
+  inactive: 'default',
+  deleted: 'danger',
+  rejected: 'danger',
+  new: 'primary',
+  closed: 'secondary'
+};
+
 data = [
 // START OF 50 DUMMY LEADS
 {

@@ -59,7 +59,7 @@ export class SmartTableComponent implements OnInit, OnChanges {
   @Input() progressBy?: string;
   @Input() paginated = false;
   @Input() pageSize = 10;
-
+  @Input() statusMap: Record<string, string> = {};
   @Output() rowAction = new EventEmitter<{ action: string; row: any }>();
 
   internalIdPrefix!: string;
@@ -263,35 +263,15 @@ export class SmartTableComponent implements OnInit, OnChanges {
     return Math.round((match / total) * 100);
   }
 
-  getStatusStyles(status: string): { tagClass: string; progressClass: string } {
-    const key = status?.toLowerCase() || '';
+getStatusStyles(status: string): { tagClass: string; progressClass: string } {
+  const key = status?.toLowerCase() || '';
+  const color = this.statusMap?.[key] || 'info';
+  return {
+    tagClass: `tag ${color}`,
+    progressClass: `progress-bar ${color}`
+  };
+}
 
-    const statusMap: Record<string, string> = {
-      scheduled: 'success',
-      inprogress: 'info',
-      converted: 'success',
-      pending: 'warning',
-      confirmed: 'info',
-      completed: 'success',
-      failed: 'danger',
-      cancelled: 'danger',
-      lost: 'danger',
-      backlog: 'light',
-      active: 'success',
-      inactive: 'default',
-      deleted: 'danger',
-      rejected: 'danger',
-      new: 'primary',
-      closed: 'secondary'
-    };
-
-    const color = statusMap[key] || 'info';
-
-    return {
-      tagClass: `tag ${color}`,
-      progressClass: `progress-bar ${color}`
-    };
-  }
 
   getValue(row: any, key: string): string {
     const val = row?.[key];
