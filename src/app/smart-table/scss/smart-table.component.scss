@@ -1,160 +1,7 @@
 @import'./responsive';
-
-// Colors
-:root {
-  /* Light mode variables */
-  --prim-color: #0173df; /* Blue */
- 
-  --second-color: #0066ff; /* Red */
-  --bg-color: #f5f5f5; /* Light gray */
-  --bg-gradient:linear-gradient(to right, #ecf2e7, #daeaf9);
-
-  --card-color: rgba(255, 255, 255, 0.4); /* White */
-  --text-color: #63634e; /* Dark gray */
-   --title-color: var(--text-color);
-  --muted-text-color: #a3a3a3; /* Lighter gray */
-
-   --bs-border-color: #e2e2e2; /* Light gray */
-   --bs-border-width:  1px solid; /* Light gray */
-  --icon-color: #888888; /* Icon color */
-  // leads type colors
-
-  --error-color: #dc3545; 
-/* Leads Type Colors */
---success-color: #28a745;         /* Green */
---warning-color: #ff6406;         /* Orange */
---info-color:    #17a2b8;         /* Cyan */
+@import './variables';
 
 
-
-
-
-  --bs-nav-link-hover-color:var(--second-color);
-  }
-  
-
-
- [data-theme="dark"] {
- 
-  }
-
-
-// Typography
-$font-family-primary: 'Arial, sans-serif'; // Main font family
-$font-size-bs: 16px; // Base font size
-$font-size-xs: 12px; // Small text
-$font-size-small: 14px; // Small text
-$font-size-large: 18px; // Large text
-$font-weight-regular: 400; // Regular font weight
-$font-weight-bold: 700; // Bold font weight
-
-
-// Spacing
-$spacing-xs: 4px; // Extra small spacing
-$spacing-sm: 8px; // Small spacing
-$spacing-md: 16px; // Medium spacing
-$spacing-lg: 24px; // Large spacing
-$spacing-xl: 32px; // Extra large spacing
-
-// Border Radius
-$round-sm: 5px; // Small border radius
-$round-md: 10px; // Medium border radius
-$round-lg: 15px; // Large border radius
-$round-xl: 50px; // Large border radius
-
-// Shadows
-$box-shadow-sm: 0 0px 4px rgba(0, 0, 0, 0.1); // Small shadow
-$box-shadow-md: 0 0px 8px rgba(0, 0, 0, 0.1); // Medium shadow
-$box-shadow-lg: 0 0px 16px rgba(0, 0, 0, 0.1); // Large shadow
-
-// Z-index
-$z-index-header: 1000; // Header
-$z-index-overlay: 1050; // Modal overlay
-$z-index-tooltip: 1100; // Tooltips
-
-// Layout Breakpoints
-$breakpoint-xs: 480px; // Extra small devices
-$breakpoint-sm: 768px; // Small devices
-$breakpoint-md: 992px; // Medium devices
-$breakpoint-lg: 1200px; // Large devices
-
-// Misc
-$transition-duration: 0.3s; // Default transition duration
-$transition-ease: ease-in-out; // Default easing function
-$icon-size: 24px; // Default icon size
-
-//sizes {
-$header-height:80px;
-$header-height-mobile:60px;
-$chart-height:300px;
-$bs-modal-lg: 1024px;
-$bs-modal-md: 650px;
-$bs-modal-sm: 400px;
-$side-bar-close: 80px;
-
-//sizes
-$dp-size-lg:80px;
-$dp-size-md:50px;
-$dp-size-sm:35px;
-$dp-round:50%;
-$card-header-height:60px;
-//mixins
-@mixin box-style{
-  border:  var( --bs-border-width) var( --bs-border-color);
-  
-  border-radius: $round-lg;
-  background-color: var(--card-color) !important;
-}
-
-
-// === Color variables ===
-$variant-colors: (
-  success: #28a745,
-  pending: #f1a10a,
-  info: #17a2b8,
-  danger: #dc3545,
-  warning: #f1a10a,
-  primary: #007bff,
-  muted: #6c757d,
-  secondary: #6c757d,
-  light: #f8f9fa,
-  default: #adb5bd,
-  archived: #adb5bd,
-  processing: #17a2b8,
-  failed: #dc3545,
-  queued: #17a2b8,
-  on-hold: #6c757d,
-  suspended: #212529,
-  expired: #f1f3f5,
-  rejected: #dc3545,
-  approved: #28a745,
-  active: #007bff,
-  draft: #495057
-);
-
-$variants: (
-  success: var(--success-color),
-  pending: var(--warning-color),
-  info: var(--info-color),
-  danger: var(--error-color),
-  warning: var(--warning-color),
-  primary: var(--prim-color),
-  muted: var(--muted-text-color),
-  secondary: var(--second-color),
-  light: var(--prim-bg, var(--muted-text-color)),
-  default: var(--bg-color),
-  archived: var(--archived-color, var(--muted-text-color)),
-  processing: var(--processing-color, var(--info-color)),
-  failed: var(--error-color),
-  queued: var(--info-color),
-  on-hold: var(--second-color),
-  suspended: var(--dark-color),
-  expired: var(--light-color),
-  rejected: var(--error-color),
-  approved: var(--success-color),
-  active: var(--prim-color),
-  draft: var(--text-color, var(--muted-text-color))
-);
 
 
 
@@ -406,19 +253,15 @@ align-items: center;
     }
 
 
-    p {
-      display: inline-block;
-      vertical-align: middle;
-      transform: translate3d(0, 0, 0);
-
-      &:first-child {
-        position: relative;
+    .checkbox {
+      
+      position: relative;
         width: 24px;
         height: 24px;
         border-radius: $round-sm;
         transform: scale(1);
         vertical-align: middle;
-        border: 2px solid var(--bs-border-color);
+        border: 2px solid $bs-border-color;
         transition: all 0.2s ease;
 
         svg {
@@ -427,7 +270,7 @@ align-items: center;
           top: 6px;
           left: 4px;
           fill: none;
-          stroke: var(--card-color);
+          stroke:white;
           stroke-width: 2;
           stroke-linecap: round;
           stroke-linejoin: round;
@@ -449,26 +292,12 @@ align-items: center;
           border-radius: 50%;
           transition-delay: 0.2s;
         }
-      }
+      
 
-      &:last-child {
-
-
-        &:after {
-          content: "";
-          position: absolute;
-          top: 8px;
-          left: 0;
-          height: 1px;
-          width: 100%;
-          background: var(--second-color);
-          transform-origin: 0 0;
-          transform: scaleX(0);
-        }
-      }
+    
     }
 
-    &:hover p:first-child {}
+   
   }
 
   .inp-cbx {
@@ -477,10 +306,10 @@ align-items: center;
 
   .inp-cbx:checked+.cbx {
 
-    p {
+    .checkbox {
       &:first-child {
-        border-color: var(--second-color);
-        background: var(--second-color);
+        border-color: $second-color;
+        background: $second-color;
         animation: check-15 0.3s ease;
 
         svg {
