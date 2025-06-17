@@ -5,8 +5,8 @@ $prim-color: #0173df;
 $second-color: #0066ff;
 /* Red */
 $primary: $prim-color;
-
-$bg-color: #f5f5f5;
+$calendar-bg: #f5f5f5;
+$bg-color: #ffffff;
 /* Light gray */
 $bg-gradient: linear-gradient(to right, #ecf2e7, #daeaf9);
 $card-color: rgba(255, 255, 255, 0.4);
@@ -111,9 +111,9 @@ $card-header-height: 60px;
 //mixins
 @mixin box-style {
     border: $bs-border-width $bs-border-color;
-
+box-shadow:  $box-shadow-lg;
     border-radius: $round-lg;
-    background-color: var(--card-color) !important;
+    background-color: $bg-color !important;
 }
 
 

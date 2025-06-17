@@ -36,7 +36,7 @@
             </div>
 
             <!-- Calendar Popup -->
-            <div class="border bg-white p-3 shadow position-absolute z-3 mt-1" *ngIf="showCalendar"
+            <div class="date-picker" *ngIf="datePicker"
               style="min-width: 250px;">
               <div class="d-flex justify-content-between gap-2 mb-2">
                 <select class="form-select" [(ngModel)]="selectedMonth">
@@ -61,6 +61,7 @@
                 <button class="btn btn-sm btn-primary" (click)="confirm()">Confirm</button>
               </div>
             </div>
+            
           </ng-container>
 
 

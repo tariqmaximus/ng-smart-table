@@ -456,7 +456,13 @@ h5 {
     }
 
   }
-
+.date-picker {
+  position: absolute;
+  padding: $spacing-md;
+  @include box-style;
+  top: 0;
+  background-color: $calendar-bg;
+}
   .card-header {
     background: none;
 
@@ -582,6 +588,7 @@ padding-bottom: 0 !important;
 
   &.no-bg {
     border: none;
+    box-shadow: none;
 
     >.card-header {
       border: none;

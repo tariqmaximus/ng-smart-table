@@ -1,11 +1,12 @@
+<div class="container-fluid mt-4">
 <smart-table
   title="BackLog"
   icon="bi bi-grid"
 [statusMap]="statusMap"
-  [variant]="' responsive'"
+  [variant]="'responsive'"
   [collapsible]="true"
   [data]="data"
-  [progressBy]="'pending'"
+  [progressBy]="'lost'"
   [searchFilter]="true"
   [searchBy]="'status'"
   [pageSize]="5"
@@ -34,3 +35,4 @@
     }
   ]">
 </smart-table>
+</div>

@@ -78,7 +78,7 @@ export class SmartTableComponent implements OnInit, OnChanges {
   selectedDate = new Date();
   selectedMonth = this.selectedDate.getMonth();
   selectedYear = this.selectedDate.getFullYear();
-  showCalendar = false;
+  datePicker = false;
 
   sortKey: string | null = null;
   sortAsc = true;
@@ -107,7 +107,7 @@ export class SmartTableComponent implements OnInit, OnChanges {
   toggleFilters(): void {
     this.dataFilters = !this.dataFilters;
     if (!this.dataFilters) {
-      this.showCalendar = false;
+      this.datePicker = false;
     }
   }
 
@@ -162,7 +162,7 @@ export class SmartTableComponent implements OnInit, OnChanges {
   }
 
   toggleCalendar(): void {
-    this.showCalendar = !this.showCalendar;
+    this.datePicker = !this.datePicker;
     this.generateCalendar();
   }
 
@@ -198,14 +198,14 @@ export class SmartTableComponent implements OnInit, OnChanges {
   }
 
   cancel(): void {
-    this.showCalendar = false;
+    this.datePicker = false;
   }
 
   confirm(): void {
     this.startDate = this.selectedDate;
     this.endDate = this.selectedDate;
     this.applyFilters();
-    this.showCalendar = false;
+    this.datePicker = false;
   }
 
   setColumns(): void {
