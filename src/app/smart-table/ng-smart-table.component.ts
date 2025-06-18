@@ -29,13 +29,13 @@ interface ActionButton {
 
 let uniqueCounter = 0;
 @Component({
-  selector: 'smart-table',
+  selector: 'ng-smart-table',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './smart-table.component.html',
-  styleUrls: ['./scss/smart-table.component.scss']
+  templateUrl: './ng-smart-table.component.html',
+  styleUrls: ['./ng-smart-table.component.css']
 })
-export class SmartTableComponent implements OnInit, OnChanges {
+export class NGSmartTableComponent implements OnInit, OnChanges {
   @Input() type!: string;
   @Input() data: any[] = [];
   @Input() columns: { key: string; label: string }[] = [];

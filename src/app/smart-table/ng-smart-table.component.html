@@ -10,19 +10,18 @@
             <span class="text-muted">{{ sub }}</span>
           </h5>
         </div>
-
         <div class="d-flex align-items-center flex-wrap gap-2 justify-content-end">
-
+          <div class="form-group mb-0">
           <button *ngIf="searchFilter" class="btn " (click)="toggleFilters()">
             <i class="bi bi-search"></i>
           </button>
 
           <ng-container *ngIf="dataFilters">
-            <div class="form-group mb-0">
+            
               <select class="form-select" [(ngModel)]="selectedOption" (change)="applyFilters()">
-  <option value="">All</option>
-  <option *ngFor="let option of searchOptions" [value]="option">{{ option }}</option>
-</select>
+                <option value="">All</option>
+                <option *ngFor="let option of searchOptions" [value]="option">{{ option }}</option>
+              </select>
 
               <!-- Keyword input -->
               <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchKeyword"
@@ -33,11 +32,10 @@
                 <i class="icon-calendar"></i>
                 {{ selectedDate | date: 'y, MMMM, d' }}
               </button>
-            </div>
+            
 
             <!-- Calendar Popup -->
-            <div class="date-picker" *ngIf="datePicker"
-              style="min-width: 250px;">
+            <div class="date-picker" *ngIf="datePicker" style="min-width: 250px;">
               <div class="d-flex justify-content-between gap-2 mb-2">
                 <select class="form-select" [(ngModel)]="selectedMonth">
                   <option *ngFor="let m of months; let i = index" [value]="i">{{ m }}</option>
@@ -61,11 +59,9 @@
                 <button class="btn btn-sm btn-primary" (click)="confirm()">Confirm</button>
               </div>
             </div>
-            
           </ng-container>
-
-
-          <div class="d-flex gap-2">
+          </div>
+          <div class="btn-group" role="group" aria-label="Basic example">
             <button *ngFor="let button of headerButtons" type="button" class="btn " [id]="button.targetId"
               (click)="executeAction(button)">
               <i *ngIf="button.icon" [class]="button.icon"></i>
@@ -79,7 +75,6 @@
         </div>
       </div>
     </div>
-
   </div>
   <div class="card-body  p-0">
     <div *ngIf="progressBy" class="progress">
@@ -89,7 +84,6 @@
         <p class="tag">{{ progressValue }}%</p>
       </div>
     </div>
-
     <div class="pt-2 ">
       <table [ngClass]="variant">
         <thead>
@@ -109,27 +103,22 @@
                           <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                         </svg>
                       </div>
-                             <div *ngIf="selectedRows.length > 1" class="dropdown ">
-                      <button class="btn no-bg p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                        (click)="$event.stopPropagation()">
-                        <i class="bi bi-three-dots-vertical"></i>
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li *ngFor="let btn of actionButtons">
-                          <button class="dropdown-item" (click)="handleBulkAction(btn)">
-                            {{ btn.label }}
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
+                      <div *ngIf="selectedRows.length > 1" class="dropdown ">
+                        <button class="btn no-bg p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                          (click)="$event.stopPropagation()">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li *ngFor="let btn of actionButtons">
+                            <button class="dropdown-item" (click)="handleBulkAction(btn)">
+                              {{ btn.label }}
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
                     </label>
-             
                   </div>
-
-
-
                 </ng-container>
-
                 <!-- Column Label -->
                 <span>{{ column.label }}</span>
 
@@ -141,16 +130,11 @@
       }"></i>
               </div>
             </th>
-
-
-
           </tr>
         </thead>
-
         <tbody>
           <tr *ngFor="let row of pagedData; let i = index; trackBy: trackByIndex"
             [ngClass]="{ 'dynamic-row': activeRowIndex === i }">
-
             <td *ngFor="let column of columns">
               <ng-container [ngSwitch]="column.key">
                 <ng-container *ngSwitchCase="'profileTile'">
@@ -168,7 +152,7 @@
                       </label>
                     </div>
                     <div class="profile-tile">
-                      <div class="user-dp sm  round-md"   [ngClass]=" statusMap[row.status]">
+                      <div class="user-dp sm  round-md" [ngClass]=" statusMap[row.status]">
                         <img class="img-fluid" [src]="row.profileTile || 'assets/dummy.jpg'" alt="Profile Picture"
                           (error)="handleImageError($event)" />
                       </div>

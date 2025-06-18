@@ -1,44 +1,7 @@
 @import'./responsive';
 @import './variables';
-
-
-
-
-
 @import './mixins';
 
-
-
-.badge {
-  @include badge-base-style;
-
-  @each $name, $color in $variants {
-    &.#{$name} {
-      background: $color;
-      color: if($name == light or $name == default, $text-color, white);
-
-      i {
-        color: inherit;
-      }
-    }
-  }
-
-  &.outline {
-    background: transparent;
-    border: 1px solid currentColor;
-
-    @each $name, $color in $variants {
-      &.#{$name} {
-        color: $color;
-        border-color: $color;
-
-        i {
-          color: $color;
-        }
-      }
-    }
-  }
-}
 
 
 
@@ -785,15 +748,7 @@ table {
         color: $muted-text-color;
         padding: $spacing-sm 0;
 
-        i {
-            opacity: 0;
-        }
-
-        &:hover {
-            i {
-                opacity: 9;
-            }
-        }
+      
     }
 
     thead {

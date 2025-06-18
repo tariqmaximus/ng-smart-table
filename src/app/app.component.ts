@@ -1,7 +1,8 @@
 // backlog.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SmartTableComponent } from './smart-table/smart-table.component';
+import { NGSmartTableComponent } from "./smart-table/ng-smart-table.component";
+
 
 
 
@@ -10,7 +11,7 @@ import { SmartTableComponent } from './smart-table/smart-table.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,  SmartTableComponent],
+  imports: [CommonModule, NGSmartTableComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

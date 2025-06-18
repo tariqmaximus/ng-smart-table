@@ -1,20 +1,4 @@
-@mixin badge-base-style {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  position: absolute;
-  right: 15px;
-  top: 0;
-  width: 16px;
-  height: 16px;
-  display: grid;
-  align-items: center;
-  border-radius: 50%;
-  font-size: 10px;
 
-  i {
-    font-size: 20px;
-  }
-}
 
 @mixin tag-style($name, $color) {
   color: $color;
