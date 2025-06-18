@@ -57,9 +57,7 @@
   $table-bg: lighten($resolved-color, 44%);
   $border-color: lighten($resolved-color, 35%);
 
-  background-color: $table-bg;
-  border: 1px solid $border-color;
-  color: if($name == light or $name == default, var(--text-color), $color);
+  color: if($name == light or $name == default, $dark-color, $color);
 
   &::placeholder {
     color: $muted-color;

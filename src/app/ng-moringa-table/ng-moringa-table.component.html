@@ -4,11 +4,12 @@
       <div class="d-flex flex-row justify-content-between">
         <div class="d-flex align-items-center gap-2">
           <ng-content select="[header-component]"></ng-content>
-          <i *ngIf="icon" [class]="icon"></i>
-          <h5 class="title mb-0">
+         <i class="title-icon" *ngIf="icon" [class]="icon"></i>
+          <h6 class="table-title">
+             
             {{ title }}
             <span class="text-muted">{{ sub }}</span>
-          </h5>
+          </h6>
         </div>
         <div class="d-flex align-items-center flex-wrap gap-2 justify-content-end">
           <div class="form-group mb-0">
@@ -28,14 +29,14 @@
                 (ngModelChange)="onSearchKeywordChange($event)" />
 
               <!-- Date calendar button -->
-              <button class="btn" (click)="toggleCalendar()" style="min-width: 120px;">
-                <i class="bi bi-calendar"></i>
-                {{ selectedDate | date: 'y, MMMM, d' }}
-              </button>
+              <input class="btn" (click)="toggleCalendar()" style="min-width: 120px;" value="{{ selectedDate | date: 'y, MMMM, d' }}">
+              
+                
+           
 
 
               <!-- Calendar Popup -->
-              <div class="date-picker" *ngIf="datePicker" style="min-width: 250px;">
+              <div class="date-picker" *ngIf="datePicker" style="min-width: 350px;">
                 <div class="d-flex justify-content-between gap-2 mb-2">
                   <select class="form-select" [(ngModel)]="selectedMonth">
                     <option *ngFor="let m of months; let i = index" [value]="i">{{ m }}</option>
@@ -90,7 +91,7 @@
           <tr>
             <th *ngFor="let column of columns; let colIndex = index" (click)="Sorting ? sortByColumn(column.key) : null"
               class="text-nowrap text-start align-middle " style="cursor: pointer;" scope="col">
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center gap-2">
                 <!-- Always show Select All checkbox -->
                 <ng-container *ngIf="colIndex === 0">
                   <div class="checkbox-wrapper">
@@ -124,9 +125,9 @@
 
                 <!-- Sort Icon -->
                 <i *ngIf="Sorting" class="ms-1" [ngClass]="{
-        'bi bi-sort-up': sortKey === column.key && sortAsc,
-        'bi bi-sort-down': sortKey === column.key && !sortAsc,
-        'bi-sort-down': sortKey !== column.key
+        'bi bi-arrow-up': sortKey === column.key && sortAsc,
+        'bi bi-arrow-down': sortKey === column.key && !sortAsc,
+        'bi bi-arrow-down-up': sortKey !== column.key
       }"></i>
               </div>
             </th>
@@ -152,7 +153,7 @@
                       </label>
                     </div>
                     <div class="media-tile">
-                      <div class="user-dp sm  round-md" [ngClass]=" statusMap[row.status]">
+                      <div class="media-img sm  round-md" [ngClass]=" statusMap[row.status]">
                         <img class="img-fluid" [src]="row.profileImage || 'assets/dummy.jpg'" alt="Profile Picture"
                           (error)="handleImageError($event)" />
                       </div>

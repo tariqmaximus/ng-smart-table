@@ -118,17 +118,7 @@ align-items: center;
         }
       }
 
-      &.btn-lg {
-        font-size: 18px;
-
-        i {
-          font-size: 22px;
-        }
-
-        span {
-          font-size: 18px;
-        }
-      }
+   
     }
 
 
@@ -136,11 +126,11 @@ align-items: center;
 
 .btn {
   font-size: 12px;
-  padding: $table-spacing;
+  padding: $btn-spacing $table-spacing;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: $table-spacing;
+  gap: $btn-spacing;
   border: 1px solid $bs-border;
   color: $dark-color;
   background: $table-bg;
@@ -173,16 +163,19 @@ align-items: center;
     }
   }
 }
+.form-control,
+.form-select,
+textarea {
+  background-color: $table-bg;
+  border: 1px solid $bs-border;
 
-
-@each $name, $color in $variants {
-
-  .form-control.#{$name},
-  .form-select.#{$name},
-  textarea.#{$name} {
-    @include form-style($name, $color);
+  @each $name, $color in $variants {
+    &.#{$name} {
+      @include form-style($name, $color);
+    }
   }
 }
+
 
 .form-label {
   color: $muted-color;
@@ -353,7 +346,7 @@ align-items: center;
 }
 
 }
-.user-dp {
+.media-img {
   background-color: var(--primary);
   width: $dp-size;
   height: $dp-size;
@@ -380,7 +373,7 @@ align-items: center;
    &.#{$name} {
   background-color: $color;
   $fallborder: map-get($variant-colors, $name);
-  border: 2px solid if($fallborder != null, lighten($fallborder, 40%), lighten($color, 10%));
+  border: 3px solid if($fallborder != null, lighten($fallborder, 40%), lighten($color, 10%));
 }
 
 
@@ -393,7 +386,7 @@ align-items: center;
   @include box-style;
   min-height: $card-header-height;
   padding-bottom: 0;
-
+transition: 0.4s;
   @include mobile-view {
     box-shadow: none !important;
   }
@@ -446,10 +439,12 @@ padding: $table-spacing;
         display: block;
       }
     }
-
-    .title {
+.title-icon {
+  color: $muted-color;
+}
+    .table-title {
       margin: 0;
-      font-size: 14px;
+      font-size: 16px;
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -533,7 +528,9 @@ padding-bottom: 0 !important;
       }
     }
   }
-
+&.round-card {
+  
+}
   &.no-bg {
     border: none;
     box-shadow: none;
