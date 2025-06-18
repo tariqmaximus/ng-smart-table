@@ -8,10 +8,10 @@
 
 .tag {
   height: 28px;
-  border-radius: $round-md;
+  border-radius: $table-round;
   padding: 4px;
   background: white;
-  color: $text-color;
+  color: $dark-color;
   font-size: 10px;
   text-transform: uppercase;
   height: auto;
@@ -25,17 +25,17 @@
 
 .form-select,
 .form-control {
-  border: $bs-border-width $bs-border-color;
+  border: $bs-border-width $bs-border;
   background-color: var(--bg-color);
   outline: none;
-  color: $muted-text-color;
+  color: $muted-color;
   height: 35px;
 
   &:focus {
     background-color: var(--bg-color);
-    border-color: $bs-border-color;
+    border-color: $bs-border;
     box-shadow: none;
-    color: $text-color;
+    color: $dark-color;
   }
 
 
@@ -46,8 +46,8 @@
 
 .form-row {
   display: flex;
-  gap: $spacing-sm;
-  color: $text-color;
+  gap: $table-spacing;
+  color: $dark-color;
   align-items: center;
   flex-wrap: nowrap !important;
 
@@ -83,15 +83,15 @@ align-items: center;
       }
 
       &:first-child {
-        border-radius: $round-sm 0 0 $round-sm;
+        border-radius: $btn-round 0 0 $btn-round;
       }
 
       &:only-child {
-        border-radius: $round-sm !important;
+        border-radius: $btn-round !important;
       }
 
       &:last-child {
-        border-radius: 0 $round-sm $round-sm 0;
+        border-radius: 0 $btn-round $btn-round 0;
       }
 
       &:focus {
@@ -100,16 +100,16 @@ align-items: center;
       }
 
       &:active {
-        border-color: $bs-border-color;
+        border-color: $bs-border;
 
       }
 
       &.active {
         background-color: var(--bg-color);
-        color: $text-color;
+        color: $dark-color;
 
         span {
-          color: $text-color;
+          color: $dark-color;
         }
 
         i {
@@ -136,30 +136,30 @@ align-items: center;
 
 .btn {
   font-size: 12px;
-  padding: $spacing-sm;
+  padding: $table-spacing;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: $spacing-sm;
-  border: 1px solid $bs-border-color;
-  color: $text-color;
-  background: var(--card-color);
-  font-family: var(--bs-btn-font-family) !important;
+  gap: $table-spacing;
+  border: 1px solid $bs-border;
+  color: $dark-color;
+  background: $table-bg;
+   border-radius: $btn-round ;
   height: 35px;
 
   i {
     font-size: 12px;
-    color: $muted-text-color;
+    color: $muted-color;
   }
   &:focus {
     box-shadow: none;
   }
 &:disabled {
-  border-color: $bs-border-color;
+  border-color: $bs-border;
 }
   span {
     font-size: 12px;
-    color: $muted-text-color;
+    color: $muted-color;
 
   }
 
@@ -185,7 +185,7 @@ align-items: center;
 }
 
 .form-label {
-  color: $muted-text-color;
+  color: $muted-color;
   margin: 0;
 }
 
@@ -202,7 +202,7 @@ align-items: center;
     -webkit-tap-highlight-color: transparent;
     margin: 0;
     display: flex;
-    gap: $spacing-sm;
+    gap: $table-spacing;
     align-items: center;
     justify-content: flex-start;
 
@@ -221,10 +221,10 @@ align-items: center;
       position: relative;
         width: 24px;
         height: 24px;
-        border-radius: $round-sm;
+        border-radius: $btn-round;
         transform: scale(1);
         vertical-align: middle;
-        border: 2px solid $bs-border-color;
+        border: $check-box-border;
         transition: all 0.2s ease;
 
         svg {
@@ -271,8 +271,8 @@ align-items: center;
 
     .checkbox {
       &:first-child {
-        border-color: $second-color;
-        background: $second-color;
+        border-color: $primary-color;
+        background: $primary-color;
         animation: check-15 0.3s ease;
 
         svg {
@@ -308,7 +308,7 @@ align-items: center;
   padding:0;
   width: auto;
   max-width: 100px;
-  color: $muted-text-color;
+  color: $muted-color;
   &:focus {
     background-color: inherit;
     outline: 0;
@@ -316,12 +316,12 @@ align-items: center;
   }
   
   &:hover {
-    color: $text-color; // subtle on-hover effect
+    color: $dark-color; // subtle on-hover effect
   }
 
   option {
-    color: $text-color;
-    background-color: var(--card-bg-color, #fff); // fallback
+    color: $dark-color;
+    background-color: $table-bg; // fallback
     font-size: 12px;
     padding: inherit;
   }
@@ -333,7 +333,7 @@ align-items: center;
   align-items: center;
  justify-content: flex-start;
  text-decoration: none;
- gap: $spacing-sm;
+ gap: $table-spacing;
  .profile-details {
    margin-top: 0;
  }
@@ -348,7 +348,7 @@ align-items: center;
  text-overflow: ellipsis;
  p {
    font-size: 0.7;
-   color: $muted-text-color;
+   color: $muted-color;
  }
 }
 
@@ -406,21 +406,21 @@ align-items: center;
   }
 .date-picker {
   position: absolute;
-  padding: $spacing-md;
+  padding: $table-spacing;
   @include box-style;
   top: 0;
-  background-color: $calendar-bg;
+  
 }
   .card-header {
     background: none;
-
-    border-bottom: $bs-border-width $bs-border-color;
+padding: $table-spacing;
+    border-bottom: $bs-border-width $bs-border;
     height: $card-header-height;
     position: absolute;
     z-index: 1;
     width: 100%;
     left: 0;
-    border-radius: $round-lg $round-lg 0 0;
+    border-radius: $table-round $table-round 0 0;
 
     display: flex;
     justify-content: center;
@@ -470,7 +470,7 @@ align-items: center;
  
     margin-top: $card-header-height ;
     
-padding: $spacing-md !important;
+
 padding-top: 0 !important;
 padding-bottom: 0 !important;
 
@@ -488,14 +488,14 @@ padding-bottom: 0 !important;
     height: $card-header-height;
     .card-header {
       border-bottom: 1px solid transparent;
-   
+   padding: $table-spacing !important;
     }
 
     .card-body {
       max-height: 0;
       opacity: 0;
       padding: 0;
-      margin-top: $card-header-height - $spacing-lg;
+      margin-top: $card-header-height - $table-spacing;
     }
   }
 
@@ -510,12 +510,12 @@ padding-bottom: 0 !important;
     &.#{$name} {
       $fallback: map-get($variant-colors, $name);
       background-color: if($fallback !=null, rgba($fallback, 0.9), rgba(white, 0.05)) !important;
-      border: 1px solid if($fallback !=null, darken($fallback, 5%), $bs-border-color);
-      color: if($name ==light or $name ==default, $text-color, if($name ==dark, white, white));
+      border: 1px solid if($fallback !=null, darken($fallback, 5%), $bs-border);
+      color: if($name ==light or $name ==default, $dark-color, if($name ==dark, white, white));
 
       .card-header {
         background-color: if($fallback !=null, rgba($fallback, 0.9), rgba(white, 0.05));
-        border-bottom-color: if($fallback !=null, darken($fallback, 5%), $bs-border-color);
+        border-bottom-color: if($fallback !=null, darken($fallback, 5%), $bs-border);
 
 
         .title,
@@ -582,6 +582,7 @@ $calendar-radius: 12px;
     justify-content: space-between;
     gap: 8px;
     margin-bottom: 16px;
+    
 
     select {
       padding: 6px 10px;
@@ -657,13 +658,13 @@ $calendar-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: $bs-border-width $bs-border-color;
-  border-radius: $round-md;
-  padding: $spacing-sm ;
+  border: $bs-border-width $bs-border;
+  border-radius: $table-round;
+  padding: $table-spacing ;
   margin-bottom: 0;
   transition: 0.4s;
   min-height: inherit;
-  background-color: var(--card-color);
+  
 
   &:last-child {
     margin: 0;
@@ -671,7 +672,7 @@ $calendar-radius: 12px;
 
   &:hover {
     background-color: white;
-    box-shadow: $box-shadow-lg;
+    box-shadow: $table-shadow;
   }
 }
 .lead-card {
@@ -682,9 +683,10 @@ $calendar-radius: 12px;
   }
 }
   .progress {
-    height: 5px;
+    height: 2px;
     overflow: inherit;
-    background-color: var(--card-color);
+    background-color: $bs-border;
+    
     .progress-bar {
       height: 100%;
       position: relative;
@@ -730,9 +732,10 @@ table {
     th {
         font-size: 12px;
         font-weight: 500;
-       
+       color:$muted-color;
+
        text-transform: uppercase;
-        padding: $spacing-sm 0;
+        padding: $table-spacing ;
 &:last-child {
   >div {
   justify-content: flex-end ;
@@ -743,7 +746,7 @@ table {
 
     thead {
 
-        border-bottom: $bs-border-width $bs-border-color;
+        border-bottom: $bs-border-width $bs-border;
         text-transform: capitalize;
 
     }
@@ -755,7 +758,7 @@ table {
 
     tr {
 
-        border-bottom: $bs-border-width $bs-border-color;
+        border-bottom: $bs-border-width $bs-border;
         position: relative;
 
         .mobile-btn {
@@ -769,13 +772,13 @@ table {
                 background: none;
 
                 i {
-                    color: $muted-text-color;
+                    color: $muted-color;
                 }
             }
         }
 
         td {
-            padding: $spacing-sm 0;
+            padding: $table-spacing ;
             font-size:14px;
 
         }
@@ -785,7 +788,7 @@ table {
         }
     }
 tfoot {
-  border-top: $bs-border-width $bs-border-color;
+  border-top: $bs-border-width $bs-border;
 }
 }
 

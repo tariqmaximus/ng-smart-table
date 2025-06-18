@@ -89,7 +89,7 @@
         <thead>
           <tr>
             <th *ngFor="let column of columns; let colIndex = index" (click)="Sorting ? sortByColumn(column.key) : null"
-              class="text-nowrap text-start align-middle text-muted" style="cursor: pointer;" scope="col">
+              class="text-nowrap text-start align-middle " style="cursor: pointer;" scope="col">
               <div class="d-flex align-items-center">
                 <!-- Always show Select All checkbox -->
                 <ng-container *ngIf="colIndex === 0">
