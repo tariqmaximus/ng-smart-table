@@ -39,17 +39,18 @@ statusMap = {
 data = [
 // START OF 50 DUMMY LEADS
 {
-    profileImage: 'assets/dp1.jpg',
-    name: 'Brandon Mcgee',
-    source: 'Website',
-    email: 'joshuacollins@hotmail.com',
-    phone: '001-189-115-9038x67576',
-    organization: 'BrightFuture',
-    status: 'archived',
-    assignedTo: 'Emma',
-    tags: 'Support, App Dev',
-    createdAt: '2025-02-12'
-  },
+  profileImage: 'assets/dp1.jpg',
+  name: 'Brandon Mcgee',
+  source: 'Website',
+  email: 'joshuacollins@hotmail.com',
+  phone: '001-189-115-9038x67576',
+  organization: 'BrightFuture',
+  status: 'archived',
+  assignedTo: 'Emma',
+  tags: 'Support, App Dev',
+  createdAt: '2025-02-12'
+  
+},
   {
     profileImage: 'assets/dp2.jpg',
     name: 'Nicole Bond',
