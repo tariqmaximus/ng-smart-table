@@ -151,13 +151,13 @@
                         <p class="mb-0"></p>
                       </label>
                     </div>
-                    <div class="profile-tile">
+                    <div class="media-tile">
                       <div class="user-dp sm  round-md" [ngClass]=" statusMap[row.status]">
                         <img class="img-fluid" [src]="row.profileImage || 'assets/dummy.jpg'" alt="Profile Picture"
                           (error)="handleImageError($event)" />
                       </div>
                       <div class="profile-details">
-                        <h5 class="mb-0 text-dark">{{ row.name || 'Unknown' }}</h5>
+                        <p class="mb-0 name  text-dark">{{ row.name || 'Unknown' }}</p>
                         <p class="mb-0 text-muted">{{ row.source || 'No Information' }}</p>
                       </div>
                     </div>
@@ -169,7 +169,7 @@
                   </span>
                 </ng-container>
                 <ng-container *ngSwitchCase="'action'">
-                  <div class="form-group align-left mb-0">
+                  <div class="form-group align-right mb-0">
                     <ng-container *ngFor="let btn of actionButtons">
                       <button *ngIf="!btn.isDropdown" class="btn btn-sm" [ngClass]="btn.className"
                         [attr.title]="btn.tooltip" (click)="handleButtonClick(btn, row)">

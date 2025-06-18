@@ -1577,25 +1577,26 @@ textarea.draft[readonly] {
   padding: inherit;
 }
 
-.profile-tile {
+.media-tile {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   text-decoration: none;
   gap: 8px;
 }
-.profile-tile .profile-details {
+.media-tile .profile-details {
   margin-top: 0;
 }
-.profile-tile h5 {
+.media-tile .name {
   font-size: 0.8rem;
   text-align: left;
   width: 100px;
+  font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.profile-tile h5 p {
+.media-tile .name p {
   font-size: 0.7;
   color: #a3a3a3;
 }
@@ -2535,9 +2536,12 @@ table .key {
 }
 table th {
   font-size: 12px;
-  font-weight: normal;
+  font-weight: 500;
   text-transform: uppercase;
   padding: 8px 0;
+}
+table th:last-child > div {
+  justify-content: flex-end;
 }
 table thead {
   border-bottom: 1px solid #e7e7e7;

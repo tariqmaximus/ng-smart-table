@@ -328,7 +328,7 @@ align-items: center;
   
 }
 
-.profile-tile {
+.media-tile {
   display: flex;
   align-items: center;
  justify-content: flex-start;
@@ -338,10 +338,11 @@ align-items: center;
    margin-top: 0;
  }
 
-h5 {
+.name {
  font-size: 0.8rem;
  text-align: left;
  width:100px;
+ font-weight: 500;
  white-space: nowrap;
  overflow: hidden;
  text-overflow: ellipsis;
@@ -728,10 +729,15 @@ table {
 
     th {
         font-size: 12px;
-        font-weight: normal;
+        font-weight: 500;
+       
        text-transform: uppercase;
         padding: $spacing-sm 0;
-
+&:last-child {
+  >div {
+  justify-content: flex-end ;
+  }
+}
       
     }
 
