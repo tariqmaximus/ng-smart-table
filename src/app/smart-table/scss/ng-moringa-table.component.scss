@@ -354,8 +354,8 @@ h5 {
 }
 .user-dp {
   background-color: var(--primary);
-  width: $dp-size-md;
-  height: $dp-size-md;
+  width: $dp-size;
+  height: $dp-size;
   border-radius: $dp-round;
   overflow: hidden;
   display: flex;
@@ -384,23 +384,7 @@ h5 {
 
 
   }
-  &.lg {
-  width: $dp-size-lg;
-  height: $dp-size-lg;
-  span {
-    font-size: 28px;
-  }
-}
 
-&.md {
-  width: $dp-size-md;
-  height: $dp-size-md;
-}
-
-&.sm {
-  width: $dp-size-sm;
-  height: $dp-size-sm;
-}
 
 }
 .card {
@@ -735,7 +719,7 @@ $calendar-radius: 12px;
 
 table {
     width: 100%;
-    color: $text-color;
+    
     background: none;
 
     .key {
@@ -743,9 +727,9 @@ table {
     }
 
     th {
-        font-size: $font-size-small;
+        font-size: 12px;
         font-weight: normal;
-        color: $muted-text-color;
+       text-transform: uppercase;
         padding: $spacing-sm 0;
 
       
@@ -786,7 +770,7 @@ table {
 
         td {
             padding: $spacing-sm 0;
-            font-size: $font-size-small;
+            font-size:14px;
 
         }
 

@@ -1602,9 +1602,9 @@ textarea.draft[readonly] {
 
 .user-dp {
   background-color: var(--primary);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -1704,21 +1704,6 @@ textarea.draft[readonly] {
 .user-dp.draft {
   background-color: var(--text-color, #a3a3a3);
   border: 2px solid rgb(175.6125, 182, 188.3875);
-}
-.user-dp.lg {
-  width: 80px;
-  height: 80px;
-}
-.user-dp.lg span {
-  font-size: 28px;
-}
-.user-dp.md {
-  width: 50px;
-  height: 50px;
-}
-.user-dp.sm {
-  width: 35px;
-  height: 35px;
 }
 
 .card {
@@ -2543,16 +2528,15 @@ textarea.draft[readonly] {
 
 table {
   width: 100%;
-  color: #63634e;
   background: none;
 }
 table .key {
   display: none;
 }
 table th {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
-  color: #a3a3a3;
+  text-transform: uppercase;
   padding: 8px 0;
 }
 table thead {
@@ -2624,4 +2608,4 @@ table tfoot {
   }
 }
 
-/*# sourceMappingURL=ng-smart-table.component.css.map */
+/*# sourceMappingURL=ng-moringa-table.component.css.map */

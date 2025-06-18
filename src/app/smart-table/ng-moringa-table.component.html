@@ -12,12 +12,12 @@
         </div>
         <div class="d-flex align-items-center flex-wrap gap-2 justify-content-end">
           <div class="form-group mb-0">
-          <button *ngIf="searchFilter" class="btn " (click)="toggleFilters()">
-            <i class="bi bi-search"></i>
-          </button>
+            <button *ngIf="searchFilter" class="btn " (click)="toggleFilters()">
+              <i class="bi bi-search"></i>
+            </button>
 
-          <ng-container *ngIf="dataFilters">
-            
+            <ng-container *ngIf="dataFilters">
+
               <select class="form-select" [(ngModel)]="selectedOption" (change)="applyFilters()">
                 <option value="">All</option>
                 <option *ngFor="let option of searchOptions" [value]="option">{{ option }}</option>
@@ -29,37 +29,37 @@
 
               <!-- Date calendar button -->
               <button class="btn" (click)="toggleCalendar()" style="min-width: 120px;">
-                <i class="icon-calendar"></i>
+                <i class="bi bi-calendar"></i>
                 {{ selectedDate | date: 'y, MMMM, d' }}
               </button>
-            
 
-            <!-- Calendar Popup -->
-            <div class="date-picker" *ngIf="datePicker" style="min-width: 250px;">
-              <div class="d-flex justify-content-between gap-2 mb-2">
-                <select class="form-select" [(ngModel)]="selectedMonth">
-                  <option *ngFor="let m of months; let i = index" [value]="i">{{ m }}</option>
-                </select>
-                <select class="form-select" [(ngModel)]="selectedYear">
-                  <option *ngFor="let y of years" [value]="y">{{ y }}</option>
-                </select>
-              </div>
 
-              <div class="d-grid" style="grid-template-columns: repeat(7, 1fr); gap: 4px;">
-                <div class="text-center fw-bold" *ngFor="let d of dayNames">{{ d }}</div>
-                <div *ngFor="let day of calendarDays" class="text-center p-1 border rounded"
-                  [class.bg-primary]="isSelected(day)" [class.text-white]="isSelected(day)" (click)="selectDate(day)"
-                  style="cursor: pointer;">
-                  {{ day.getDate() }}
+              <!-- Calendar Popup -->
+              <div class="date-picker" *ngIf="datePicker" style="min-width: 250px;">
+                <div class="d-flex justify-content-between gap-2 mb-2">
+                  <select class="form-select" [(ngModel)]="selectedMonth">
+                    <option *ngFor="let m of months; let i = index" [value]="i">{{ m }}</option>
+                  </select>
+                  <select class="form-select" [(ngModel)]="selectedYear">
+                    <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+                  </select>
+                </div>
+
+                <div class="d-grid" style="grid-template-columns: repeat(7, 1fr); gap: 4px;">
+                  <div class="text-center fw-bold" *ngFor="let d of dayNames">{{ d }}</div>
+                  <div *ngFor="let day of calendarDays" class="text-center p-1 border rounded"
+                    [class.bg-primary]="isSelected(day)" [class.text-white]="isSelected(day)" (click)="selectDate(day)"
+                    style="cursor: pointer;">
+                    {{ day.getDate() }}
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-3">
+                  <button class="btn btn-sm" (click)="cancel()">Cancel</button>
+                  <button class="btn btn-sm btn-primary" (click)="confirm()">Confirm</button>
                 </div>
               </div>
-
-              <div class="d-flex justify-content-between mt-3">
-                <button class="btn btn-sm" (click)="cancel()">Cancel</button>
-                <button class="btn btn-sm btn-primary" (click)="confirm()">Confirm</button>
-              </div>
-            </div>
-          </ng-container>
+            </ng-container>
           </div>
           <div class="btn-group" role="group" aria-label="Basic example">
             <button *ngFor="let button of headerButtons" type="button" class="btn " [id]="button.targetId"
@@ -89,7 +89,7 @@
         <thead>
           <tr>
             <th *ngFor="let column of columns; let colIndex = index" (click)="Sorting ? sortByColumn(column.key) : null"
-              class="text-nowrap text-start align-middle" style="cursor: pointer;" scope="col">
+              class="text-nowrap text-start align-middle text-muted" style="cursor: pointer;" scope="col">
               <div class="d-flex align-items-center">
                 <!-- Always show Select All checkbox -->
                 <ng-container *ngIf="colIndex === 0">
@@ -137,7 +137,7 @@
             [ngClass]="{ 'dynamic-row': activeRowIndex === i }">
             <td *ngFor="let column of columns">
               <ng-container [ngSwitch]="column.key">
-                <ng-container *ngSwitchCase="'profileTile'">
+                <ng-container *ngSwitchCase="'profileImage'">
                   <div class="d-flex align-items-center">
                     <div class="checkbox-wrapper">
                       <input class="inp-cbx" [id]="prefix + '-cbx-' + i" type="checkbox"
@@ -153,12 +153,12 @@
                     </div>
                     <div class="profile-tile">
                       <div class="user-dp sm  round-md" [ngClass]=" statusMap[row.status]">
-                        <img class="img-fluid" [src]="row.profileTile || 'assets/dummy.jpg'" alt="Profile Picture"
+                        <img class="img-fluid" [src]="row.profileImage || 'assets/dummy.jpg'" alt="Profile Picture"
                           (error)="handleImageError($event)" />
                       </div>
                       <div class="profile-details">
-                        <h5 class="mb-0">{{ row.name || 'Unknown' }}</h5>
-                        <p class="mb-0">{{ row.source || 'No Information' }}</p>
+                        <h5 class="mb-0 text-dark">{{ row.name || 'Unknown' }}</h5>
+                        <p class="mb-0 text-muted">{{ row.source || 'No Information' }}</p>
                       </div>
                     </div>
                   </div>
