@@ -51,10 +51,10 @@ $card-header-height: 60px;
 
 //mixins
 @mixin box-style {
-    border: $bs-border-width $bs-border;
+
 box-shadow:  $table-shadow;
-    border-radius: $table-round;
-    background-color: $table-bg !important;
+   
+    background-color: $table-bg ;
 }
 
 

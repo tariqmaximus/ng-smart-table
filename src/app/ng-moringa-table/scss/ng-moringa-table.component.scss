@@ -383,10 +383,12 @@ textarea {
 }
 .card {
   position: relative;
-  @include box-style;
+border:$bs-border-width $bs-border;
+border-radius: $table-flate;
   min-height: $card-header-height;
   padding-bottom: 0;
 transition: 0.4s;
+
   @include mobile-view {
     box-shadow: none !important;
   }
@@ -529,7 +531,10 @@ padding-bottom: 0 !important;
     }
   }
 &.round-card {
-  
+  border-radius: $table-round;
+}
+&.shadowed {
+  @include box-style;
 }
   &.no-bg {
     border: none;
