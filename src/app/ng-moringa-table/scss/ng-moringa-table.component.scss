@@ -1,13 +1,9 @@
-@import'./responsive';
+@import './responsive';
 @import './variables';
 @import './mixins';
 
-
-
-
-
+// Tag Component
 .tag {
-  height: 28px;
   border-radius: $table-round;
   padding: 4px;
   background: white;
@@ -23,13 +19,13 @@
   }
 }
 
-.btn, .form-select,
-.form-control {
-  border: $bs-border-width $bs-border;
+// Input Controls
+.btn, .form-select, .form-control {
+  border: 1px solid $bs-border;
   background-color: var(--bg-color);
-  outline: none;
   color: $muted-color;
   height: 35px;
+  outline: none;
 
   &:focus {
     background-color: var(--bg-color);
@@ -37,92 +33,56 @@
     box-shadow: none;
     color: $dark-color;
   }
-
-
-
-
 }
 
-
-.form-row {
+.form-group {
   display: flex;
-  gap: $table-spacing;
-  color: $dark-color;
   align-items: center;
-  flex-wrap: nowrap !important;
+  gap: 0;
 
-}
-.form-row, .form-group {
-    &.align-left {
-    justify-content: flex-start;
+  > * {
+    border-radius: 0;
+    transition: 0.4s;
 
-  }
-
-  &.align-center {
-    justify-content: center;
-
-  }
-
-  &.align-right {
-    justify-content: flex-end;
-
-  }
-}
- .form-group {
-    gap: 0;
-display: flex;
-align-items: center;
-
-   >* {
-      border-radius: 0;
-      transition: 0.4s;
-     
-
-      &:not(:last-child) {
-        border-right: none;
-      }
-
-      &:first-child {
-        border-radius: $btn-round 0 0 $btn-round;
-      }
-
-      &:only-child {
-        border-radius: $btn-round !important;
-      }
-
-      &:last-child {
-        border-radius: 0 $btn-round $btn-round 0;
-      }
-
-      &:focus {
-        outline: none;
-        box-shadow: none;
-      }
-
-      &:active {
-        border-color: $bs-border;
-
-      }
-
-      &.active {
-        background-color: var(--bg-color);
-        color: $dark-color;
-
-        span {
-          color: $dark-color;
-        }
-
-        i {
-          color: var(--info-color);
-
-        }
-      }
-
-   
+    &:not(:last-child) {
+      border-right: none;
     }
 
+    &:first-child {
+      border-radius: $btn-round 0 0 $btn-round;
+    }
 
+    &:only-child {
+      border-radius: $btn-round !important;
+    }
+
+    &:last-child {
+      border-radius: 0 $btn-round $btn-round 0;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &:active {
+      border-color: $bs-border;
+    }
+
+    &.active {
+      background-color: var(--bg-color);
+      color: $dark-color;
+
+      span {
+        color: $dark-color;
+      }
+
+      i {
+        color: var(--info-color);
+      }
+    }
   }
+}
 
 .btn {
   font-size: 12px;
@@ -134,66 +94,44 @@ align-items: center;
   border: 1px solid $bs-border;
   color: $dark-color;
   background: $table-bg;
-   border-radius: $btn-round ;
+  border-radius: $btn-round;
   height: 35px;
 
   i {
     font-size: 12px;
     color: $muted-color;
   }
-  &:focus {
-    box-shadow: none;
-  }
-&:disabled {
-  border-color: $bs-border;
-}
+
   span {
     font-size: 12px;
     color: $muted-color;
+  }
 
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:disabled {
+    border-color: $bs-border;
   }
 
   @each $name, $color in $variants {
-
-
     &.icon-btn-#{$name} {
-      @include button-style ($name, $color);
+      @include button-style($name, $color);
     }
   }
 }
-.form-control,
-.form-select,
-textarea {
-  background-color: $table-bg;
-  border: 1px solid $bs-border;
 
-
-}
-
-
-.form-label {
-  color: $muted-color;
-  margin: 0;
-}
-
+// Checkbox Wrapper
 .checkbox-wrapper {
   padding: 0;
- 
-  i {
-    opacity: 9;
-  }
 
   .cbx {
-    -webkit-user-select: none;
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    margin: 0;
     display: flex;
     gap: $table-spacing;
     align-items: center;
     justify-content: flex-start;
-
-
     min-width: 55px;
     cursor: pointer;
 
@@ -202,187 +140,108 @@ textarea {
       height: auto;
     }
 
-
     .checkbox {
-      
       position: relative;
-        width: 24px;
-        height: 24px;
-        border-radius: $btn-round;
-        transform: scale(1);
-        vertical-align: middle;
-        border: $check-box-border;
-        transition: all 0.2s ease;
+      width: 24px;
+      height: 24px;
+      border-radius: $btn-round;
+      border: 2px solid $check-box-border;
+      transition: all 0.2s ease;
 
-        svg {
-          position: absolute;
-          z-index: 1;
-          top: 6px;
-          left: 4px;
-          fill: none;
-          stroke:white;
-          stroke-width: 2;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-          stroke-dasharray: 16px;
-          stroke-dashoffset: 16px;
-          transition: all 0.3s ease;
-          transition-delay: 0.1s;
-          transform: translate3d(0, 0, 0);
-        }
+      svg {
+        position: absolute;
+        top: 6px;
+        left: 4px;
+        fill: none;
+        stroke: white;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 16px;
+        stroke-dashoffset: 16px;
+        transition: all 0.3s ease;
+        transition-delay: 0.1s;
+      }
 
-        &:before {
-          content: "";
-          width: 100%;
-          height: 100%;
-          background: var();
-          display: block;
-          transform: scale(0);
-          opacity: 1;
-          border-radius: 50%;
-          transition-delay: 0.2s;
-        }
-      
-
-    
+      &:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: var();
+        transform: scale(0);
+        opacity: 1;
+        border-radius: 50%;
+        transition-delay: 0.2s;
+      }
     }
-
-   
   }
 
   .inp-cbx {
     display: none;
   }
 
-  .inp-cbx:checked+.cbx {
+  .inp-cbx:checked + .cbx .checkbox {
+    &:first-child {
+      border-color: $primary-color;
+      background: $primary-color;
+      animation: check-15 0.3s ease;
 
-    .checkbox {
-      &:first-child {
-        border-color: $primary-color;
-        background: $primary-color;
-        animation: check-15 0.3s ease;
-
-        svg {
-          stroke-dashoffset: 0;
-        }
-
-        &:before {
-          transform: scale(2.2);
-          opacity: 0;
-          transition: all 0.3s ease;
-        }
+      svg {
+        stroke-dashoffset: 0;
       }
 
-      &:last-child {
-        color: #B9B8C3;
+      &:before {
+        transform: scale(2.2);
+        opacity: 0;
         transition: all 0.3s ease;
-        flex: 1;
-        max-width: 25px;
-
-        &:after {
-          transform: scaleX(1);
-          transition: all 0.3s ease;
-        }
       }
     }
   }
 }
-.reset-dropdown {
- background-color: inherit;
-  border: none;
-  height: auto;
-  font-size: 12px;
-  padding:0;
-  width: auto;
-  max-width: 100px;
-  color: $muted-color;
-  &:focus {
-    background-color: inherit;
-    outline: 0;
-    box-shadow: none;
-  }
-  
-  &:hover {
-    color: $dark-color; // subtle on-hover effect
-  }
-
-  option {
-    color: $dark-color;
-    background-color: $table-bg; // fallback
-    font-size: 12px;
-    padding: inherit;
-  }
-  
-}
-
-.media-tile {
-  display: flex;
-  align-items: center;
- justify-content: flex-start;
- text-decoration: none;
- gap: $table-spacing;
- .profile-details {
-   margin-top: 0;
- }
-
-.name {
- font-size: 0.8rem;
- text-align: left;
- width:100px;
- font-weight: 500;
- white-space: nowrap;
- overflow: hidden;
- text-overflow: ellipsis;
- p {
-   font-size: 0.7;
-   color: $muted-color;
- }
-}
-
-}
-.media-img {
-  background-color: var(--primary);
-  width: $dp-size;
-  height: $dp-size;
-  border-radius: $dp-round;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-
-  i {
-    font-size: 40px;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  @each $name, $color in $variants {
-   &.#{$name} {
-  background-color: $color;
-  $fallborder: map-get($variant-colors, $name);
-  border: 3px solid if($fallborder != null, lighten($fallborder, 40%), lighten($color, 10%));
-}
 
 
-  }
-
-
-}
 .card {
   position: relative;
-border:$bs-border-width $bs-border;
-border-radius: $table-flate;
+  border: 1px solid $bs-border;
+  border-radius: $table-flate;
   min-height: $card-header-height;
   padding-bottom: 0;
-transition: 0.4s;
+  transition: 0.4s;
+.progress {
+  height: 2px;
+  overflow: inherit;
+  background-color: $bs-border;
 
+  .progress-bar {
+    height: 100%;
+    position: relative;
+    overflow: inherit;
+
+    .tag {
+      width: auto;
+      height: auto;
+      position: absolute;
+      z-index: 999;
+      right: -5px;
+      top: -10px;
+      opacity: 0.9;
+      transition: 0.4s;
+
+    }
+
+    @each $name, $color in $variants {
+      &.#{$name} {
+        @include tag-style($name, $color);
+
+        .tag {
+
+          @include tag-style($name, $color);
+        }
+      }
+    }
+  }
+
+}
   @include mobile-view {
     box-shadow: none !important;
   }
@@ -393,17 +252,19 @@ transition: 0.4s;
     }
 
   }
-.date-picker {
-  position: absolute;
-  padding: $table-spacing;
-  @include box-style;
-  top: 0;
-  
-}
+
+  .date-picker {
+    position: absolute;
+    padding: $table-spacing;
+    @include box-style;
+    top: 0;
+
+  }
+
   .card-header {
     background: none;
-padding: $table-spacing;
-    border-bottom: $bs-border-width $bs-border;
+    padding: $table-spacing;
+    border-bottom: 1px solid $bs-border;
     height: $card-header-height;
     position: absolute;
     z-index: 1;
@@ -435,9 +296,11 @@ padding: $table-spacing;
         display: block;
       }
     }
-.title-icon {
-  color: $muted-color;
-}
+
+    .title-icon {
+      color: $muted-color;
+    }
+
     .table-title {
       margin: 0;
       font-size: 16px;
@@ -458,12 +321,12 @@ padding: $table-spacing;
 
     overflow: inherit;
     transition: 0.4s;
- 
-    margin-top: $card-header-height ;
-    
 
-padding-top: 0 !important;
-padding-bottom: 0 !important;
+    margin-top: $card-header-height ;
+
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 
     >* {
       flex: 1;
@@ -477,9 +340,10 @@ padding-bottom: 0 !important;
   &.collapsed {
     padding-bottom: 0;
     height: $card-header-height;
+
     .card-header {
       border-bottom: 1px solid transparent;
-   padding: $table-spacing !important;
+      padding: $table-spacing !important;
     }
 
     .card-body {
@@ -497,39 +361,15 @@ padding-bottom: 0 !important;
     }
   }
 
-  @each $name, $color in $variants {
-    &.#{$name} {
-      $fallback: map-get($variant-colors, $name);
-      background-color: if($fallback !=null, rgba($fallback, 0.9), rgba(white, 0.05)) !important;
-      border: 1px solid if($fallback !=null, darken($fallback, 5%), $bs-border);
-      color: if($name ==light or $name ==default, $dark-color, if($name ==dark, white, white));
 
-      .card-header {
-        background-color: if($fallback !=null, rgba($fallback, 0.9), rgba(white, 0.05));
-        border-bottom-color: if($fallback !=null, darken($fallback, 5%), $bs-border);
-
-
-        .title,
-        i {
-          color: inherit;
-        }
-      }
-
-      .card-body {
-        color: inherit;
-      }
-
-      &:hover {
-        background: if($fallback !=null, lighten($fallback, 5%), $color);
-      }
-    }
+  &.round-card {
+    border-radius: $table-round;
   }
-&.round-card {
-  border-radius: $table-round;
-}
-&.shadowed {
-  @include box-style;
-}
+
+  &.shadowed {
+    @include box-style;
+  }
+
   &.no-bg {
     border: none;
     box-shadow: none;
@@ -544,304 +384,300 @@ padding-bottom: 0 !important;
       margin-top: $card-header-height;
     }
   }
+
   $calendar-bg: #fff;
-$calendar-accent: #0099ff;
-$calendar-text: #888;
-$calendar-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-$calendar-radius: 12px;
+  $calendar-accent: #0099ff;
+  $calendar-text: #888;
+  $calendar-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  $calendar-radius: 12px;
 
-.calendar-trigger {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: white;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.custom-calendar-popup {
-  position: absolute;
-  background: $calendar-bg;
-  width: 280px;
-  border-radius: $calendar-radius;
-  box-shadow: $calendar-shadow;
-  padding: 16px;
-  z-index: 99999;
-  margin-top: 10px;
-
-  .calendar-header {
+  .calendar-trigger {
     display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 16px;
-    
-
-    select {
-      padding: 6px 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      width: 48%;
-    }
-  }
-
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-    gap: 4px;
-
-    .day-name {
-      font-weight: 600;
-      font-size: 13px;
-      color: $calendar-text;
-    }
-
-    .day-cell {
-      padding: 8px;
-      font-size: 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-
-      &:hover {
-        background-color: #f0f0f0;
-      }
-
-      &.active {
-        background-color: $calendar-accent;
-        color: white;
-        font-weight: 600;
-      }
-
-      &:empty {
-        pointer-events: none;
-      }
-    }
-  }
-
-  .calendar-footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-
-    button {
-      background: none;
-      border: none;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      padding: 4px 10px;
-    }
-
-    .cancel-btn {
-      color: #999;
-    }
-
-    .confirm-btn {
-      color: $calendar-accent;
-    }
-  }
-}
-
-}
-
-.profile-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: $bs-border-width $bs-border;
-  border-radius: $table-round;
-  padding: $table-spacing ;
-  margin-bottom: 0;
-  transition: 0.4s;
-  min-height: inherit;
-  
-
-  &:last-child {
-    margin: 0;
-  }
-
-  &:hover {
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     background-color: white;
-    box-shadow: $table-shadow;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
   }
-}
-.lead-card {
-  .card-body {
-    max-height: 400px;
-    height: 400px;
-    overflow-y: auto;
-  }
-}
-  .progress {
-    height: 2px;
-    overflow: inherit;
-    background-color: $bs-border;
-    
-    .progress-bar {
-      height: 100%;
-      position: relative;
-      overflow: inherit;
-      .tag {
-            width: auto;
-            height: auto;
-            position: absolute;
-            z-index: 999;
-            right: -5px;
-            top: -10px;
-            opacity: 0.9;
-            transition: 0.4s;
-            
-          }
-      @each $name, $color in $variants {
-        &.#{$name} {
-          @include tag-style($name, $color);
-          .tag {
-        
-            @include tag-style($name, $color);
-          }
+
+  .custom-calendar-popup {
+    position: absolute;
+    background: $calendar-bg;
+    width: 280px;
+    border-radius: $calendar-radius;
+    box-shadow: $calendar-shadow;
+    padding: 16px;
+    z-index: 99999;
+    margin-top: 10px;
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 16px;
+
+
+      select {
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        width: 48%;
+      }
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      gap: 4px;
+
+      .day-name {
+        font-weight: 600;
+        font-size: 13px;
+        color: $calendar-text;
+      }
+
+      .day-cell {
+        padding: 8px;
+        font-size: 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+
+        &.active {
+          background-color: $calendar-accent;
+          color: white;
+          font-weight: 600;
+        }
+
+        &:empty {
+          pointer-events: none;
         }
       }
     }
 
+    .calendar-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+
+      button {
+        background: none;
+        border: none;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        padding: 4px 10px;
+      }
+
+      .cancel-btn {
+        color: #999;
+      }
+
+      .confirm-btn {
+        color: $calendar-accent;
+      }
+    }
   }
+
+}
+
+
+
 .no-bg {
   border: none;
-  background:none;
+  background: none;
 }
 
-
+// table
 table {
-    width: 100%;
-    
-    background: none;
-.ellipsize {
-  max-width: 200px;
+  width: 100%;
+  background: none;
+  .media-tile {
+  display: flex;
+  align-items: center;
+ justify-content: flex-start;
+ text-decoration: none;
+ gap: $table-spacing;
+.media-img {
+  background-color: var(--primary);
+  width: $media-size;
+  height: $media-size;
+  border-radius: $dp-round;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+
+  i {
+    font-size: 40px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @each $name, $color in $variants {
+   &.#{$name} {
+  background-color: $color;
+  $fallborder: map-get($variant-colors, $name);
+  border: 3px solid if($fallborder != null, lighten($fallborder, 40%), lighten($color, 10%));
 }
-    .key {
-        display: none;
+
+
+  }
+
+
+}
+
+.name {
+ font-size: 0.8rem;
+ text-align: left;
+ width:100px;
+ font-weight: 500;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ p {
+   font-size: 0.7;
+   color: $muted-color;
+ }
+}
+
+}
+  .ellipsize {
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .key {
+    display: none;
+  }
+
+  th {
+    font-size: 12px;
+    font-weight: 500;
+    color: $muted-color;
+
+    text-transform: uppercase;
+    padding: $table-spacing ;
+
+    &:last-child {
+      >div {
+        justify-content: flex-end;
+      }
     }
 
-    th {
-        font-size: 12px;
-        font-weight: 500;
-       color:$muted-color;
+  }
 
-       text-transform: uppercase;
-        padding: $table-spacing ;
-&:last-child {
-  >div {
-  justify-content: flex-end ;
+  thead {
+
+    border-bottom: 1px solid $bs-border;
+    text-transform: capitalize;
+
+  }
+
+
+
+  tr {
+
+    border-bottom: 1px solid $bs-border;
+    position: relative;
+
+    .mobile-btn {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 18px;
+
+      .btn {
+        border: none !important;
+        background: none;
+
+        i {
+          color: $muted-color;
+        }
+      }
+    }
+
+    td {
+      padding: $table-spacing ;
+      font-size: 14px;
+
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  tfoot {
+    border-top: 1px solid $bs-border;
   }
 }
-      
-    }
-
-    thead {
-
-        border-bottom: $bs-border-width $bs-border;
-        text-transform: capitalize;
-
-    }
-
-    tbody {
-        max-height: 200px;
-        overflow-y: scroll;
-    }
-
-    tr {
-
-        border-bottom: $bs-border-width $bs-border;
-        position: relative;
-
-        .mobile-btn {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 18px;
-
-            .btn {
-                border: none !important;
-                background: none;
-
-                i {
-                    color: $muted-color;
-                }
-            }
-        }
-
-        td {
-            padding: $table-spacing ;
-            font-size:14px;
-
-        }
-
-        &:last-child {
-            border: none;
-        }
-    }
-tfoot {
-  border-top: $bs-border-width $bs-border;
-}
-}
-
+// responsive table
 table.responsive {
 
 
 
-    @media (max-width: 992px) {
-        tr {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .key {
-            display: block;
-        }
-
-        thead {
-            display: none;
-        }
-
-        tbody {
-            tr {
-                max-height: 80px;
-                overflow: hidden;
-
-                td {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-
-                    &:first-child {
-                        min-height: 80px;
-
-                    }
-                }
-
-
-                .mobile-btn {
-                    display: flex;
-
-                }
-            }
-
-            tr.dynamic-row {
-                max-height: inherit;
-                display: inline;
-            }
-        }
+  @media (max-width: 992px) {
+    tr {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
+
+    .key {
+      display: block;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      tr {
+        max-height: 80px;
+        overflow: hidden;
+
+        td {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          &:first-child {
+            min-height: 80px;
+
+          }
+        }
+
+
+        .mobile-btn {
+          display: flex;
+
+        }
+      }
+
+      tr.dynamic-row {
+        max-height: inherit;
+        display: inline;
+      }
+    }
+  }
 }
-
-
-

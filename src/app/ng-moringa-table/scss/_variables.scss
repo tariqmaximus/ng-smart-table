@@ -1,101 +1,74 @@
 
+
+// Base Colors & Variables
 $primary-color: #0173df;
-
-$table-bg: #ffffff;
-$bg-gradient: linear-gradient(to right, #ecf2e7, #daeaf9);
-
-$bs-border: #e7e7e7;
 $dark-color: #63634e;
-$muted-color:#888888;
-$bs-border-width: 1px solid;
-$check-box-border:2px solid $bs-border;
+$muted-color: #888888;
+$table-bg: #ffffff;
+
+//Border & Shadow
+$bs-border: #e7e7e7;
+$check-box-border: $bs-border;
+
+//Layout & Spacing Variables
 $table-spacing: 15px;
-$table-spacing-sm: 5px; 
+$table-spacing-sm: 5px;
 $table-round: 8px;
-$table-flate: 0px; 
-$btn-round:5px;
-$btn-spacing: 5px ;
-$btn-flate:0px;
+$table-flate: 0px;
+$btn-round: 5px;
+$btn-spacing: 5px;
+$btn-flate: 0px;
 $table-shadow: 0 0px 16px rgba(0, 0, 0, 0.1); // Large shadow
-
-// Z-index
-$z-index-header: 1000; // Header
-$z-index-overlay: 1050; // Modal overlay
-$z-index-tooltip: 1100; // Tooltips
-
-// Layout Breakpoints
-$breakpoint-xs: 480px; // Extra small devices
-$breakpoint-sm: 768px; // Small devices
-$breakpoint-md: 992px; // Medium devices
-$breakpoint-lg: 1200px; // Large devices
-
-// Misc
-$transition-duration: 0.3s; // Default transition duration
-$transition-ease: ease-in-out; // Default easing function
-$icon-size: 24px; // Default icon size
-
-//sizes {
-$header-height: 80px;
-$header-height-mobile: 60px;
-$chart-height: 300px;
-$bs-modal-lg: 1024px;
-$bs-modal-md: 650px;
-$bs-modal-sm: 400px;
-$side-bar-close: 80px;
-
-//sizes
-$dp-size: 35px;
-
+$media-size: 35px;
 $dp-round: 10px;
 $card-header-height: 60px;
 
-
-
-// === Color variables ===
+// Flat Color Variants
 $variant-colors: (
-    success: #28a745,
-    pending: #f1a10a,
-    info: #17a2b8,
-    danger: #dc3545,
-    warning: #f1a10a,
-    primary: #007bff,
-    muted: #6c757d,
-    secondary: #6c757d,
-    light: #f8f9fa,
-    default: #adb5bd,
-    archived: #adb5bd,
-    processing: #17a2b8,
-    failed: #dc3545,
-    queued: #17a2b8,
-    on-hold: #6c757d,
-    suspended: #212529,
-    expired: #f1f3f5,
-    rejected: #dc3545,
-    approved: #28a745,
-    active: #007bff,
-    draft: #495057
+  success: #28a745,
+  pending: #f1a10a,
+  info: #17a2b8,
+  danger: #dc3545,
+  warning: #f1a10a,
+  primary: #007bff,
+  muted: #6c757d,
+  secondary: #6c757d,
+  light: #f8f9fa,
+  default: #adb5bd,
+  archived: #adb5bd,
+  processing: #17a2b8,
+  failed: #dc3545,
+  queued: #17a2b8,
+  on-hold: #6c757d,
+  suspended: #212529,
+  expired: #f1f3f5,
+  rejected: #dc3545,
+  approved: #28a745,
+  active: #007bff,
+  draft: #495057
 );
 
+// CSS Variable-Based Variants
 $variants: (
-    success: var(--success-color),
-    pending: var(--warning-color),
-    info: var(--info-color),
-    danger: var(--error-color),
-    warning: var(--warning-color),
-    primary: var(--prim-color),
-    muted: $muted-color,
-    secondary: $muted-color,
-    light: var(--prim-bg, $muted-color),
-    default: var(--bg-color),
-    archived: var(--archived-color, $muted-color),
-    processing: var(--processing-color, var(--info-color)),
-    failed: var(--error-color),
-    queued: var(--info-color),
-    on-hold: $muted-color,
-    suspended: var(--dark-color),
-    expired: var(--light-color),
-    rejected: var(--error-color),
-    approved: var(--success-color),
-    active: var(--prim-color),
-    draft: var(--text-color, $muted-color)
+  success: var(--success-color),
+  pending: var(--warning-color),
+  info: var(--info-color),
+  danger: var(--error-color),
+  warning: var(--warning-color),
+  primary: var(--prim-color),
+  muted: $muted-color,
+  secondary: $muted-color,
+  light: var(--prim-bg, $muted-color),
+  default: var(--bg-color),
+  archived: var(--archived-color, $muted-color),
+  processing: var(--processing-color, var(--info-color)),
+  failed: var(--error-color),
+  queued: var(--info-color),
+  on-hold: $muted-color,
+  suspended: var(--dark-color),
+  expired: var(--light-color),
+  rejected: var(--error-color),
+  approved: var(--success-color),
+  active: var(--prim-color),
+  draft: var(--text-color, $muted-color)
 );

@@ -1,5 +1,4 @@
 .tag {
-  height: 28px;
   border-radius: 8px;
   padding: 4px;
   background: white;
@@ -93,44 +92,24 @@
   background-color: rgb(175.6125, 182, 188.3875);
 }
 
-.btn, .form-select,
-.form-control {
+.btn, .form-select, .form-control {
   border: 1px solid #e7e7e7;
   background-color: var(--bg-color);
-  outline: none;
   color: #888888;
   height: 35px;
+  outline: none;
 }
-.btn:focus, .form-select:focus,
-.form-control:focus {
+.btn:focus, .form-select:focus, .form-control:focus {
   background-color: var(--bg-color);
   border-color: #e7e7e7;
   box-shadow: none;
   color: #63634e;
 }
 
-.form-row {
-  display: flex;
-  gap: 15px;
-  color: #63634e;
-  align-items: center;
-  flex-wrap: nowrap !important;
-}
-
-.form-row.align-left, .form-group.align-left {
-  justify-content: flex-start;
-}
-.form-row.align-center, .form-group.align-center {
-  justify-content: center;
-}
-.form-row.align-right, .form-group.align-right {
-  justify-content: flex-end;
-}
-
 .form-group {
-  gap: 0;
   display: flex;
   align-items: center;
+  gap: 0;
 }
 .form-group > * {
   border-radius: 0;
@@ -183,15 +162,15 @@
   font-size: 12px;
   color: #888888;
 }
+.btn span {
+  font-size: 12px;
+  color: #888888;
+}
 .btn:focus {
   box-shadow: none;
 }
 .btn:disabled {
   border-color: #e7e7e7;
-}
-.btn span {
-  font-size: 12px;
-  color: #888888;
 }
 .btn.icon-btn-success {
   color: #28a745;
@@ -320,29 +299,11 @@
   color: inherit;
 }
 
-.form-control,
-.form-select,
-textarea {
-  background-color: #ffffff;
-  border: 1px solid #e7e7e7;
-}
-
-.form-label {
-  color: #888888;
-  margin: 0;
-}
-
 .checkbox-wrapper {
   padding: 0;
 }
-.checkbox-wrapper i {
-  opacity: 9;
-}
 .checkbox-wrapper .cbx {
-  -webkit-user-select: none;
   user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  margin: 0;
   display: flex;
   gap: 15px;
   align-items: center;
@@ -359,14 +320,11 @@ textarea {
   width: 24px;
   height: 24px;
   border-radius: 5px;
-  transform: scale(1);
-  vertical-align: middle;
   border: 2px solid #e7e7e7;
   transition: all 0.2s ease;
 }
 .checkbox-wrapper .cbx .checkbox svg {
   position: absolute;
-  z-index: 1;
   top: 6px;
   left: 4px;
   fill: none;
@@ -378,14 +336,12 @@ textarea {
   stroke-dashoffset: 16px;
   transition: all 0.3s ease;
   transition-delay: 0.1s;
-  transform: translate3d(0, 0, 0);
 }
 .checkbox-wrapper .cbx .checkbox:before {
   content: "";
   width: 100%;
   height: 100%;
   background: var();
-  display: block;
   transform: scale(0);
   opacity: 1;
   border-radius: 50%;
@@ -407,171 +363,6 @@ textarea {
   opacity: 0;
   transition: all 0.3s ease;
 }
-.checkbox-wrapper .inp-cbx:checked + .cbx .checkbox:last-child {
-  color: #B9B8C3;
-  transition: all 0.3s ease;
-  flex: 1;
-  max-width: 25px;
-}
-.checkbox-wrapper .inp-cbx:checked + .cbx .checkbox:last-child:after {
-  transform: scaleX(1);
-  transition: all 0.3s ease;
-}
-
-.reset-dropdown {
-  background-color: inherit;
-  border: none;
-  height: auto;
-  font-size: 12px;
-  padding: 0;
-  width: auto;
-  max-width: 100px;
-  color: #888888;
-}
-.reset-dropdown:focus {
-  background-color: inherit;
-  outline: 0;
-  box-shadow: none;
-}
-.reset-dropdown:hover {
-  color: #63634e;
-}
-.reset-dropdown option {
-  color: #63634e;
-  background-color: #ffffff;
-  font-size: 12px;
-  padding: inherit;
-}
-
-.media-tile {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-decoration: none;
-  gap: 15px;
-}
-.media-tile .profile-details {
-  margin-top: 0;
-}
-.media-tile .name {
-  font-size: 0.8rem;
-  text-align: left;
-  width: 100px;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.media-tile .name p {
-  font-size: 0.7;
-  color: #888888;
-}
-
-.media-img {
-  background-color: var(--primary);
-  width: 35px;
-  height: 35px;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-}
-.media-img i {
-  font-size: 40px;
-}
-.media-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.media-img.success {
-  background-color: var(--success-color);
-  border: 3px solid rgb(175.1304347826, 235.8695652174, 189);
-}
-.media-img.pending {
-  background-color: var(--warning-color);
-  border: 3px solid rgb(252.8087649402, 235.2788844622, 202.1912350598);
-}
-.media-img.info {
-  background-color: var(--info-color);
-  border: 3px solid rgb(167, 233.4782608696, 244);
-}
-.media-img.danger {
-  background-color: var(--error-color);
-  border: 3px solid rgb(250.1265822785, 226.8734177215, 229.1012658228);
-}
-.media-img.warning {
-  background-color: var(--warning-color);
-  border: 3px solid rgb(252.8087649402, 235.2788844622, 202.1912350598);
-}
-.media-img.primary {
-  background-color: var(--prim-color);
-  border: 3px solid rgb(204, 228.6, 255);
-}
-.media-img.muted {
-  background-color: #888888;
-  border: 3px solid rgb(215.8369098712, 218.6566523605, 221.1630901288);
-}
-.media-img.secondary {
-  background-color: #888888;
-  border: 3px solid rgb(215.8369098712, 218.6566523605, 221.1630901288);
-}
-.media-img.light {
-  background-color: var(--prim-bg, #888888);
-  border: 3px solid white;
-}
-.media-img.default {
-  background-color: var(--bg-color);
-  border: 3px solid white;
-}
-.media-img.archived {
-  background-color: var(--archived-color, #888888);
-  border: 3px solid white;
-}
-.media-img.processing {
-  background-color: var(--processing-color, var(--info-color));
-  border: 3px solid rgb(167, 233.4782608696, 244);
-}
-.media-img.failed {
-  background-color: var(--error-color);
-  border: 3px solid rgb(250.1265822785, 226.8734177215, 229.1012658228);
-}
-.media-img.queued {
-  background-color: var(--info-color);
-  border: 3px solid rgb(167, 233.4782608696, 244);
-}
-.media-img.on-hold {
-  background-color: #888888;
-  border: 3px solid rgb(215.8369098712, 218.6566523605, 221.1630901288);
-}
-.media-img.suspended {
-  background-color: var(--dark-color);
-  border: 3px solid rgb(126.4594594595, 139, 151.5405405405);
-}
-.media-img.expired {
-  background-color: var(--light-color);
-  border: 3px solid white;
-}
-.media-img.rejected {
-  background-color: var(--error-color);
-  border: 3px solid rgb(250.1265822785, 226.8734177215, 229.1012658228);
-}
-.media-img.approved {
-  background-color: var(--success-color);
-  border: 3px solid rgb(175.1304347826, 235.8695652174, 189);
-}
-.media-img.active {
-  background-color: var(--prim-color);
-  border: 3px solid rgb(204, 228.6, 255);
-}
-.media-img.draft {
-  background-color: var(--text-color, #888888);
-  border: 3px solid rgb(175.6125, 182, 188.3875);
-}
 
 .card {
   position: relative;
@@ -580,6 +371,194 @@ textarea {
   min-height: 60px;
   padding-bottom: 0;
   transition: 0.4s;
+}
+.card .progress {
+  height: 2px;
+  overflow: inherit;
+  background-color: #e7e7e7;
+}
+.card .progress .progress-bar {
+  height: 100%;
+  position: relative;
+  overflow: inherit;
+}
+.card .progress .progress-bar .tag {
+  width: auto;
+  height: auto;
+  position: absolute;
+  z-index: 999;
+  right: -5px;
+  top: -10px;
+  opacity: 0.9;
+  transition: 0.4s;
+}
+.card .progress .progress-bar.success {
+  color: var(--success-color);
+  background-color: rgb(175.1304347826, 235.8695652174, 189);
+}
+.card .progress .progress-bar.success .tag {
+  color: var(--success-color);
+  background-color: rgb(175.1304347826, 235.8695652174, 189);
+}
+.card .progress .progress-bar.pending {
+  color: var(--warning-color);
+  background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
+}
+.card .progress .progress-bar.pending .tag {
+  color: var(--warning-color);
+  background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
+}
+.card .progress .progress-bar.info {
+  color: var(--info-color);
+  background-color: rgb(167, 233.4782608696, 244);
+}
+.card .progress .progress-bar.info .tag {
+  color: var(--info-color);
+  background-color: rgb(167, 233.4782608696, 244);
+}
+.card .progress .progress-bar.danger {
+  color: var(--error-color);
+  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
+}
+.card .progress .progress-bar.danger .tag {
+  color: var(--error-color);
+  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
+}
+.card .progress .progress-bar.warning {
+  color: var(--warning-color);
+  background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
+}
+.card .progress .progress-bar.warning .tag {
+  color: var(--warning-color);
+  background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
+}
+.card .progress .progress-bar.primary {
+  color: var(--prim-color);
+  background-color: rgb(204, 228.6, 255);
+}
+.card .progress .progress-bar.primary .tag {
+  color: var(--prim-color);
+  background-color: rgb(204, 228.6, 255);
+}
+.card .progress .progress-bar.muted {
+  color: #888888;
+  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
+}
+.card .progress .progress-bar.muted .tag {
+  color: #888888;
+  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
+}
+.card .progress .progress-bar.secondary {
+  color: #888888;
+  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
+}
+.card .progress .progress-bar.secondary .tag {
+  color: #888888;
+  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
+}
+.card .progress .progress-bar.light {
+  color: var(--prim-bg, #888888);
+  background-color: white;
+}
+.card .progress .progress-bar.light .tag {
+  color: var(--prim-bg, #888888);
+  background-color: white;
+}
+.card .progress .progress-bar.default {
+  color: var(--bg-color);
+  background-color: white;
+}
+.card .progress .progress-bar.default .tag {
+  color: var(--bg-color);
+  background-color: white;
+}
+.card .progress .progress-bar.archived {
+  color: var(--archived-color, #888888);
+  background-color: white;
+}
+.card .progress .progress-bar.archived .tag {
+  color: var(--archived-color, #888888);
+  background-color: white;
+}
+.card .progress .progress-bar.processing {
+  color: var(--processing-color, var(--info-color));
+  background-color: rgb(167, 233.4782608696, 244);
+}
+.card .progress .progress-bar.processing .tag {
+  color: var(--processing-color, var(--info-color));
+  background-color: rgb(167, 233.4782608696, 244);
+}
+.card .progress .progress-bar.failed {
+  color: var(--error-color);
+  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
+}
+.card .progress .progress-bar.failed .tag {
+  color: var(--error-color);
+  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
+}
+.card .progress .progress-bar.queued {
+  color: var(--info-color);
+  background-color: rgb(167, 233.4782608696, 244);
+}
+.card .progress .progress-bar.queued .tag {
+  color: var(--info-color);
+  background-color: rgb(167, 233.4782608696, 244);
+}
+.card .progress .progress-bar.on-hold {
+  color: #888888;
+  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
+}
+.card .progress .progress-bar.on-hold .tag {
+  color: #888888;
+  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
+}
+.card .progress .progress-bar.suspended {
+  color: var(--dark-color);
+  background-color: rgb(126.4594594595, 139, 151.5405405405);
+}
+.card .progress .progress-bar.suspended .tag {
+  color: var(--dark-color);
+  background-color: rgb(126.4594594595, 139, 151.5405405405);
+}
+.card .progress .progress-bar.expired {
+  color: var(--light-color);
+  background-color: white;
+}
+.card .progress .progress-bar.expired .tag {
+  color: var(--light-color);
+  background-color: white;
+}
+.card .progress .progress-bar.rejected {
+  color: var(--error-color);
+  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
+}
+.card .progress .progress-bar.rejected .tag {
+  color: var(--error-color);
+  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
+}
+.card .progress .progress-bar.approved {
+  color: var(--success-color);
+  background-color: rgb(175.1304347826, 235.8695652174, 189);
+}
+.card .progress .progress-bar.approved .tag {
+  color: var(--success-color);
+  background-color: rgb(175.1304347826, 235.8695652174, 189);
+}
+.card .progress .progress-bar.active {
+  color: var(--prim-color);
+  background-color: rgb(204, 228.6, 255);
+}
+.card .progress .progress-bar.active .tag {
+  color: var(--prim-color);
+  background-color: rgb(204, 228.6, 255);
+}
+.card .progress .progress-bar.draft {
+  color: var(--text-color, #888888);
+  background-color: rgb(175.6125, 182, 188.3875);
+}
+.card .progress .progress-bar.draft .tag {
+  color: var(--text-color, #888888);
+  background-color: rgb(175.6125, 182, 188.3875);
 }
 @media (max-width: 768px) {
   .card {
@@ -677,405 +656,6 @@ textarea {
     max-height: inherit;
     height: auto;
   }
-}
-.card.success {
-  background-color: rgba(40, 167, 69, 0.9) !important;
-  border: 1px solid rgb(35.0724637681, 146.4275362319, 60.5);
-  color: white;
-}
-.card.success .card-header {
-  background-color: rgba(40, 167, 69, 0.9);
-  border-bottom-color: rgb(35.0724637681, 146.4275362319, 60.5);
-}
-.card.success .card-header .title,
-.card.success .card-header i {
-  color: inherit;
-}
-.card.success .card-body {
-  color: inherit;
-}
-.card.success:hover {
-  background: rgb(44.9275362319, 187.5724637681, 77.5);
-}
-.card.pending {
-  background-color: rgba(241, 161, 10, 0.9) !important;
-  border: 1px solid rgb(216.515936255, 144.6434262948, 8.984063745);
-  color: white;
-}
-.card.pending .card-header {
-  background-color: rgba(241, 161, 10, 0.9);
-  border-bottom-color: rgb(216.515936255, 144.6434262948, 8.984063745);
-}
-.card.pending .card-header .title,
-.card.pending .card-header i {
-  color: inherit;
-}
-.card.pending .card-body {
-  color: inherit;
-}
-.card.pending:hover {
-  background: rgb(245.6972111554, 171.2749003984, 30.8027888446);
-}
-.card.info {
-  background-color: rgba(23, 162, 184, 0.9) !important;
-  border: 1px solid rgb(20.1666666667, 142.0434782609, 161.3333333333);
-  color: white;
-}
-.card.info .card-header {
-  background-color: rgba(23, 162, 184, 0.9);
-  border-bottom-color: rgb(20.1666666667, 142.0434782609, 161.3333333333);
-}
-.card.info .card-header .title,
-.card.info .card-header i {
-  color: inherit;
-}
-.card.info .card-body {
-  color: inherit;
-}
-.card.info:hover {
-  background: rgb(25.8333333333, 181.9565217391, 206.6666666667);
-}
-.card.danger {
-  background-color: rgba(220, 53, 69, 0.9) !important;
-  border: 1px solid rgb(210.9493670886, 36.5506329114, 53.2594936709);
-  color: white;
-}
-.card.danger .card-header {
-  background-color: rgba(220, 53, 69, 0.9);
-  border-bottom-color: rgb(210.9493670886, 36.5506329114, 53.2594936709);
-}
-.card.danger .card-header .title,
-.card.danger .card-header i {
-  color: inherit;
-}
-.card.danger .card-body {
-  color: inherit;
-}
-.card.danger:hover {
-  background: rgb(223.7658227848, 74.7341772152, 89.0126582278);
-}
-.card.warning {
-  background-color: rgba(241, 161, 10, 0.9) !important;
-  border: 1px solid rgb(216.515936255, 144.6434262948, 8.984063745);
-  color: white;
-}
-.card.warning .card-header {
-  background-color: rgba(241, 161, 10, 0.9);
-  border-bottom-color: rgb(216.515936255, 144.6434262948, 8.984063745);
-}
-.card.warning .card-header .title,
-.card.warning .card-header i {
-  color: inherit;
-}
-.card.warning .card-body {
-  color: inherit;
-}
-.card.warning:hover {
-  background: rgb(245.6972111554, 171.2749003984, 30.8027888446);
-}
-.card.primary {
-  background-color: rgba(0, 123, 255, 0.9) !important;
-  border: 1px solid rgb(0, 110.7, 229.5);
-  color: white;
-}
-.card.primary .card-header {
-  background-color: rgba(0, 123, 255, 0.9);
-  border-bottom-color: rgb(0, 110.7, 229.5);
-}
-.card.primary .card-header .title,
-.card.primary .card-header i {
-  color: inherit;
-}
-.card.primary .card-body {
-  color: inherit;
-}
-.card.primary:hover {
-  background: rgb(25.5, 136.2, 255);
-}
-.card.muted {
-  background-color: rgba(108, 117, 125, 0.9) !important;
-  border: 1px solid rgb(96.1802575107, 104.19527897, 111.3197424893);
-  color: white;
-}
-.card.muted .card-header {
-  background-color: rgba(108, 117, 125, 0.9);
-  border-bottom-color: rgb(96.1802575107, 104.19527897, 111.3197424893);
-}
-.card.muted .card-header .title,
-.card.muted .card-header i {
-  color: inherit;
-}
-.card.muted .card-body {
-  color: inherit;
-}
-.card.muted:hover {
-  background: rgb(120.0751072961, 129.7896995708, 138.4248927039);
-}
-.card.secondary {
-  background-color: rgba(108, 117, 125, 0.9) !important;
-  border: 1px solid rgb(96.1802575107, 104.19527897, 111.3197424893);
-  color: white;
-}
-.card.secondary .card-header {
-  background-color: rgba(108, 117, 125, 0.9);
-  border-bottom-color: rgb(96.1802575107, 104.19527897, 111.3197424893);
-}
-.card.secondary .card-header .title,
-.card.secondary .card-header i {
-  color: inherit;
-}
-.card.secondary .card-body {
-  color: inherit;
-}
-.card.secondary:hover {
-  background: rgb(120.0751072961, 129.7896995708, 138.4248927039);
-}
-.card.light {
-  background-color: rgba(248, 249, 250, 0.9) !important;
-  border: 1px solid rgb(233.125, 236.25, 239.375);
-  color: #63634e;
-}
-.card.light .card-header {
-  background-color: rgba(248, 249, 250, 0.9);
-  border-bottom-color: rgb(233.125, 236.25, 239.375);
-}
-.card.light .card-header .title,
-.card.light .card-header i {
-  color: inherit;
-}
-.card.light .card-body {
-  color: inherit;
-}
-.card.light:hover {
-  background: white;
-}
-.card.default {
-  background-color: rgba(173, 181, 189, 0.9) !important;
-  border: 1px solid rgb(158.8716216216, 168.25, 177.6283783784);
-  color: #63634e;
-}
-.card.default .card-header {
-  background-color: rgba(173, 181, 189, 0.9);
-  border-bottom-color: rgb(158.8716216216, 168.25, 177.6283783784);
-}
-.card.default .card-header .title,
-.card.default .card-header i {
-  color: inherit;
-}
-.card.default .card-body {
-  color: inherit;
-}
-.card.default:hover {
-  background: rgb(187.1283783784, 193.75, 200.3716216216);
-}
-.card.archived {
-  background-color: rgba(173, 181, 189, 0.9) !important;
-  border: 1px solid rgb(158.8716216216, 168.25, 177.6283783784);
-  color: white;
-}
-.card.archived .card-header {
-  background-color: rgba(173, 181, 189, 0.9);
-  border-bottom-color: rgb(158.8716216216, 168.25, 177.6283783784);
-}
-.card.archived .card-header .title,
-.card.archived .card-header i {
-  color: inherit;
-}
-.card.archived .card-body {
-  color: inherit;
-}
-.card.archived:hover {
-  background: rgb(187.1283783784, 193.75, 200.3716216216);
-}
-.card.processing {
-  background-color: rgba(23, 162, 184, 0.9) !important;
-  border: 1px solid rgb(20.1666666667, 142.0434782609, 161.3333333333);
-  color: white;
-}
-.card.processing .card-header {
-  background-color: rgba(23, 162, 184, 0.9);
-  border-bottom-color: rgb(20.1666666667, 142.0434782609, 161.3333333333);
-}
-.card.processing .card-header .title,
-.card.processing .card-header i {
-  color: inherit;
-}
-.card.processing .card-body {
-  color: inherit;
-}
-.card.processing:hover {
-  background: rgb(25.8333333333, 181.9565217391, 206.6666666667);
-}
-.card.failed {
-  background-color: rgba(220, 53, 69, 0.9) !important;
-  border: 1px solid rgb(210.9493670886, 36.5506329114, 53.2594936709);
-  color: white;
-}
-.card.failed .card-header {
-  background-color: rgba(220, 53, 69, 0.9);
-  border-bottom-color: rgb(210.9493670886, 36.5506329114, 53.2594936709);
-}
-.card.failed .card-header .title,
-.card.failed .card-header i {
-  color: inherit;
-}
-.card.failed .card-body {
-  color: inherit;
-}
-.card.failed:hover {
-  background: rgb(223.7658227848, 74.7341772152, 89.0126582278);
-}
-.card.queued {
-  background-color: rgba(23, 162, 184, 0.9) !important;
-  border: 1px solid rgb(20.1666666667, 142.0434782609, 161.3333333333);
-  color: white;
-}
-.card.queued .card-header {
-  background-color: rgba(23, 162, 184, 0.9);
-  border-bottom-color: rgb(20.1666666667, 142.0434782609, 161.3333333333);
-}
-.card.queued .card-header .title,
-.card.queued .card-header i {
-  color: inherit;
-}
-.card.queued .card-body {
-  color: inherit;
-}
-.card.queued:hover {
-  background: rgb(25.8333333333, 181.9565217391, 206.6666666667);
-}
-.card.on-hold {
-  background-color: rgba(108, 117, 125, 0.9) !important;
-  border: 1px solid rgb(96.1802575107, 104.19527897, 111.3197424893);
-  color: white;
-}
-.card.on-hold .card-header {
-  background-color: rgba(108, 117, 125, 0.9);
-  border-bottom-color: rgb(96.1802575107, 104.19527897, 111.3197424893);
-}
-.card.on-hold .card-header .title,
-.card.on-hold .card-header i {
-  color: inherit;
-}
-.card.on-hold .card-body {
-  color: inherit;
-}
-.card.on-hold:hover {
-  background: rgb(120.0751072961, 129.7896995708, 138.4248927039);
-}
-.card.suspended {
-  background-color: rgba(33, 37, 41, 0.9) !important;
-  border: 1px solid rgb(21.6283783784, 24.25, 26.8716216216);
-  color: white;
-}
-.card.suspended .card-header {
-  background-color: rgba(33, 37, 41, 0.9);
-  border-bottom-color: rgb(21.6283783784, 24.25, 26.8716216216);
-}
-.card.suspended .card-header .title,
-.card.suspended .card-header i {
-  color: inherit;
-}
-.card.suspended .card-body {
-  color: inherit;
-}
-.card.suspended:hover {
-  background: rgb(44.3716216216, 49.75, 55.1283783784);
-}
-.card.expired {
-  background-color: rgba(241, 243, 245, 0.9) !important;
-  border: 1px solid rgb(226.125, 230.25, 234.375);
-  color: white;
-}
-.card.expired .card-header {
-  background-color: rgba(241, 243, 245, 0.9);
-  border-bottom-color: rgb(226.125, 230.25, 234.375);
-}
-.card.expired .card-header .title,
-.card.expired .card-header i {
-  color: inherit;
-}
-.card.expired .card-body {
-  color: inherit;
-}
-.card.expired:hover {
-  background: white;
-}
-.card.rejected {
-  background-color: rgba(220, 53, 69, 0.9) !important;
-  border: 1px solid rgb(210.9493670886, 36.5506329114, 53.2594936709);
-  color: white;
-}
-.card.rejected .card-header {
-  background-color: rgba(220, 53, 69, 0.9);
-  border-bottom-color: rgb(210.9493670886, 36.5506329114, 53.2594936709);
-}
-.card.rejected .card-header .title,
-.card.rejected .card-header i {
-  color: inherit;
-}
-.card.rejected .card-body {
-  color: inherit;
-}
-.card.rejected:hover {
-  background: rgb(223.7658227848, 74.7341772152, 89.0126582278);
-}
-.card.approved {
-  background-color: rgba(40, 167, 69, 0.9) !important;
-  border: 1px solid rgb(35.0724637681, 146.4275362319, 60.5);
-  color: white;
-}
-.card.approved .card-header {
-  background-color: rgba(40, 167, 69, 0.9);
-  border-bottom-color: rgb(35.0724637681, 146.4275362319, 60.5);
-}
-.card.approved .card-header .title,
-.card.approved .card-header i {
-  color: inherit;
-}
-.card.approved .card-body {
-  color: inherit;
-}
-.card.approved:hover {
-  background: rgb(44.9275362319, 187.5724637681, 77.5);
-}
-.card.active {
-  background-color: rgba(0, 123, 255, 0.9) !important;
-  border: 1px solid rgb(0, 110.7, 229.5);
-  color: white;
-}
-.card.active .card-header {
-  background-color: rgba(0, 123, 255, 0.9);
-  border-bottom-color: rgb(0, 110.7, 229.5);
-}
-.card.active .card-header .title,
-.card.active .card-header i {
-  color: inherit;
-}
-.card.active .card-body {
-  color: inherit;
-}
-.card.active:hover {
-  background: rgb(25.5, 136.2, 255);
-}
-.card.draft {
-  background-color: rgba(73, 80, 87, 0.9) !important;
-  border: 1px solid rgb(61.365625, 67.25, 73.134375);
-  color: white;
-}
-.card.draft .card-header {
-  background-color: rgba(73, 80, 87, 0.9);
-  border-bottom-color: rgb(61.365625, 67.25, 73.134375);
-}
-.card.draft .card-header .title,
-.card.draft .card-header i {
-  color: inherit;
-}
-.card.draft .card-body {
-  color: inherit;
-}
-.card.draft:hover {
-  background: rgb(84.634375, 92.75, 100.865625);
 }
 .card.round-card {
   border-radius: 8px;
@@ -1180,220 +760,6 @@ textarea {
   color: #0099ff;
 }
 
-.profile-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #e7e7e7;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 0;
-  transition: 0.4s;
-  min-height: inherit;
-}
-.profile-card:last-child {
-  margin: 0;
-}
-.profile-card:hover {
-  background-color: white;
-  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.1);
-}
-
-.lead-card .card-body {
-  max-height: 400px;
-  height: 400px;
-  overflow-y: auto;
-}
-
-.progress {
-  height: 2px;
-  overflow: inherit;
-  background-color: #e7e7e7;
-}
-.progress .progress-bar {
-  height: 100%;
-  position: relative;
-  overflow: inherit;
-}
-.progress .progress-bar .tag {
-  width: auto;
-  height: auto;
-  position: absolute;
-  z-index: 999;
-  right: -5px;
-  top: -10px;
-  opacity: 0.9;
-  transition: 0.4s;
-}
-.progress .progress-bar.success {
-  color: var(--success-color);
-  background-color: rgb(175.1304347826, 235.8695652174, 189);
-}
-.progress .progress-bar.success .tag {
-  color: var(--success-color);
-  background-color: rgb(175.1304347826, 235.8695652174, 189);
-}
-.progress .progress-bar.pending {
-  color: var(--warning-color);
-  background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
-}
-.progress .progress-bar.pending .tag {
-  color: var(--warning-color);
-  background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
-}
-.progress .progress-bar.info {
-  color: var(--info-color);
-  background-color: rgb(167, 233.4782608696, 244);
-}
-.progress .progress-bar.info .tag {
-  color: var(--info-color);
-  background-color: rgb(167, 233.4782608696, 244);
-}
-.progress .progress-bar.danger {
-  color: var(--error-color);
-  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
-}
-.progress .progress-bar.danger .tag {
-  color: var(--error-color);
-  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
-}
-.progress .progress-bar.warning {
-  color: var(--warning-color);
-  background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
-}
-.progress .progress-bar.warning .tag {
-  color: var(--warning-color);
-  background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
-}
-.progress .progress-bar.primary {
-  color: var(--prim-color);
-  background-color: rgb(204, 228.6, 255);
-}
-.progress .progress-bar.primary .tag {
-  color: var(--prim-color);
-  background-color: rgb(204, 228.6, 255);
-}
-.progress .progress-bar.muted {
-  color: #888888;
-  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
-}
-.progress .progress-bar.muted .tag {
-  color: #888888;
-  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
-}
-.progress .progress-bar.secondary {
-  color: #888888;
-  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
-}
-.progress .progress-bar.secondary .tag {
-  color: #888888;
-  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
-}
-.progress .progress-bar.light {
-  color: var(--prim-bg, #888888);
-  background-color: white;
-}
-.progress .progress-bar.light .tag {
-  color: var(--prim-bg, #888888);
-  background-color: white;
-}
-.progress .progress-bar.default {
-  color: var(--bg-color);
-  background-color: white;
-}
-.progress .progress-bar.default .tag {
-  color: var(--bg-color);
-  background-color: white;
-}
-.progress .progress-bar.archived {
-  color: var(--archived-color, #888888);
-  background-color: white;
-}
-.progress .progress-bar.archived .tag {
-  color: var(--archived-color, #888888);
-  background-color: white;
-}
-.progress .progress-bar.processing {
-  color: var(--processing-color, var(--info-color));
-  background-color: rgb(167, 233.4782608696, 244);
-}
-.progress .progress-bar.processing .tag {
-  color: var(--processing-color, var(--info-color));
-  background-color: rgb(167, 233.4782608696, 244);
-}
-.progress .progress-bar.failed {
-  color: var(--error-color);
-  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
-}
-.progress .progress-bar.failed .tag {
-  color: var(--error-color);
-  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
-}
-.progress .progress-bar.queued {
-  color: var(--info-color);
-  background-color: rgb(167, 233.4782608696, 244);
-}
-.progress .progress-bar.queued .tag {
-  color: var(--info-color);
-  background-color: rgb(167, 233.4782608696, 244);
-}
-.progress .progress-bar.on-hold {
-  color: #888888;
-  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
-}
-.progress .progress-bar.on-hold .tag {
-  color: #888888;
-  background-color: rgb(215.8369098712, 218.6566523605, 221.1630901288);
-}
-.progress .progress-bar.suspended {
-  color: var(--dark-color);
-  background-color: rgb(126.4594594595, 139, 151.5405405405);
-}
-.progress .progress-bar.suspended .tag {
-  color: var(--dark-color);
-  background-color: rgb(126.4594594595, 139, 151.5405405405);
-}
-.progress .progress-bar.expired {
-  color: var(--light-color);
-  background-color: white;
-}
-.progress .progress-bar.expired .tag {
-  color: var(--light-color);
-  background-color: white;
-}
-.progress .progress-bar.rejected {
-  color: var(--error-color);
-  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
-}
-.progress .progress-bar.rejected .tag {
-  color: var(--error-color);
-  background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
-}
-.progress .progress-bar.approved {
-  color: var(--success-color);
-  background-color: rgb(175.1304347826, 235.8695652174, 189);
-}
-.progress .progress-bar.approved .tag {
-  color: var(--success-color);
-  background-color: rgb(175.1304347826, 235.8695652174, 189);
-}
-.progress .progress-bar.active {
-  color: var(--prim-color);
-  background-color: rgb(204, 228.6, 255);
-}
-.progress .progress-bar.active .tag {
-  color: var(--prim-color);
-  background-color: rgb(204, 228.6, 255);
-}
-.progress .progress-bar.draft {
-  color: var(--text-color, #888888);
-  background-color: rgb(175.6125, 182, 188.3875);
-}
-.progress .progress-bar.draft .tag {
-  color: var(--text-color, #888888);
-  background-color: rgb(175.6125, 182, 188.3875);
-}
-
 .no-bg {
   border: none;
   background: none;
@@ -1402,6 +768,131 @@ textarea {
 table {
   width: 100%;
   background: none;
+}
+table .media-tile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  gap: 15px;
+}
+table .media-tile .media-img {
+  background-color: var(--primary);
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+table .media-tile .media-img i {
+  font-size: 40px;
+}
+table .media-tile .media-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+table .media-tile .media-img.success {
+  background-color: var(--success-color);
+  border: 3px solid rgb(175.1304347826, 235.8695652174, 189);
+}
+table .media-tile .media-img.pending {
+  background-color: var(--warning-color);
+  border: 3px solid rgb(252.8087649402, 235.2788844622, 202.1912350598);
+}
+table .media-tile .media-img.info {
+  background-color: var(--info-color);
+  border: 3px solid rgb(167, 233.4782608696, 244);
+}
+table .media-tile .media-img.danger {
+  background-color: var(--error-color);
+  border: 3px solid rgb(250.1265822785, 226.8734177215, 229.1012658228);
+}
+table .media-tile .media-img.warning {
+  background-color: var(--warning-color);
+  border: 3px solid rgb(252.8087649402, 235.2788844622, 202.1912350598);
+}
+table .media-tile .media-img.primary {
+  background-color: var(--prim-color);
+  border: 3px solid rgb(204, 228.6, 255);
+}
+table .media-tile .media-img.muted {
+  background-color: #888888;
+  border: 3px solid rgb(215.8369098712, 218.6566523605, 221.1630901288);
+}
+table .media-tile .media-img.secondary {
+  background-color: #888888;
+  border: 3px solid rgb(215.8369098712, 218.6566523605, 221.1630901288);
+}
+table .media-tile .media-img.light {
+  background-color: var(--prim-bg, #888888);
+  border: 3px solid white;
+}
+table .media-tile .media-img.default {
+  background-color: var(--bg-color);
+  border: 3px solid white;
+}
+table .media-tile .media-img.archived {
+  background-color: var(--archived-color, #888888);
+  border: 3px solid white;
+}
+table .media-tile .media-img.processing {
+  background-color: var(--processing-color, var(--info-color));
+  border: 3px solid rgb(167, 233.4782608696, 244);
+}
+table .media-tile .media-img.failed {
+  background-color: var(--error-color);
+  border: 3px solid rgb(250.1265822785, 226.8734177215, 229.1012658228);
+}
+table .media-tile .media-img.queued {
+  background-color: var(--info-color);
+  border: 3px solid rgb(167, 233.4782608696, 244);
+}
+table .media-tile .media-img.on-hold {
+  background-color: #888888;
+  border: 3px solid rgb(215.8369098712, 218.6566523605, 221.1630901288);
+}
+table .media-tile .media-img.suspended {
+  background-color: var(--dark-color);
+  border: 3px solid rgb(126.4594594595, 139, 151.5405405405);
+}
+table .media-tile .media-img.expired {
+  background-color: var(--light-color);
+  border: 3px solid white;
+}
+table .media-tile .media-img.rejected {
+  background-color: var(--error-color);
+  border: 3px solid rgb(250.1265822785, 226.8734177215, 229.1012658228);
+}
+table .media-tile .media-img.approved {
+  background-color: var(--success-color);
+  border: 3px solid rgb(175.1304347826, 235.8695652174, 189);
+}
+table .media-tile .media-img.active {
+  background-color: var(--prim-color);
+  border: 3px solid rgb(204, 228.6, 255);
+}
+table .media-tile .media-img.draft {
+  background-color: var(--text-color, #888888);
+  border: 3px solid rgb(175.6125, 182, 188.3875);
+}
+table .media-tile .name {
+  font-size: 0.8rem;
+  text-align: left;
+  width: 100px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+table .media-tile .name p {
+  font-size: 0.7;
+  color: #888888;
 }
 table .ellipsize {
   max-width: 200px;
@@ -1425,10 +916,6 @@ table th:last-child > div {
 table thead {
   border-bottom: 1px solid #e7e7e7;
   text-transform: capitalize;
-}
-table tbody {
-  max-height: 200px;
-  overflow-y: scroll;
 }
 table tr {
   border-bottom: 1px solid #e7e7e7;
