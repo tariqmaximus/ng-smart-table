@@ -207,16 +207,17 @@
   min-height: $card-header-height;
   padding-bottom: 0;
   transition: 0.4s;
+ 
 .progress {
   height: 2px;
   overflow: inherit;
   background-color: $bs-border;
+   margin-top: -7px;
 
   .progress-bar {
     height: 100%;
     position: relative;
     overflow: inherit;
-
     .tag {
       width: auto;
       height: auto;
@@ -263,7 +264,7 @@
 
   .card-header {
     background: none;
-    padding: $table-spacing;
+    padding: 0;
     border-bottom: 1px solid $bs-border;
     height: $card-header-height;
     position: absolute;
@@ -271,12 +272,12 @@
     width: 100%;
     left: 0;
     border-radius: $table-round $table-round 0 0;
-
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+.container-fluid {
+  padding: $table-spacing;
+}
     .inner {
       width: 100%;
       display: flex;
@@ -334,7 +335,9 @@
 
     .card-header {
       border-bottom: 1px solid transparent;
-      padding: $table-spacing !important;
+     .progress {
+      margin-top: -9px;
+     }
     }
 
     .card-body {

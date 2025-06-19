@@ -376,6 +376,7 @@
   height: 2px;
   overflow: inherit;
   background-color: #e7e7e7;
+  margin-top: -7px;
 }
 .card .progress .progress-bar {
   height: 100%;
@@ -577,7 +578,7 @@
 }
 .card .card-header {
   background: none;
-  padding: 15px;
+  padding: 0;
   border-bottom: 1px solid #e7e7e7;
   height: 60px;
   position: absolute;
@@ -585,10 +586,12 @@
   width: 100%;
   left: 0;
   border-radius: 8px 8px 0 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.card .card-header .container-fluid {
+  padding: 15px;
 }
 .card .card-header .inner {
   width: 100%;
@@ -637,7 +640,9 @@
 }
 .card.collapsed .card-header {
   border-bottom: 1px solid transparent;
-  padding: 15px !important;
+}
+.card.collapsed .card-header .progress {
+  margin-top: -9px;
 }
 .card.collapsed .card-body {
   max-height: 0;

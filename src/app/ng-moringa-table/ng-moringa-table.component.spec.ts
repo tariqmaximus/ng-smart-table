@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgMoringaSmartTableComponent } from './ng-moringa-table.component';
+import { NgMoringaTableComponent } from './ng-moringa-table.component';
 
-describe('NgMoringaSmartTableComponent', () => {
-  let component: NgMoringaSmartTableComponent;
-  let fixture: ComponentFixture<NgMoringaSmartTableComponent>;
+describe('NgMoringaTableComponent', () => {
+  let component: NgMoringaTableComponent;
+  let fixture: ComponentFixture<NgMoringaTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NgMoringaSmartTableComponent]
+      imports: [NgMoringaTableComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NgMoringaSmartTableComponent);
+    fixture = TestBed.createComponent(NgMoringaTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -35,7 +35,7 @@ let uniqueCounter = 0;
   templateUrl: './ng-moringa-table.component.html',
   styleUrls: ['./ng-moringa-table.component.css']
 })
-export class NgMoringaSmartTableComponent implements OnInit, OnChanges {
+export class NgMoringaTableComponent implements OnInit, OnChanges {
   @Input() type!: string;
   @Input() data: any[] = [];
   @Input() columns: { key: string; label: string }[] = [];

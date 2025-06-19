@@ -1,7 +1,7 @@
 // backlog.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgMoringaSmartTableComponent } from './ng-moringa-table/ng-moringa-table.component';
+import { NgMoringaTableComponent } from './ng-moringa-table/ng-moringa-table.component';
 
 
 
@@ -12,7 +12,7 @@ import { NgMoringaSmartTableComponent } from './ng-moringa-table/ng-moringa-tabl
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, NgMoringaSmartTableComponent],
+  imports: [CommonModule, NgMoringaTableComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
