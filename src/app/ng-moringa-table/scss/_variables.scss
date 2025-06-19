@@ -49,13 +49,6 @@ $dp-size: 35px;
 $dp-round: 10px;
 $card-header-height: 60px;
 
-//mixins
-@mixin box-style {
-
-box-shadow:  $table-shadow;
-   
-    background-color: $table-bg ;
-}
 
 
 // === Color variables ===

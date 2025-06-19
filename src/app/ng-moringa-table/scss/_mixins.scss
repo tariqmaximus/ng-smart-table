@@ -6,38 +6,13 @@
   background-color: if($fallbackground != null, lighten($fallbackground, 40%), lighten($color, 10%));
 }
 
+@mixin box-style {
 
-@mixin button-style($name, $color) {
-  
-  $fallback: map-get($variant-colors, $name);
-  background: if($fallback != null, lighten($fallback, 10%), $bs-border);
-  border-color: if($fallback != null, darken($fallback, 0%), $bs-border);
-  color: if($name == light or $name == default, $muted-color, if($name == dark, white, white));
-
-  &::before {
-    border-left: 9px solid $color;
-  }
-
-  i {
-    color: inherit;
-  }
-
-  span {
-    color: if($name == light or $name == default, $muted-color, if($name == dark, white, white));
-  }
-
-  &:hover {
-    background-color: var(--bg-color);
-    border-color: $bs-border;
-    color: $muted-color;
-
-    i,
-    span {
-      color: var(--text-color);
-    }
-  }
+box-shadow:  $table-shadow;
+background-color: $table-bg ;
 }
-@mixin button-icon ($name, $color) {
+
+@mixin button-style ($name, $color) {
   
   $fallback: map-get($variant-colors, $name);
  
@@ -51,72 +26,3 @@
 
 
 }
-@mixin form-style($name, $color) {
-  $fallback: map-get($variant-colors, $name);
-  $resolved-color: if($fallback != null, $fallback, $color);
-  $table-bg: lighten($resolved-color, 44%);
-  $border-color: lighten($resolved-color, 35%);
-
-  color: if($name == light or $name == default, $dark-color, $color);
-
-  &::placeholder {
-    color: $muted-color;
-    opacity: 0.7;
-  }
-
-  &:focus {
-    outline: none;
-    border-color: darken($border-color, 10%);
-    box-shadow: 0 0 0 0.15rem rgba($resolved-color, 0.3);
-  }
-
-  &:disabled,
-  &[readonly] {
-    background-color: lighten($table-bg, 8%);
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-}
-@mixin statistic-style($hex) {
-  background-color: rgba($hex, 0.15);
-
-  .stat-title {
-    color: darken($hex, 15%);
-  }
-
-  .stat-value {
-    color: darken($hex, 20%);
-  }
-
-  .stat-icon {
-    color: darken($hex, 20%);
-  }
-}
-
-
-
-@mixin card-style($name, $color) {
-  $fallback: map-get($variant-colors, $name);
-  background-color: if($fallback != null, rgba($fallback, 0.9), rgba(white, 0.05)) !important;
-  border: 1px solid if($fallback != null, darken($fallback, 5%), $bs-border);
-
-
-  .card-header {
-    background-color: if($fallback != null, rgba($fallback, 0.9), rgba(white, 0.05));
-    border-bottom-color: if($fallback != null, darken($fallback, 5%), $bs-border);
-
-    .title,
-    i {
-      color: inherit;
-    }
-  }
-
-  .card-body {
-    color: inherit;
-  }
-
-  &:hover {
-    background: if($fallback != null, lighten($fallback, 5%), $color);
-  }
-}
-

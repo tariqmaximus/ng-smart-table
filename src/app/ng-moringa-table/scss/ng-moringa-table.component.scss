@@ -23,7 +23,7 @@
   }
 }
 
-.form-select,
+.btn, .form-select,
 .form-control {
   border: $bs-border-width $bs-border;
   background-color: var(--bg-color);
@@ -154,12 +154,10 @@ align-items: center;
   }
 
   @each $name, $color in $variants {
-    &.#{$name} {
-      @include button-style($name, $color);
-    }
+
 
     &.icon-btn-#{$name} {
-      @include button-icon ($name, $color);
+      @include button-style ($name, $color);
     }
   }
 }
@@ -169,11 +167,7 @@ textarea {
   background-color: $table-bg;
   border: 1px solid $bs-border;
 
-  @each $name, $color in $variants {
-    &.#{$name} {
-      @include form-style($name, $color);
-    }
-  }
+
 }
 
 
