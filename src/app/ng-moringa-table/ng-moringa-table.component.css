@@ -625,14 +625,8 @@
   font-size: 18px;
 }
 .card .card-body {
-  overflow: inherit;
   transition: 0.4s;
   margin-top: 60px;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-.card .card-body > * {
-  flex: 1;
 }
 .card .card-body.no-header {
   margin-top: 0 !important;

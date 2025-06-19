@@ -318,20 +318,11 @@
   }
 
   .card-body {
-
-    overflow: inherit;
     transition: 0.4s;
-
     margin-top: $card-header-height ;
+   
 
-
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-
-    >* {
-      flex: 1;
-    }
-
+   
     &.no-header {
       margin-top: 0 !important;
     }
@@ -490,8 +481,6 @@
   }
 
 }
-
-
 
 .no-bg {
   border: none;
