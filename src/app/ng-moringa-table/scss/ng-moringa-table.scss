@@ -1,23 +1,25 @@
-@import './responsive';
-@import './variables';
-@import './variants';
+@use './responsive';
+@use './variables';
+@use './variants';
+@use 'sass:color';
+@use 'sass:map';
 
 
 // Tag Component
 .tag {
-  border-radius: $table-round;
+  border-radius: variables.$table-round;
   padding: 4px;
   background: white;
-  color: $dark-color;
+  color: variables.$dark-color;
   font-size: 10px;
   text-transform: uppercase;
   height: auto;
 
-  @each $name, $color in $variants {
+  @each $name, $color in variants.$variants {
     &.#{$name} {
         color: $color;
-  $fallbackground: map-get($variant-colors, $name);
-  background-color: if($fallbackground != null, lighten($fallbackground, 40%), lighten($color, 10%));
+  $fallback: map.get(variants.$variant-colors, $name);
+  background-color: if($fallback != null, color.adjust($fallback, $lightness: 40%), color.adjust($color, 10%));
     }
   }
 }
@@ -25,16 +27,16 @@
 // Input Controls
 .btn, .form-select, .form-control {
   border: 1px solid $bs-border;
-  background-color: $active-color;
-  color: $muted-color;
+  background-color: variables.$active-color;
+  color: variables.$muted-color;
   height: 35px;
   outline: none;
 
   &:focus {
-    background-color: $active-color;
-    border-color: $bs-border;
+    background-color: variables.$active-color;
+    border-color: variables.$bs-border;
     box-shadow: none;
-    color: $dark-color;
+    color: variables.$dark-color;
   }
 }
 
@@ -52,11 +54,11 @@
     }
 
     &:first-child {
-      border-radius: $btn-round 0 0 $btn-round;
+      border-radius: variables.$btn-round 0 0 $btn-round;
     }
 
     &:only-child {
-      border-radius: $btn-round !important;
+      border-radius: variables.$btn-round !important;
     }
 
     &:last-child {
@@ -69,19 +71,19 @@
     }
 
     &:active {
-      border-color: $bs-border;
+      border-color: variables.$bs-border;
     }
 
     &.active {
-      background-color: $active-color;
-      color: $dark-color;
+      background-color: variables.$active-color;
+      color: variables.$dark-color;
 
       span {
-        color: $dark-color;
+        color: variables.$dark-color;
       }
 
       i {
-        color: $primary-color;
+        color: variables.$primary-color;
       }
     }
   }
@@ -96,7 +98,7 @@
   .cbx {
     user-select: none;
     display: flex;
-    gap: $table-spacing;
+    gap: variables.$table-spacing;
     align-items: center;
     justify-content: flex-start;
     min-width: 55px;
@@ -111,7 +113,7 @@
       position: relative;
       width: 24px;
       height: 24px;
-      border-radius: $btn-round;
+      border-radius: variables.$btn-round;
       border: 2px solid $check-box-border;
       transition: all 0.2s ease;
 
@@ -149,8 +151,8 @@
 
   .inp-cbx:checked + .cbx .checkbox {
     &:first-child {
-      border-color: $primary-color;
-      background: $primary-color;
+      border-color: variables.$primary-color;
+      background: variables.$primary-color;
       animation: check-15 0.3s ease;
 
       svg {
@@ -170,15 +172,15 @@
 .card {
   position: relative;
   border: 1px solid $bs-border;
-  border-radius: $table-flate;
-  min-height: $card-header-height;
+  border-radius: variables.$table-flate;
+  min-height: variables.$card-header-height;
   padding-bottom: 0;
   transition: 0.4s;
  
 .progress {
   height: 2px;
   overflow: inherit;
-  background-color: $bs-border;
+  background-color: variables.$bs-border;
    margin-top: -7px;
 
   .progress-bar {
@@ -197,17 +199,17 @@
 
     }
 
-    @each $name, $color in $variants {
+    @each $name, $color in variants.$variants {
       &.#{$name} {
           color: $color;
-  $fallbackground: map-get($variant-colors, $name);
-  background-color: if($fallbackground != null, lighten($fallbackground, 40%), lighten($color, 10%));
+  $fallback: map.get(variants.$variant-colors, $name);
+  background-color: if($fallback != null, color.adjust($fallback, $lightness: 40%), color.adjust($color, 10%));
 
         .tag {
 
             color: $color;
-  $fallbackground: map-get($variant-colors, $name);
-  background-color: if($fallbackground != null, lighten($fallbackground, 40%), lighten($color, 10%));
+  $fallback: map.get(variants.$variant-colors, $name);
+  background-color: if($fallback != null, color.adjust($fallback, $lightness: 40%), color.adjust($color, 10%));
         }
       }
     }
@@ -227,7 +229,7 @@
 
   .date-picker {
     position: absolute;
-    padding: $table-spacing;
+    padding: variables.$table-spacing;
     box-shadow:  $table-shadow;
     top: 0;
 
@@ -237,17 +239,17 @@
     background: none;
     padding: 0;
     border-bottom: 1px solid $bs-border;
-    height: $card-header-height;
+    height: variables.$card-header-height;
     position: absolute;
     z-index: 1;
     width: 100%;
     left: 0;
-    border-radius: $table-round $table-round 0 0;
+    border-radius: variables.$table-round $table-round 0 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 .container-fluid {
-  padding: $table-spacing;
+  padding: variables.$table-spacing;
 }
     .inner {
       width: 100%;
@@ -270,7 +272,7 @@
     }
 
     .title-icon {
-      color: $muted-color;
+      color: variables.$muted-color;
     }
 
     .table-title {
@@ -280,10 +282,10 @@
       justify-content: center;
       flex-direction: column;
       text-transform: capitalize;
-      color: $dark-color;
+      color: variables.$dark-color;
 
       i {
-        color: $muted-color;
+        color: variables.$muted-color;
         font-size: 18px;
       }
     }
@@ -291,7 +293,7 @@
 
   .card-body {
     transition: 0.4s;
-    margin-top: $card-header-height ;
+    margin-top: variables.$card-header-height ;
    
 
    
@@ -302,7 +304,7 @@
 
   &.collapsed {
     padding-bottom: 0;
-    height: $card-header-height;
+    height: variables.$card-header-height;
 
     .card-header {
       border-bottom: 1px solid transparent;
@@ -315,7 +317,7 @@
       max-height: 0;
       opacity: 0;
       padding: 0;
-      margin-top: $card-header-height - $table-spacing;
+      margin-top: variables.$card-header-height - $table-spacing;
     }
   }
 
@@ -328,11 +330,11 @@
 
 
   &.round-card {
-    border-radius: $table-round;
+    border-radius: variables.$table-round;
   }
 
   &.shadowed {
-    background-color: $table-bg ;
+    background-color: variables.$table-bg ;
   }
 
   &.no-bg {
@@ -346,7 +348,7 @@
 
     >.card-body {
       padding: 0 !important;
-      margin-top: $card-header-height;
+      margin-top: variables.$card-header-height;
     }
   }
 
@@ -367,10 +369,10 @@
 
   .custom-calendar-popup {
     position: absolute;
-    background: $active-color;
+    background: variables.$active-color;
     width: 280px;
-    border-radius: $table-round;
-    box-shadow: $table-shadow;
+    border-radius: variables.$table-round;
+    box-shadow: variables.$table-shadow;
     padding: 16px;
     z-index: 99999;
     margin-top: 10px;
@@ -400,7 +402,7 @@
       .day-name {
         font-weight: 600;
         font-size: 13px;
-        color: $dark-color;
+        color: variables.$dark-color;
       }
 
       .day-cell {
@@ -415,7 +417,7 @@
         }
 
         &.active {
-          background-color: $primary-color;
+          background-color: variables.$primary-color;
           color: white;
           font-weight: 600;
         }
@@ -445,7 +447,7 @@
       }
 
       .confirm-btn {
-        color: $primary-color;
+        color: variables.$primary-color;
       }
     }
   }
@@ -466,12 +468,12 @@ table {
   align-items: center;
  justify-content: flex-start;
  text-decoration: none;
- gap: $table-spacing;
+ gap: variables.$table-spacing;
 .media-img {
-  background-color: $primary-color;
-  width: $media-size;
-  height: $media-size;
-  border-radius: $dp-round;
+  background-color: variables.$primary-color;
+  width: variables.$media-size;
+  height: variables.$media-size;
+  border-radius: variables.$dp-round;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -490,11 +492,11 @@ table {
     object-fit: cover;
   }
 
-  @each $name, $color in $variants {
+  @each $name, $color in variants.$variants {
    &.#{$name} {
   background-color: $color;
-  $fallborder: map-get($variant-colors, $name);
-  border: 3px solid if($fallborder != null, lighten($fallborder, 40%), lighten($color, 10%));
+  $fallborder: map.get(variants.$variant-colors, $name);
+  border: 3px solid if($fallborder != null, color.adjust($fallborder, 40%), color.adjust($color, 10%));
 }
 
 
@@ -513,7 +515,7 @@ table {
  text-overflow: ellipsis;
  p {
    font-size: 0.7;
-   color: $muted-color;
+   color: variables.$muted-color;
  }
 }
 
@@ -532,10 +534,10 @@ table {
   th {
     font-size: 12px;
     font-weight: 500;
-    color: $muted-color;
+    color: variables.$muted-color;
 
     text-transform: uppercase;
-    padding: $table-spacing ;
+    padding: variables.$table-spacing ;
 
     &:last-child {
       >div {
@@ -570,13 +572,13 @@ table {
         background: none;
 
         i {
-          color: $muted-color;
+          color: variables.$muted-color;
         }
       }
     }
 
     td {
-      padding: $table-spacing ;
+      padding: variables.$table-spacing ;
       font-size: 14px;
 
     }
