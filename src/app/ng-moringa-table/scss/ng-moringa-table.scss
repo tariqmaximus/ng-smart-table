@@ -1,8 +1,8 @@
-@use './responsive';
-@use './variables';
-@use './variants';
-@use 'sass:color';
 @use 'sass:map';
+@use 'sass:color';
+@use './variables' as variables;
+@use './variants' as variants;
+@use './index' as *; 
 
 
 // Tag Component
@@ -244,7 +244,7 @@
     z-index: 1;
     width: 100%;
     left: 0;
-    border-radius: variables.$table-round $table-round 0 0;
+    border-radius: variables.$table-round variables.$table-round 0 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -496,7 +496,7 @@ table {
    &.#{$name} {
   background-color: $color;
   $fallborder: map.get(variants.$variant-colors, $name);
-  border: 3px solid if($fallborder != null, color.adjust($fallborder, 40%), color.adjust($color, 10%));
+  border: 3px solid if($fallborder != null, color.adjust($fallborder, $lightness: 40%), color.adjust($color, 10%));
 }
 
 
