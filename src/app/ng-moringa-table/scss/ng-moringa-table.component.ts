@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import '~bootstrap/dist/css/bootstrap.min.css';
+import '~bootstrap-icons/font/bootstrap-icons.css';
 
 interface CardButton {
   label?: string;
@@ -28,6 +30,8 @@ interface ActionButton {
 }
 
 let uniqueCounter = 0;
+
+
 @Component({
   selector: 'ng-moringa-table',
   standalone: true,
@@ -106,9 +110,7 @@ export class NgMoringaTableComponent implements OnInit, OnChanges {
 
   toggleFilters(): void {
     this.dataFilters = !this.dataFilters;
-    if (!this.dataFilters) {
-      this.datePicker = false;
-    }
+    if (!this.dataFilters) this.datePicker = false;
   }
 
   applyFilters(): void {
@@ -237,7 +239,6 @@ export class NgMoringaTableComponent implements OnInit, OnChanges {
     return this.searchBy || '';
   }
 
-  /** ✅ FIXED HERE */
   get searchOptions(): string[] {
     return [...new Set(this.data.map(item => item[this.searchKey]).filter(Boolean))]
       .sort((a, b) => a.localeCompare(b));
@@ -254,24 +255,20 @@ export class NgMoringaTableComponent implements OnInit, OnChanges {
 
   get progressValue(): number {
     if (!this.progressBy || !this.searchKey || !this.data.length) return 0;
-
     const statusToCheck = this.selectedOption || this.progressBy;
-
     const total = this.data.length;
     const match = this.data.filter(item => item[this.searchKey] === statusToCheck).length;
-
     return Math.round((match / total) * 100);
   }
 
-getStatusStyles(status: string): { tagClass: string; progressClass: string } {
-  const key = status?.toLowerCase() || '';
-  const color = this.statusMap?.[key] || 'info';
-  return {
-    tagClass: `tag ${color}`,
-    progressClass: `progress-bar ${color}`
-  };
-}
-
+  getStatusStyles(status: string): { tagClass: string; progressClass: string } {
+    const key = status?.toLowerCase() || '';
+    const color = this.statusMap?.[key] || 'info';
+    return {
+      tagClass: `tag ${color}`,
+      progressClass: `progress-bar ${color}`
+    };
+  }
 
   getValue(row: any, key: string): string {
     const val = row?.[key];
