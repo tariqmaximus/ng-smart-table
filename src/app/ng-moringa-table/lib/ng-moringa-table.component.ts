@@ -8,8 +8,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import '~bootstrap/dist/css/bootstrap.min.css';
-import '~bootstrap-icons/font/bootstrap-icons.css';
+
 
 interface CardButton {
   label?: string;
@@ -37,7 +36,7 @@ let uniqueCounter = 0;
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './ng-moringa-table.component.html',
-  styleUrls: ['./ng-miringa-table.component.css']
+  styleUrls: ['./ng-moringa-table.component.css']
 })
 export class NgMoringaTableComponent implements OnInit, OnChanges {
   @Input() type!: string;

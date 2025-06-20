@@ -1,10 +1,64 @@
+
 @use 'sass:map';
 @use 'sass:color';
 @use './variables' as variables;
 @use './variants' as variants;
 @use './index' as *; 
 
+.btn, .form-select, .form-control {
+  border: 1px solid $bs-border;
+  color: variables.$muted-color;
+  height: 35px;
+  outline: none;
 
+  &:focus {
+ 
+    border-color: variables.$bs-border;
+    box-shadow: none;
+    color: variables.$dark-color;
+  }
+}
+//btns {
+.btn {
+  font-size: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: variables.$btn-spacing;
+  border: 1px solid variables.$bs-border;
+  color:  variables.$dark-color;
+  height: 35px;
+
+  i {
+    font-size: 12px;
+    color: variables.$muted-color;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+&:disabled {
+  border-color: variables.$bs-border;
+}
+  span {
+    font-size: 12px;
+    color: variables.$muted-color;
+
+  }
+
+@each $name, $color in variants.$variants {
+  &.#{$name} {
+    $fallback: map.get(variants.$variant-colors, $name);
+    
+    color: if(
+      $fallback != null,
+      color.adjust($fallback, $lightness: 0%),
+      var(--bs-border-color)
+    );
+  }
+}
+
+}
 // Tag Component
 .tag {
   border-radius: variables.$table-round;
@@ -25,20 +79,7 @@
 }
 
 // Input Controls
-.btn, .form-select, .form-control {
-  border: 1px solid $bs-border;
-  background-color: variables.$active-color;
-  color: variables.$muted-color;
-  height: 35px;
-  outline: none;
 
-  &:focus {
-    background-color: variables.$active-color;
-    border-color: variables.$bs-border;
-    box-shadow: none;
-    color: variables.$dark-color;
-  }
-}
 
 .form-group {
   display: flex;
@@ -167,21 +208,11 @@
     }
   }
 }
-
-
-.card {
-  position: relative;
-  border: 1px solid $bs-border;
-  border-radius: variables.$table-flate;
-  min-height: variables.$card-header-height;
-  padding-bottom: 0;
-  transition: 0.4s;
- 
 .progress {
   height: 2px;
   overflow: inherit;
   background-color: variables.$bs-border;
-   margin-top: -7px;
+   margin-top: 0px;
 
   .progress-bar {
     height: 100%;
@@ -216,6 +247,16 @@
   }
 
 }
+
+.moringa-wraper {
+  position: relative;
+  border: 1px solid $bs-border;
+  border-radius: variables.$table-flate;
+  min-height: variables.$card-header-height;
+  padding-bottom: 0;
+  transition: 0.4s;
+ 
+
   @include mobile-view {
     box-shadow: none !important;
   }
@@ -235,7 +276,7 @@
 
   }
 
-  .card-header {
+  .moringa-wraper-header {
     background: none;
     padding: 0;
     border-bottom: 1px solid $bs-border;
@@ -249,7 +290,10 @@
     align-items: center;
     flex-direction: column;
 .container-fluid {
-  padding: variables.$table-spacing;
+  height: $card-header-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
     .inner {
       width: 100%;
@@ -291,7 +335,7 @@
     }
   }
 
-  .card-body {
+  .moringa-wraper-body {
     transition: 0.4s;
     margin-top: variables.$card-header-height ;
    
@@ -306,14 +350,14 @@
     padding-bottom: 0;
     height: variables.$card-header-height;
 
-    .card-header {
+    .moringa-wraper-header {
       border-bottom: 1px solid transparent;
      .progress {
-      margin-top: -9px;
+      margin-top: -4px;
      }
     }
 
-    .card-body {
+    .moringa-wraper-body {
       max-height: 0;
       opacity: 0;
       padding: 0;
@@ -322,7 +366,7 @@
   }
 
   @include mobile-view {
-    .card-body {
+    .moringa-wraper-body {
       max-height: inherit;
       height: auto;
     }
@@ -341,12 +385,12 @@
     border: none;
     box-shadow: none;
 
-    >.card-header {
+    >.moringa-wraper-header {
       border: none;
       padding: 0 !important;
     }
 
-    >.card-body {
+    >.moringa-wraper-body {
       padding: 0 !important;
       margin-top: variables.$card-header-height;
     }

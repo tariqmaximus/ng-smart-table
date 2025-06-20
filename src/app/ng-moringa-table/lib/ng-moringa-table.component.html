@@ -1,8 +1,8 @@
-<div class=""  [class.collapsed]="isCollapsed">
+<div class="moringa-wraper"  [class.collapsed]="isCollapsed">
  
-  <div class="card-header" *ngIf="moringaHeader">
+  <div class="moringa-wraper-header" *ngIf="moringaHeader">
     <div class="container-fluid ">
-      <div class="d-flex flex-row justify-content-between">
+      
         <div class="d-flex align-items-center gap-2">
           <ng-content select="[header-component]"></ng-content>
          <i class="title-icon" *ngIf="icon" [class]="icon"></i>
@@ -74,7 +74,7 @@
             </button>
           </div>
         </div>
-      </div>
+     
     </div>
     
    <div *ngIf="progressBy" class="progress">
@@ -87,7 +87,7 @@
   </div>
 
   
-  <div class="card-body  p-0">
+  <div class="moringa-wraper-body  p-0">
    
     <div class="pt-2 ">
       <table [ngClass]="variant">

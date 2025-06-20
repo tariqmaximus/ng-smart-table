@@ -1,3 +1,103 @@
+.btn, .form-select, .form-control {
+  border: 1px solid #e7e7e7;
+  color: #888888;
+  height: 35px;
+  outline: none;
+}
+.btn:focus, .form-select:focus, .form-control:focus {
+  border-color: #e7e7e7;
+  box-shadow: none;
+  color: #63634e;
+}
+
+.btn {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid #e7e7e7;
+  color: #63634e;
+  height: 35px;
+}
+.btn i {
+  font-size: 12px;
+  color: #888888;
+}
+.btn:focus {
+  box-shadow: none;
+}
+.btn:disabled {
+  border-color: #e7e7e7;
+}
+.btn span {
+  font-size: 12px;
+  color: #888888;
+}
+.btn.success {
+  color: #28a745;
+}
+.btn.pending {
+  color: #f1a10a;
+}
+.btn.info {
+  color: #17a2b8;
+}
+.btn.danger {
+  color: #dc3545;
+}
+.btn.warning {
+  color: #f1a10a;
+}
+.btn.primary {
+  color: #007bff;
+}
+.btn.muted {
+  color: #888888;
+}
+.btn.secondary {
+  color: #888888;
+}
+.btn.light {
+  color: #f8f9fa;
+}
+.btn.default {
+  color: #adb5bd;
+}
+.btn.archived {
+  color: #adb5bd;
+}
+.btn.processing {
+  color: #17a2b8;
+}
+.btn.failed {
+  color: #dc3545;
+}
+.btn.queued {
+  color: #17a2b8;
+}
+.btn.on-hold {
+  color: #888888;
+}
+.btn.suspended {
+  color: #212529;
+}
+.btn.expired {
+  color: #f1f3f5;
+}
+.btn.rejected {
+  color: #dc3545;
+}
+.btn.approved {
+  color: #28a745;
+}
+.btn.active {
+  color: #007bff;
+}
+.btn.draft {
+  color: #495057;
+}
+
 .tag {
   border-radius: 8px;
   padding: 4px;
@@ -90,20 +190,6 @@
 .tag.draft {
   color: var(--text-color, #888888);
   background-color: rgb(175.6125, 182, 188.3875);
-}
-
-.btn, .form-select, .form-control {
-  border: 1px solid #e7e7e7;
-  background-color: rgb(238, 238, 238);
-  color: #888888;
-  height: 35px;
-  outline: none;
-}
-.btn:focus, .form-select:focus, .form-control:focus {
-  background-color: rgb(238, 238, 238);
-  border-color: #e7e7e7;
-  box-shadow: none;
-  color: #63634e;
 }
 
 .form-group {
@@ -210,26 +296,18 @@
   transition: all 0.3s ease;
 }
 
-.card {
-  position: relative;
-  border: 1px solid #e7e7e7;
-  border-radius: 0px;
-  min-height: 60px;
-  padding-bottom: 0;
-  transition: 0.4s;
-}
-.card .progress {
+.progress {
   height: 2px;
   overflow: inherit;
   background-color: #e7e7e7;
-  margin-top: -7px;
+  margin-top: 0px;
 }
-.card .progress .progress-bar {
+.progress .progress-bar {
   height: 100%;
   position: relative;
   overflow: inherit;
 }
-.card .progress .progress-bar .tag {
+.progress .progress-bar .tag {
   width: auto;
   height: auto;
   position: absolute;
@@ -239,189 +317,198 @@
   opacity: 0.9;
   transition: 0.4s;
 }
-.card .progress .progress-bar.success {
+.progress .progress-bar.success {
   color: var(--success-color, #28a745);
   background-color: rgb(175.1304347826, 235.8695652174, 189);
 }
-.card .progress .progress-bar.success .tag {
+.progress .progress-bar.success .tag {
   color: var(--success-color, #28a745);
   background-color: rgb(175.1304347826, 235.8695652174, 189);
 }
-.card .progress .progress-bar.pending {
+.progress .progress-bar.pending {
   color: var(--warning-color, #f1a10a);
   background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
 }
-.card .progress .progress-bar.pending .tag {
+.progress .progress-bar.pending .tag {
   color: var(--warning-color, #f1a10a);
   background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
 }
-.card .progress .progress-bar.info {
+.progress .progress-bar.info {
   color: var(--info-color, #17a2b8);
   background-color: rgb(167, 233.4782608696, 244);
 }
-.card .progress .progress-bar.info .tag {
+.progress .progress-bar.info .tag {
   color: var(--info-color, #17a2b8);
   background-color: rgb(167, 233.4782608696, 244);
 }
-.card .progress .progress-bar.danger {
+.progress .progress-bar.danger {
   color: var(--error-color, #dc3545);
   background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
 }
-.card .progress .progress-bar.danger .tag {
+.progress .progress-bar.danger .tag {
   color: var(--error-color, #dc3545);
   background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
 }
-.card .progress .progress-bar.warning {
+.progress .progress-bar.warning {
   color: var(--warning-color, #f1a10a);
   background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
 }
-.card .progress .progress-bar.warning .tag {
+.progress .progress-bar.warning .tag {
   color: var(--warning-color, #f1a10a);
   background-color: rgb(252.8087649402, 235.2788844622, 202.1912350598);
 }
-.card .progress .progress-bar.primary {
+.progress .progress-bar.primary {
   color: var(--prim-color, #007bff);
   background-color: rgb(204, 228.6, 255);
 }
-.card .progress .progress-bar.primary .tag {
+.progress .progress-bar.primary .tag {
   color: var(--prim-color, #007bff);
   background-color: rgb(204, 228.6, 255);
 }
-.card .progress .progress-bar.muted {
+.progress .progress-bar.muted {
   color: var(--muted-color, #888888);
   background-color: #eeeeee;
 }
-.card .progress .progress-bar.muted .tag {
+.progress .progress-bar.muted .tag {
   color: var(--muted-color, #888888);
   background-color: #eeeeee;
 }
-.card .progress .progress-bar.secondary {
+.progress .progress-bar.secondary {
   color: var(--muted-color, #888888);
   background-color: #eeeeee;
 }
-.card .progress .progress-bar.secondary .tag {
+.progress .progress-bar.secondary .tag {
   color: var(--muted-color, #888888);
   background-color: #eeeeee;
 }
-.card .progress .progress-bar.light {
+.progress .progress-bar.light {
   color: var(--prim-bg, #888888);
   background-color: hsl(210, 16.6666666667%, 137.6470588235%);
 }
-.card .progress .progress-bar.light .tag {
+.progress .progress-bar.light .tag {
   color: var(--prim-bg, #888888);
   background-color: hsl(210, 16.6666666667%, 137.6470588235%);
 }
-.card .progress .progress-bar.default {
+.progress .progress-bar.default {
   color: var(--bg-color, #adb5bd);
   background-color: hsl(210, 10.8108108108%, 110.9803921569%);
 }
-.card .progress .progress-bar.default .tag {
+.progress .progress-bar.default .tag {
   color: var(--bg-color, #adb5bd);
   background-color: hsl(210, 10.8108108108%, 110.9803921569%);
 }
-.card .progress .progress-bar.archived {
+.progress .progress-bar.archived {
   color: var(--archived-color, #888888);
   background-color: hsl(210, 10.8108108108%, 110.9803921569%);
 }
-.card .progress .progress-bar.archived .tag {
+.progress .progress-bar.archived .tag {
   color: var(--archived-color, #888888);
   background-color: hsl(210, 10.8108108108%, 110.9803921569%);
 }
-.card .progress .progress-bar.processing {
+.progress .progress-bar.processing {
   color: var(--processing-color, var(--info-color, #17a2b8));
   background-color: rgb(167, 233.4782608696, 244);
 }
-.card .progress .progress-bar.processing .tag {
+.progress .progress-bar.processing .tag {
   color: var(--processing-color, var(--info-color, #17a2b8));
   background-color: rgb(167, 233.4782608696, 244);
 }
-.card .progress .progress-bar.failed {
+.progress .progress-bar.failed {
   color: var(--error-color, #dc3545);
   background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
 }
-.card .progress .progress-bar.failed .tag {
+.progress .progress-bar.failed .tag {
   color: var(--error-color, #dc3545);
   background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
 }
-.card .progress .progress-bar.queued {
+.progress .progress-bar.queued {
   color: var(--info-color, #17a2b8);
   background-color: rgb(167, 233.4782608696, 244);
 }
-.card .progress .progress-bar.queued .tag {
+.progress .progress-bar.queued .tag {
   color: var(--info-color, #17a2b8);
   background-color: rgb(167, 233.4782608696, 244);
 }
-.card .progress .progress-bar.on-hold {
+.progress .progress-bar.on-hold {
   color: var(--muted-color, #888888);
   background-color: #eeeeee;
 }
-.card .progress .progress-bar.on-hold .tag {
+.progress .progress-bar.on-hold .tag {
   color: var(--muted-color, #888888);
   background-color: #eeeeee;
 }
-.card .progress .progress-bar.suspended {
+.progress .progress-bar.suspended {
   color: var(--dark-color, #212529);
   background-color: rgb(126.4594594595, 139, 151.5405405405);
 }
-.card .progress .progress-bar.suspended .tag {
+.progress .progress-bar.suspended .tag {
   color: var(--dark-color, #212529);
   background-color: rgb(126.4594594595, 139, 151.5405405405);
 }
-.card .progress .progress-bar.expired {
+.progress .progress-bar.expired {
   color: var(--light-color, #f1f3f5);
   background-color: hsl(210, 16.6666666667%, 135.2941176471%);
 }
-.card .progress .progress-bar.expired .tag {
+.progress .progress-bar.expired .tag {
   color: var(--light-color, #f1f3f5);
   background-color: hsl(210, 16.6666666667%, 135.2941176471%);
 }
-.card .progress .progress-bar.rejected {
+.progress .progress-bar.rejected {
   color: var(--error-color, #dc3545);
   background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
 }
-.card .progress .progress-bar.rejected .tag {
+.progress .progress-bar.rejected .tag {
   color: var(--error-color, #dc3545);
   background-color: rgb(250.1265822785, 226.8734177215, 229.1012658228);
 }
-.card .progress .progress-bar.approved {
+.progress .progress-bar.approved {
   color: var(--success-color, #28a745);
   background-color: rgb(175.1304347826, 235.8695652174, 189);
 }
-.card .progress .progress-bar.approved .tag {
+.progress .progress-bar.approved .tag {
   color: var(--success-color, #28a745);
   background-color: rgb(175.1304347826, 235.8695652174, 189);
 }
-.card .progress .progress-bar.active {
+.progress .progress-bar.active {
   color: var(--prim-color, #007bff);
   background-color: rgb(204, 228.6, 255);
 }
-.card .progress .progress-bar.active .tag {
+.progress .progress-bar.active .tag {
   color: var(--prim-color, #007bff);
   background-color: rgb(204, 228.6, 255);
 }
-.card .progress .progress-bar.draft {
+.progress .progress-bar.draft {
   color: var(--text-color, #888888);
   background-color: rgb(175.6125, 182, 188.3875);
 }
-.card .progress .progress-bar.draft .tag {
+.progress .progress-bar.draft .tag {
   color: var(--text-color, #888888);
   background-color: rgb(175.6125, 182, 188.3875);
+}
+
+.moringa-wraper {
+  position: relative;
+  border: 1px solid #e7e7e7;
+  border-radius: 0px;
+  min-height: 60px;
+  padding-bottom: 0;
+  transition: 0.4s;
 }
 @media (max-width: 768px) {
-  .card {
+  .moringa-wraper {
     box-shadow: none !important;
   }
 }
-.card:hover ::-webkit-scrollbar {
+.moringa-wraper:hover ::-webkit-scrollbar {
   display: block !important;
 }
-.card .date-picker {
+.moringa-wraper .date-picker {
   position: absolute;
   padding: 15px;
   box-shadow: 0 0px 16px rgba(0, 0, 0, 0.1);
   top: 0;
 }
-.card .card-header {
+.moringa-wraper .moringa-wraper-header {
   background: none;
   padding: 0;
   border-bottom: 1px solid #e7e7e7;
@@ -435,31 +522,34 @@
   align-items: center;
   flex-direction: column;
 }
-.card .card-header .container-fluid {
-  padding: 15px;
+.moringa-wraper .moringa-wraper-header .container-fluid {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.card .card-header .inner {
+.moringa-wraper .moringa-wraper-header .inner {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.card .card-header .form-select,
-.card .card-header .form-control {
+.moringa-wraper .moringa-wraper-header .form-select,
+.moringa-wraper .moringa-wraper-header .form-control {
   font-size: 12px;
 }
-.card .card-header .mobile-btn {
+.moringa-wraper .moringa-wraper-header .mobile-btn {
   display: none;
 }
 @media (max-width: 768px) {
-  .card .card-header .mobile-btn {
+  .moringa-wraper .moringa-wraper-header .mobile-btn {
     display: block;
   }
 }
-.card .card-header .title-icon {
+.moringa-wraper .moringa-wraper-header .title-icon {
   color: #888888;
 }
-.card .card-header .table-title {
+.moringa-wraper .moringa-wraper-header .table-title {
   margin: 0;
   font-size: 16px;
   display: flex;
@@ -468,58 +558,58 @@
   text-transform: capitalize;
   color: #63634e;
 }
-.card .card-header .table-title i {
+.moringa-wraper .moringa-wraper-header .table-title i {
   color: #888888;
   font-size: 18px;
 }
-.card .card-body {
+.moringa-wraper .moringa-wraper-body {
   transition: 0.4s;
   margin-top: 60px;
 }
-.card .card-body.no-header {
+.moringa-wraper .moringa-wraper-body.no-header {
   margin-top: 0 !important;
 }
-.card.collapsed {
+.moringa-wraper.collapsed {
   padding-bottom: 0;
   height: 60px;
 }
-.card.collapsed .card-header {
+.moringa-wraper.collapsed .moringa-wraper-header {
   border-bottom: 1px solid transparent;
 }
-.card.collapsed .card-header .progress {
-  margin-top: -9px;
+.moringa-wraper.collapsed .moringa-wraper-header .progress {
+  margin-top: -4px;
 }
-.card.collapsed .card-body {
+.moringa-wraper.collapsed .moringa-wraper-body {
   max-height: 0;
   opacity: 0;
   padding: 0;
   margin-top: 45px;
 }
 @media (max-width: 768px) {
-  .card .card-body {
+  .moringa-wraper .moringa-wraper-body {
     max-height: inherit;
     height: auto;
   }
 }
-.card.round-card {
+.moringa-wraper.round-card {
   border-radius: 8px;
 }
-.card.shadowed {
+.moringa-wraper.shadowed {
   background-color: #ffffff;
 }
-.card.no-bg {
+.moringa-wraper.no-bg {
   border: none;
   box-shadow: none;
 }
-.card.no-bg > .card-header {
+.moringa-wraper.no-bg > .moringa-wraper-header {
   border: none;
   padding: 0 !important;
 }
-.card.no-bg > .card-body {
+.moringa-wraper.no-bg > .moringa-wraper-body {
   padding: 0 !important;
   margin-top: 60px;
 }
-.card .calendar-trigger {
+.moringa-wraper .calendar-trigger {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -531,7 +621,7 @@
   font-weight: 500;
   font-size: 14px;
 }
-.card .custom-calendar-popup {
+.moringa-wraper .custom-calendar-popup {
   position: absolute;
   background: rgb(238, 238, 238);
   width: 280px;
@@ -541,54 +631,54 @@
   z-index: 99999;
   margin-top: 10px;
 }
-.card .custom-calendar-popup .calendar-header {
+.moringa-wraper .custom-calendar-popup .calendar-header {
   display: flex;
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 16px;
 }
-.card .custom-calendar-popup .calendar-header select {
+.moringa-wraper .custom-calendar-popup .calendar-header select {
   padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 14px;
   width: 48%;
 }
-.card .custom-calendar-popup .calendar-grid {
+.moringa-wraper .custom-calendar-popup .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
   gap: 4px;
 }
-.card .custom-calendar-popup .calendar-grid .day-name {
+.moringa-wraper .custom-calendar-popup .calendar-grid .day-name {
   font-weight: 600;
   font-size: 13px;
   color: #63634e;
 }
-.card .custom-calendar-popup .calendar-grid .day-cell {
+.moringa-wraper .custom-calendar-popup .calendar-grid .day-cell {
   padding: 8px;
   font-size: 14px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
-.card .custom-calendar-popup .calendar-grid .day-cell:hover {
+.moringa-wraper .custom-calendar-popup .calendar-grid .day-cell:hover {
   background-color: #f0f0f0;
 }
-.card .custom-calendar-popup .calendar-grid .day-cell.active {
+.moringa-wraper .custom-calendar-popup .calendar-grid .day-cell.active {
   background-color: #0173df;
   color: white;
   font-weight: 600;
 }
-.card .custom-calendar-popup .calendar-grid .day-cell:empty {
+.moringa-wraper .custom-calendar-popup .calendar-grid .day-cell:empty {
   pointer-events: none;
 }
-.card .custom-calendar-popup .calendar-footer {
+.moringa-wraper .custom-calendar-popup .calendar-footer {
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
 }
-.card .custom-calendar-popup .calendar-footer button {
+.moringa-wraper .custom-calendar-popup .calendar-footer button {
   background: none;
   border: none;
   font-weight: 600;
@@ -596,10 +686,10 @@
   cursor: pointer;
   padding: 4px 10px;
 }
-.card .custom-calendar-popup .calendar-footer .cancel-btn {
+.moringa-wraper .custom-calendar-popup .calendar-footer .cancel-btn {
   color: #999;
 }
-.card .custom-calendar-popup .calendar-footer .confirm-btn {
+.moringa-wraper .custom-calendar-popup .calendar-footer .confirm-btn {
   color: #0173df;
 }
 
@@ -821,4 +911,4 @@ table tfoot {
   }
 }
 
-/*# sourceMappingURL=ng-miringa-table.component.css.map */
+/*# sourceMappingURL=ng-moringa-table.component.css.map */
