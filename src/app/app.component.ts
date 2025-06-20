@@ -2,19 +2,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgMoringaTableComponent } from './moringa-library/table-lib/ng-moringa-table/ng-moringa-table.component';
-
-
-
-
-
-
-
-
-
-
-
-
-
 @Component({
   selector: 'app-root',
   standalone: true,

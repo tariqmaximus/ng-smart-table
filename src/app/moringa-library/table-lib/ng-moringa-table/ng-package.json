@@ -1,0 +1,8 @@
+{
+  "$schema": "https://ng-packagr.dev/schema.json",
+  "dest": "dist/ng-moringa-table",
+  "lib": {
+    "entryFile": "public-api.ts",
+    "styleIncludePaths": ["../../scss"]
+  }
+}

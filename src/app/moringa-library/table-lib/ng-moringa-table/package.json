@@ -1,0 +1,11 @@
+{
+  "name": "ng-moringa-table",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": "^17.0.0",
+    "@angular/common": "^17.0.0",
+    "@angular/forms": "^17.0.0"
+  }
+}
