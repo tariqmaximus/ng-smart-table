@@ -1,0 +1,51 @@
+@use './variables'; // make sure this file defines $muted-color, etc.
+
+// Flat Color Variants (static, for SCSS logic use)
+$variant-colors: (
+  success: #28a745,
+  pending: #f1a10a,
+  info: #17a2b8,
+  danger: #dc3545,
+  warning: #f1a10a,
+  primary: #007bff,
+  muted: variables.$muted-color,
+  secondary: variables.$muted-color,
+  light: #f8f9fa,
+  default: #adb5bd,
+  archived: #adb5bd,
+  processing: #17a2b8,
+  failed: #dc3545,
+  queued: #17a2b8,
+  on-hold: variables.$muted-color,
+  suspended: #212529,
+  expired: #f1f3f5,
+  rejected: #dc3545,
+  approved: #28a745,
+  active: #007bff,
+  draft: #495057
+);
+
+// CSS Variable-Based Variants (for runtime theming)
+$variants: (
+  success: var(--success-color, #28a745),
+  pending: var(--warning-color, #f1a10a),
+  info: var(--info-color, #17a2b8),
+  danger: var(--error-color, #dc3545),
+  warning: var(--warning-color, #f1a10a),
+  primary: var(--prim-color, #007bff),
+  muted: var(--muted-color, variables.$muted-color),
+  secondary: var(--muted-color, variables.$muted-color),
+  light: var(--prim-bg, variables.$muted-color),
+  default: var(--bg-color, #adb5bd),
+  archived: var(--archived-color, variables.$muted-color),
+  processing: var(--processing-color, var(--info-color, #17a2b8)),
+  failed: var(--error-color, #dc3545),
+  queued: var(--info-color, #17a2b8),
+  on-hold: var(--muted-color, variables.$muted-color),
+  suspended: var(--dark-color, #212529),
+  expired: var(--light-color, #f1f3f5),
+  rejected: var(--error-color, #dc3545),
+  approved: var(--success-color, #28a745),
+  active: var(--prim-color, #007bff),
+  draft: var(--text-color, variables.$muted-color)
+);
