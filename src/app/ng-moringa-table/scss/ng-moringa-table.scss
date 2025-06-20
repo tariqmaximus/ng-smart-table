@@ -1,13 +1,14 @@
-@import './responsive';
-@import './variables';
-@import './mixins';
+@use './responsive';
+@use './variables';
+
+@use './mixins';
 
 // Tag Component
 .tag {
-  border-radius: $table-round;
+  border-radius: variables.$table-round;
   padding: 4px;
   background: white;
-  color: $dark-color;
+  color: variables.$dark-color;
   font-size: 10px;
   text-transform: uppercase;
   height: auto;
@@ -21,17 +22,17 @@
 
 // Input Controls
 .btn, .form-select, .form-control {
-  border: 1px solid $bs-border;
-  background-color: var(--bg-color);
-  color: $muted-color;
+  border: 1px solid variables.$bs-border;
+  background-color: $bg-color;
+  color: variables.$muted-color;
   height: 35px;
   outline: none;
 
   &:focus {
-    background-color: var(--bg-color);
-    border-color: $bs-border;
+    background-color: $bg-color;
+    border-color: variables.$bs-border;
     box-shadow: none;
-    color: $dark-color;
+    color: variables.$dark-color;
   }
 }
 
@@ -49,15 +50,15 @@
     }
 
     &:first-child {
-      border-radius: $btn-round 0 0 $btn-round;
+      border-radius: variables.$btn-round 0 0 variables.$btn-round;
     }
 
     &:only-child {
-      border-radius: $btn-round !important;
+      border-radius: variables.$btn-round !important;
     }
 
     &:last-child {
-      border-radius: 0 $btn-round $btn-round 0;
+      border-radius: 0 variables.$btn-round variables.$btn-round 0;
     }
 
     &:focus {
@@ -66,61 +67,25 @@
     }
 
     &:active {
-      border-color: $bs-border;
+      border-color: variables.$bs-border;
     }
 
     &.active {
-      background-color: var(--bg-color);
-      color: $dark-color;
+      background-color: $bg-color;
+      color: variables.$dark-color;
 
       span {
-        color: $dark-color;
+        color: variables.$dark-color;
       }
 
       i {
-        color: var(--info-color);
+        color: $info-color;
       }
     }
   }
 }
 
-.btn {
-  font-size: 12px;
-  padding: $btn-spacing $table-spacing;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: $btn-spacing;
-  border: 1px solid $bs-border;
-  color: $dark-color;
-  background: $table-bg;
-  border-radius: $btn-round;
-  height: 35px;
 
-  i {
-    font-size: 12px;
-    color: $muted-color;
-  }
-
-  span {
-    font-size: 12px;
-    color: $muted-color;
-  }
-
-  &:focus {
-    box-shadow: none;
-  }
-
-  &:disabled {
-    border-color: $bs-border;
-  }
-
-  @each $name, $color in $variants {
-    &.icon-btn-#{$name} {
-      @include button-style($name, $color);
-    }
-  }
-}
 
 // Checkbox Wrapper
 .checkbox-wrapper {
@@ -129,7 +94,7 @@
   .cbx {
     user-select: none;
     display: flex;
-    gap: $table-spacing;
+    gap: variables.$table-spacing;
     align-items: center;
     justify-content: flex-start;
     min-width: 55px;
@@ -144,8 +109,8 @@
       position: relative;
       width: 24px;
       height: 24px;
-      border-radius: $btn-round;
-      border: 2px solid $check-box-border;
+      border-radius: variables.$btn-round;
+      border: 2px solid variables.$check-box-border;
       transition: all 0.2s ease;
 
       svg {
@@ -182,8 +147,8 @@
 
   .inp-cbx:checked + .cbx .checkbox {
     &:first-child {
-      border-color: $primary-color;
-      background: $primary-color;
+      border-color: variables.$primary-color;
+      background: variables.$primary-color;
       animation: check-15 0.3s ease;
 
       svg {
@@ -202,16 +167,16 @@
 
 .card {
   position: relative;
-  border: 1px solid $bs-border;
-  border-radius: $table-flate;
-  min-height: $card-header-height;
+  border: 1px solid variables.$bs-border;
+  border-radius: variables.$table-flate;
+  min-height: variables.$card-header-height;
   padding-bottom: 0;
   transition: 0.4s;
  
 .progress {
   height: 2px;
   overflow: inherit;
-  background-color: $bs-border;
+  background-color: variables.$bs-border;
    margin-top: -7px;
 
   .progress-bar {
@@ -256,7 +221,7 @@
 
   .date-picker {
     position: absolute;
-    padding: $table-spacing;
+    padding: variables.$table-spacing;
     @include box-style;
     top: 0;
 
@@ -265,18 +230,18 @@
   .card-header {
     background: none;
     padding: 0;
-    border-bottom: 1px solid $bs-border;
-    height: $card-header-height;
+    border-bottom: 1px solid variables.$bs-border;
+    height: variables.$card-header-height;
     position: absolute;
     z-index: 1;
     width: 100%;
     left: 0;
-    border-radius: $table-round $table-round 0 0;
+    border-radius: variables.$table-round variables.$table-round 0 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 .container-fluid {
-  padding: $table-spacing;
+  padding: variables.$table-spacing;
 }
     .inner {
       width: 100%;
@@ -299,7 +264,7 @@
     }
 
     .title-icon {
-      color: $muted-color;
+      color: variables.$muted-color;
     }
 
     .table-title {
@@ -309,10 +274,10 @@
       justify-content: center;
       flex-direction: column;
       text-transform: capitalize;
-      color: var(--title-color);
+      color: $title-color;
 
       i {
-        color: var(--icon-color);
+        color: $icon-color;
         font-size: 18px;
       }
     }
@@ -320,7 +285,7 @@
 
   .card-body {
     transition: 0.4s;
-    margin-top: $card-header-height ;
+    margin-top: variables.$card-header-height ;
    
 
    
@@ -331,7 +296,7 @@
 
   &.collapsed {
     padding-bottom: 0;
-    height: $card-header-height;
+    height: variables.$card-header-height;
 
     .card-header {
       border-bottom: 1px solid transparent;
@@ -344,7 +309,7 @@
       max-height: 0;
       opacity: 0;
       padding: 0;
-      margin-top: $card-header-height - $table-spacing;
+      margin-top: variables.$card-header-height - variables.$table-spacing;
     }
   }
 
@@ -357,7 +322,7 @@
 
 
   &.round-card {
-    border-radius: $table-round;
+    border-radius: variables.$table-round;
   }
 
   &.shadowed {
@@ -375,15 +340,11 @@
 
     >.card-body {
       padding: 0 !important;
-      margin-top: $card-header-height;
+      margin-top: variables.$card-header-height;
     }
   }
 
-  $calendar-bg: #fff;
-  $calendar-accent: #0099ff;
-  $calendar-text: #888;
-  $calendar-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  $calendar-radius: 12px;
+  
 
   .calendar-trigger {
     display: flex;
@@ -400,10 +361,10 @@
 
   .custom-calendar-popup {
     position: absolute;
-    background: $calendar-bg;
+    background: variables.$calendar-bg;
     width: 280px;
-    border-radius: $calendar-radius;
-    box-shadow: $calendar-shadow;
+    border-radius: variables.$calendar-radius;
+    box-shadow: variables.$calendar-shadow;
     padding: 16px;
     z-index: 99999;
     margin-top: 10px;
@@ -433,7 +394,7 @@
       .day-name {
         font-weight: 600;
         font-size: 13px;
-        color: $calendar-text;
+        color: variables.$calendar-text;
       }
 
       .day-cell {
@@ -448,7 +409,7 @@
         }
 
         &.active {
-          background-color: $calendar-accent;
+          background-color: variables.$calendar-accent;
           color: white;
           font-weight: 600;
         }
@@ -478,7 +439,7 @@
       }
 
       .confirm-btn {
-        color: $calendar-accent;
+        color: variables.$calendar-accent;
       }
     }
   }
@@ -501,10 +462,10 @@ table {
  text-decoration: none;
  gap: $table-spacing;
 .media-img {
-  background-color: var(--primary);
-  width: $media-size;
-  height: $media-size;
-  border-radius: $dp-round;
+  background-color: $primary;
+  width: variables.$media-size;
+  height: variables.$media-size;
+  border-radius: variables.$dp-round;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -546,7 +507,7 @@ table {
  text-overflow: ellipsis;
  p {
    font-size: 0.7;
-   color: $muted-color;
+   color: variables.$muted-color;
  }
 }
 
@@ -565,10 +526,10 @@ table {
   th {
     font-size: 12px;
     font-weight: 500;
-    color: $muted-color;
+    color: variables.$muted-color;
 
     text-transform: uppercase;
-    padding: $table-spacing ;
+    padding: variables.$table-spacing ;
 
     &:last-child {
       >div {
@@ -580,7 +541,7 @@ table {
 
   thead {
 
-    border-bottom: 1px solid $bs-border;
+    border-bottom: 1px solid variables.$bs-border;
     text-transform: capitalize;
 
   }
@@ -589,7 +550,7 @@ table {
 
   tr {
 
-    border-bottom: 1px solid $bs-border;
+    border-bottom: 1px solid variables.$bs-border;
     position: relative;
 
     .mobile-btn {
@@ -603,13 +564,13 @@ table {
         background: none;
 
         i {
-          color: $muted-color;
+          color: variables.$muted-color;
         }
       }
     }
 
     td {
-      padding: $table-spacing ;
+      padding: variables.$table-spacing ;
       font-size: 14px;
 
     }
@@ -620,7 +581,7 @@ table {
   }
 
   tfoot {
-    border-top: 1px solid $bs-border;
+    border-top: 1px solid variables.$bs-border;
   }
 }
 // responsive table

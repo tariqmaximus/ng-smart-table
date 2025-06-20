@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-smart-table": {
+    "ng-moringa-table": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng-smart-table",
+            "outputPath": "dist/ng-moringa-table",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ng-smart-table:build:production"
+              "buildTarget": "ng-moringa-table:build:production"
             },
             "development": {
-              "buildTarget": "ng-smart-table:build:development"
+              "buildTarget": "ng-moringa-table:build:development"
             }
           },
           "defaultConfiguration": "development"

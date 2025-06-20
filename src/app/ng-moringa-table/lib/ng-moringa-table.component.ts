@@ -37,7 +37,7 @@ let uniqueCounter = 0;
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './ng-moringa-table.component.html',
-  styleUrls: ['./ng-moringa-table.component.css']
+  styleUrls: ['./ng-miringa-table.component.css']
 })
 export class NgMoringaTableComponent implements OnInit, OnChanges {
   @Input() type!: string;
@@ -49,7 +49,7 @@ export class NgMoringaTableComponent implements OnInit, OnChanges {
   @Input() title?: string;
   @Input() sub?: string;
   @Input() icon?: string;
-  @Input() showHeader = true;
+  @Input() moringaHeader = true;
   @Input() showFooter = false;
   @Input() collapsible = false;
   @Input() idPrefix?: string;
