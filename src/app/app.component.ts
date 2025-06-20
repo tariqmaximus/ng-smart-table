@@ -1,7 +1,7 @@
 // backlog.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgMoringaTableComponent } from './ng-moringa-table/lib/ng-moringa-table.component';
+import { NgMoringaTableComponent } from './moringa-table-lib/ng-moringa-table/ng-moringa-table.component';
 
 
 
