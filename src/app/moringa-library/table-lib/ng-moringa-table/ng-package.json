@@ -4,5 +4,10 @@
   "lib": {
     "entryFile": "public-api.ts",
     "styleIncludePaths": ["../../scss"]
-  }
+  },
+  "peerDependencies": {
+  "@angular/core": "^17.0.0",
+  "@angular/common": "^17.0.0",
+  "@angular/forms": "^17.0.0"
+}
 }
